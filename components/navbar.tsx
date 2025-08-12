@@ -68,7 +68,7 @@ export default function Navbar() {
               asChild
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
             >
-              <Link href="/contact">Let's Talk</Link>
+              <Link href="/contact">Let&apos;s Talk</Link>
             </Button>
           </div>
 
@@ -107,7 +107,7 @@ export default function Navbar() {
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                 >
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    Let's Talk
+                    Let&apos;s Talk
                   </Link>
                 </Button>
               </div>
