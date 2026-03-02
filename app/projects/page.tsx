@@ -2,14 +2,32 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ExternalLink, Github, Calendar, Tag } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Calendar,
+  Tag,
+  Shield,
+  Lock,
+  Code,
+  Globe,
+  Star,
+  Award,
+  Filter,
+  X,
+  Layout,
+  Smartphone,
+  Cpu
+} from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../components/ui/tabs";
 
 export default function ProjectsPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [filter, setFilter] = useState("all");
+  const [selectedTech, setSelectedTech] = useState<string[]>([]);
 
   useEffect(() => {
     setIsVisible(true);
@@ -18,159 +36,377 @@ export default function ProjectsPage() {
   const projects = [
     {
       id: 1,
-      title: "Manajemen Data PWA",
+      title: "IndexDB Management System",
       category: "web",
-      tags: ["React", "Node.js", "Tailwind", "pwa","next"],
+      tags: ["React", "Next.js", "PWA", "IndexedDB", "Security"],
       image: "/modern-ecommerce-dashboard.png",
-      description:
-        "Management Data Pwa Memiliki Input Nama,Email dan Usia Bisa Di Install Dan digunakan Secara Offline",
+      description: "Aplikasi PWA dengan sistem keamanan data menggunakan enkripsi client-side dan IndexedDB.",
+      longDescription: "Aplikasi ini mengimplementasikan praktik keamanan seperti sanitasi input, enkripsi data sensitif, dan proteksi terhadap serangan XSS menggunakan IndexedDB untuk penyimpanan lokal yang aman.",
+      security: ["Enkripsi data client-side", "Sanitasi input", "Secure local storage"],
       date: "2025",
       liveUrl: "https://indexdb-management.vercel.app/",
       githubUrl: "https://github.com/gazfath12/kalkulator-pwa",
       featured: true,
+      categoryType: ["web", "security"],
     },
     {
       id: 2,
-      title: "Aplikasi Keuangan Santri",
+      title: "SantriQue - Keuangan Santri",
       category: "web",
-      tags: ["Pwa", "React", "NextJs", "PostgreSQL","Nodejs"],
+      tags: ["PWA", "React", "Next.js", "PostgreSQL", "Audit Trail"],
       image: "/mobile-banking-app.png",
-      description:
-        "Management Keuangan Santri Terdapat Transaksi Pemasukan,Pengeluaran Dan Menghitung Total Pengeluaran Pemasukan Dan Saldo Total.",
+      description: "Sistem manajemen keuangan dengan fitur keamanan berlapis dan audit trail.",
+      longDescription: "Aplikasi ini memiliki sistem keamanan yang mencatat setiap aktivitas pengguna (audit trail), validasi transaksi, dan proteksi terhadap manipulasi data menggunakan PostgreSQL.",
+      security: ["Audit trail", "Server-side validation", "Session management"],
       date: "2025",
-      liveUrl: "https://santrique.vercel.app/",
+      liveUrl: "https://santrique.gazaalfath.my.id/",
       githubUrl: "https://github.com/gazfath12/dompet-santri",
       featured: true,
+      categoryType: ["web", "security"],
     },
     {
       id: 3,
-      title: "Point Of Sale",
+      title: "Point Of Sale (Vercel Version)",
       category: "web",
-      tags: ["Pwa", "React", "Typesript", "Html","Nextjs"],
+      tags: ["PWA", "React", "TypeScript", "Next.js", "JWT"],
       image: "/data-analytics-dashboard.png",
-      description:
-        "Membuat Aplikasi Kasir Sederhana Mengunakan NextJs ",
+      description: "Aplikasi kasir dengan sistem autentikasi JWT yang aman dan proteksi route.",
+      longDescription: "Mengimplementasikan JWT tokens dengan refresh token mechanism, proteksi terhadap CSRF, dan secure session management.",
+      security: ["JWT Auth", "CSRF Protection", "RBAC"],
       date: "2024",
-      liveUrl: "https://point-of-sale-dusky.vercel.app/",
+      liveUrl: "https://point-of-sale-react-app.vercel.app/",
       githubUrl: "https://github.com/gazfath12/kasir-dengan-nextjs",
       featured: false,
+      categoryType: ["web", "security"],
     },
     {
       id: 4,
-      title: "Aplikasi Kaca Film",
+      title: "POS Gazaalfath - Enterprise Edition",
       category: "web",
-      tags: ["Laravel", "Mysql", "Tailwind","Sqlite"],
-      image: "/task-management-app.png",
-      description:
-        "Membuat Aplikasi Kaca Film Dan Memiliki Fitur Klaim Garansi Di web",
+      tags: ["Next.js", "MySQL", "Tailwind", "Enterprise"],
+      image: "/pos.png",
+      description: "Sistem Point of Sale tingkat lanjut dengan manajemen stok dan laporan real-time.",
+      longDescription: "Sistem kasir yang dioptimalkan untuk performa tinggi, mendukung multiple outlets, dan integrasi inventory management yang ketat.",
+      security: ["SQL Injection Prevention", "Secure API", "Role Management"],
       date: "2025",
-      liveUrl: "#",
+      liveUrl: "https://pos.gazaalfath.my.id/",
       githubUrl: "#",
-      featured: false,
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 15,
+      title: "Best Kaca Film - Dealer Resmi V-Kool",
+      category: "web",
+      tags: ["Next.js", "Tailwind", "Responsive", "Business"],
+      image: "/bestkaca.png",
+      description: "Website profesional untuk dealer kaca film V-Kool dengan fitur katalog produk.",
+      longDescription: "Platform bisnis yang menyajikan informasi lengkap tentang produk kaca film, spesifikasi teknis, dan layanan pemasangan profesional.",
+      security: ["HTTPS enforcement", "Secure contact form"],
+      date: "2025",
+      liveUrl: "https://bestkacafilm.com/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
     },
     {
       id: 5,
-      title: "Kalkulator Zakat",
+      title: "Zakat Mall App",
       category: "web",
-      tags: ["html", "css"],
+      tags: ["HTML", "CSS", "JavaScript", "Validation"],
       image: "/ai-chatbot-interface.png",
-      description:
-        "Membuat Aplikasi Penghitung Zakat Sederhana Mengunakan Html",
+      description: "Aplikasi penghitung zakat dengan validasi input dan sanitasi data.",
+      longDescription: "Meskipun sederhana, aplikasi ini mengimplementasikan validasi input ketat dan sanitasi data untuk mencegah injeksi kode berbahaya.",
+      security: ["Input sanitization", "Data validation"],
       date: "2023",
       liveUrl: "https://zakat-mall.vercel.app/",
       githubUrl: "https://github.com/gazfath12/zakat-mall",
-      featured: true,
+      featured: false,
+      categoryType: ["web"],
     },
     {
       id: 6,
-      title: "Website Product BBQ Karimah",
-      category: "mobile",
-      tags: ["HTML", "CSS", "JavaScript"],
+      title: "BBQ Karimah Official Site",
+      category: "web",
+      tags: ["HTML", "CSS", "JavaScript", "Domain Branding"],
       image: "/modern-portfolio-template.png",
-      description:
-        "Website Untuk Mempromosikan Product Dari BBQ Karimah",
-      date: "2023",
-      liveUrl: "https://bbq-karimah-woad.vercel.app/",
-      githubUrl: "https://github.com/gazfath12/BBQ-Karimah",
+      description: "Website resmi BBQ Karimah dengan domain kustom dan optimasi SEO.",
+      longDescription: "Landing page profesional untuk bisnis kuliner, fokus pada kecepatan load dan antarmuka pengguna yang menarik menggunakan domain gazaalfath.my.id.",
+      security: ["HTTPS enforcement", "XSS protection headers"],
+      date: "2024",
+      liveUrl: "https://bbq-karimah.gazaalfath.my.id/",
+      githubUrl: "#",
       featured: false,
+      categoryType: ["web"],
+    },
+    {
+      id: 9,
+      title: "Secure Login Form PWA",
+      category: "web",
+      tags: ["React", "CSS Modules", "Formik", "Security"],
+      image: "/modern-ecommerce-dashboard.png",
+      description: "Template form login aman dengan validasi sisi client yang kuat.",
+      longDescription: "Project yang mengeksplorasi pembuatan form login yang responsif dan aman terhadap serangan brute force sederhana di sisi client.",
+      security: ["Client-side validation", "Input sanitization"],
+      date: "2025",
+      liveUrl: "https://form-login-swart.vercel.app/",
+      githubUrl: "#",
+      featured: false,
+      categoryType: ["web", "security"],
+    },
+    {
+      id: 10,
+      title: "SAS Project React",
+      category: "web",
+      tags: ["React", "Tailwind", "State Management"],
+      image: "/sas.png",
+      description: "Sistem Aplikasi Sekolah (SAS) berbasis React untuk manajemen data siswa.",
+      longDescription: "Aplikasi manajemen sekolah yang efisien untuk menangani data administrasi, nilai, dan absensi dengan antarmuka modern.",
+      security: ["Data validation", "Secure routing"],
+      date: "2024",
+      liveUrl: "https://sas-project-react.vercel.app/",
+      githubUrl: "#",
+      featured: false,
+      categoryType: ["web"],
+    },
+    {
+      id: 11,
+      title: "Ujian STS Semester 1 App",
+      category: "web",
+      tags: ["JavaScript", "Exam System", "Logic"],
+      image: "/ai-chatbot-interface.png",
+      description: "Aplikasi ujian online semester 1 dengan sistem penilaian otomatis.",
+      longDescription: "Media pembelajaran digital untuk mendukung proses ujian sekolah yang lebih efisien dan transparan.",
+      security: ["Anti-cheat measures", "Session protection"],
+      date: "2024",
+      liveUrl: "https://ujian-sts-semsester-1.vercel.app/",
+      githubUrl: "#",
+      featured: false,
+      categoryType: ["web"],
+    },
+    {
+      id: 12,
+      title: "Al-Quran Hafalan Digital",
+      category: "web",
+      tags: ["React", "API", "Islamic App", "Next.js"],
+      image: "/alquran.png",
+      description: "Web app untuk membantu menghafal Al-Quran dengan fitur pelacakan progress.",
+      longDescription: "Menggunakan Al-Quran API untuk menyajikan mushaf digital yang interaktif dan memudahkan user dalam menghafal.",
+      security: ["Secure API consumption"],
+      date: "2025",
+      liveUrl: "https://quran-hafalan.ppqita.my.id/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 13,
+      title: "Kalkulator Smart - Gazaalfath",
+      category: "web",
+      tags: ["JavaScript", "Tools", "Utility"],
+      image: "/kalkulator-smart.png",
+      description: "Kalkulator serbaguna dengan antarmuka yang bersih and fungsional.",
+      longDescription: "Project utilitas sederhana namun powerfull untuk membantu perhitungan harian dengan presisi tinggi.",
+      security: ["Standard input validation"],
+      date: "2023",
+      liveUrl: "https://kalkulator.gazaalfath.my.id/",
+      githubUrl: "#",
+      featured: false,
+      categoryType: ["web"],
+    },
+    {
+      id: 14,
+      title: "Al-Mutt Official Web",
+      category: "web",
+      tags: ["Business", "Landing Page", "Next.js"],
+      image: "/almutt.png",
+      description: "Website representasi untuk entitas Al-Mutt dengan desain premium.",
+      longDescription: "Landing page modern yang dibangun dengan Next.js untuk memberikan kesan profesional dan kredibilitas tinggi.",
+      security: ["Secure headers", "HTTPS"],
+      date: "2025",
+      liveUrl: "https://almutt.gazaalfath.my.id/",
+      githubUrl: "#",
+      featured: false,
+      categoryType: ["web"],
     },
   ];
 
+  // Gabungkan semua proyek
+  const allProjects = [...projects];
+
   const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "web", name: "Web Development" },
-    { id: "mobile", name: "Mobile Apps" },
-    { id: "ai", name: "AI/ML" },
-    { id: "design", name: "Design" },
+    { id: "all", name: "Semua Proyek", icon: Filter },
+    { id: "web", name: "Web Development", icon: Globe },
   ];
 
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((project) => project.category === filter);
+  const technologies = [
+    "React", "Next.js", "TypeScript", "Laravel", "JavaScript",
+    "PWA", "Node.js", "PostgreSQL", "Tailwind", "Responsive"
+  ];
 
-  const featuredProjects = projects.filter((project) => project.featured);
+  const filteredProjects = allProjects.filter((project) => {
+    if (filter !== "all" && !project.categoryType.includes(filter)) {
+      return false;
+    }
+    if (selectedTech.length > 0 && !selectedTech.some(tech => project.tags.includes(tech))) {
+      return false;
+    }
+    return true;
+  });
+
+  const featuredProjects = allProjects.filter((project) => project.featured);
+
+  const toggleTech = (tech: string) => {
+    setSelectedTech(prev =>
+      prev.includes(tech)
+        ? prev.filter(t => t !== tech)
+        : [...prev, tech]
+    );
+  };
+
+  const clearFilters = () => {
+    setFilter("all");
+    setSelectedTech([]);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
+          <Badge className="mb-4 px-4 py-2 bg-blue-100 text-blue-800 hover:bg-blue-200">
+            Portofolio Proyek
+          </Badge>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            My Projects
+            Karya &{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Pengembangan Web
+            </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A collection of my work spanning web development, mobile
-            applications, AI solutions, and design projects.
+            Koleksi proyek pengembangan web yang fokus pada fungsionalitas,
+            performa, dan pengalaman pengguna yang modern.
           </p>
+        </div>
+
+        {/* Security Stats */}
+        <div
+          className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+        >
+          {[
+            { label: "Total Proyek Web", value: "14+", icon: Globe, color: "blue" },
+            { label: "Teknologi Modern", value: "12+", icon: Code, color: "purple" },
+            { label: "PWA Apps", value: "5+", icon: Smartphone, color: "red" },
+            { label: "Happy Clients", value: "100%", icon: Award, color: "green" },
+          ].map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow">
+                <CardContent className="p-0">
+                  <div className={`w-12 h-12 mx-auto mb-3 bg-${stat.color}-100 rounded-full flex items-center justify-center`}>
+                    <Icon className={`w-6 h-6 text-${stat.color}-600`} />
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-sm text-gray-600">{stat.label}</div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
 
         {/* Featured Projects */}
         <div
-          className={`mb-16 transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`mb-16 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            Featured Projects
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+            <Star className="w-8 h-8 mr-3 text-yellow-500 fill-current" />
+            Proyek Unggulan
           </h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {featuredProjects.slice(0, 2).map((project, index) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
               >
-                <div className="relative overflow-hidden rounded-t-lg">
+                <div className="relative overflow-hidden h-64">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                      <Button
+                        size="sm"
+                        className="flex-1 bg-white text-gray-900 hover:bg-gray-100"
+                        onClick={() => window.open(project.liveUrl, "_blank")}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                      {project.githubUrl !== "#" && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="bg-white/20 text-white border-white hover:bg-white/30"
+                          onClick={() => window.open(project.githubUrl, "_blank")}
+                        >
+                          <Github className="w-4 h-4" />
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <Badge className="bg-blue-600 hover:bg-blue-700">
                       Featured
                     </Badge>
+                    {project.categoryType.includes("security") && (
+                      <Badge className="bg-purple-600 hover:bg-purple-700">
+                        <Shield className="w-3 h-3 mr-1" />
+                        Security
+                      </Badge>
+                    )}
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center text-gray-500 text-sm">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      {project.date}
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        {project.date}
+                      </div>
                     </div>
                   </div>
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
+                    {project.longDescription || project.description}
                   </p>
+
+                  {/* Security Features */}
+                  {project.security && (
+                    <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+                      <p className="text-sm font-semibold text-blue-800 mb-2 flex items-center">
+                        <Shield className="w-4 h-4 mr-1" />
+                        Fitur Keamanan:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.security.map((item, i) => (
+                          <Badge key={i} variant="outline" className="bg-white text-blue-700 border-blue-200">
+                            {item}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <Badge key={tag} variant="secondary" className="text-xs">
@@ -178,129 +414,227 @@ export default function ProjectsPage() {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex gap-3">
-                    <Button
-                      size="sm"
-                      className="flex-1"
-                      onClick={() => window.open(project.liveUrl, "_blank")}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => window.open(project.githubUrl, "_blank")}
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Filter Section */}
         <div
-          className={`mb-8 transition-all duration-1000 delay-400 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`mb-8 transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={filter === category.id ? "default" : "outline"}
-                onClick={() => setFilter(category.id)}
-                className="mb-2"
-              >
-                <Tag className="w-4 h-4 mr-2" />
-                {category.name}
-              </Button>
-            ))}
-          </div>
+          <Card className="p-6">
+            <CardContent className="p-0">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">Filter Proyek</h3>
+                {(filter !== "all" || selectedTech.length > 0) && (
+                  <Button variant="ghost" size="sm" onClick={clearFilters} className="text-red-600">
+                    <X className="w-4 h-4 mr-2" />
+                    Hapus Filter
+                  </Button>
+                )}
+              </div>
+
+              {/* Category Tabs */}
+              <Tabs defaultValue="all" className="mb-6" onValueChange={setFilter}>
+                <TabsList className="grid w-full grid-cols-3">
+                  {categories.map((cat) => {
+                    const Icon = cat.icon;
+                    return (
+                      <TabsTrigger key={cat.id} value={cat.id} className="flex items-center gap-2">
+                        <Icon className="w-4 h-4" />
+                        {cat.name}
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+              </Tabs>
+
+              {/* Technology Filters */}
+              <div>
+                <p className="text-sm font-medium text-gray-700 mb-3 flex items-center">
+                  <Code className="w-4 h-4 mr-2" />
+                  Filter berdasarkan Teknologi:
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {technologies.map((tech) => (
+                    <Badge
+                      key={tech}
+                      variant={selectedTech.includes(tech) ? "default" : "outline"}
+                      className={`cursor-pointer transition-all ${selectedTech.includes(tech)
+                        ? "bg-blue-600 hover:bg-blue-700"
+                        : "hover:bg-gray-100"
+                        }`}
+                      onClick={() => toggleTech(tech)}
+                    >
+                      {tech}
+                      {selectedTech.includes(tech) && " ✓"}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* All Projects Grid */}
         <div
-          className={`transition-all duration-1000 delay-600 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`transition-all duration-1000 delay-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            All Projects
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <Card
-                key={project.id}
-                className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
-              >
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  {project.featured && (
-                    <div className="absolute top-3 left-3">
-                      <Badge className="bg-blue-600 hover:bg-blue-700 text-xs">
-                        Featured
-                      </Badge>
-                    </div>
-                  )}
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center text-gray-500 text-xs">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {project.date}
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                    {project.tags.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.tags.length - 3}
-                      </Badge>
-                    )}
-                  </div>
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      className="flex-1"
-                      onClick={() => window.open(project.liveUrl, "_blank")}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => window.open(project.githubUrl, "_blank")}
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold text-gray-900">
+              Semua Proyek
+            </h2>
+            <p className="text-gray-600">
+              Menampilkan {filteredProjects.length} proyek
+            </p>
           </div>
+
+          {filteredProjects.length === 0 ? (
+            <Card className="p-12 text-center">
+              <CardContent>
+                <div className="w-20 h-20 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                  <Filter className="w-10 h-10 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Tidak Ada Proyek
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Tidak ada proyek yang sesuai dengan filter yang dipilih.
+                </p>
+                <Button onClick={clearFilters}>Reset Filter</Button>
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProjects.map((project, index) => (
+                <Card
+                  key={project.id}
+                  className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                >
+                  <div className="relative overflow-hidden h-48">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-3 left-3 right-3 flex gap-2">
+                        <Button
+                          size="sm"
+                          className="flex-1 text-xs"
+                          onClick={() => window.open(project.liveUrl, "_blank")}
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          Demo
+                        </Button>
+                        {project.githubUrl !== "#" && (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="bg-white/20 text-white border-white hover:bg-white/30"
+                            onClick={() => window.open(project.githubUrl, "_blank")}
+                          >
+                            <Github className="w-3 h-3" />
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                    <div className="absolute top-2 left-2 flex gap-1">
+                      {project.featured && (
+                        <Badge className="bg-yellow-600 text-xs py-0 h-5">
+                          Featured
+                        </Badge>
+                      )}
+                      {project.categoryType.includes("security") && (
+                        <Badge className="bg-purple-600 text-xs py-0 h-5">
+                          <Shield className="w-3 h-3 mr-1" />
+                          Sec
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center text-gray-500 text-xs flex-shrink-0 ml-2">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {project.date}
+                      </div>
+                    </div>
+
+                    <p className="text-gray-600 text-xs mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+
+                    {/* Security Badges */}
+                    {project.security && (
+                      <div className="mb-2 flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-[10px] py-0 h-4 bg-blue-50 text-blue-700 border-blue-200">
+                          <Shield className="w-2 h-2 mr-1" />
+                          {project.security.length} security features
+                        </Badge>
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-[10px] py-0 h-5">
+                          {tag}
+                        </Badge>
+                      ))}
+                      {project.tags.length > 3 && (
+                        <Badge variant="secondary" className="text-[10px] py-0 h-5">
+                          +{project.tags.length - 3}
+                        </Badge>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Call to Action */}
+        <div
+          className={`mt-16 text-center transition-all duration-1000 delay-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+        >
+          <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8">
+            <CardContent className="p-0">
+              <h3 className="text-2xl font-bold mb-4">
+                Tertarik untuk Membangun Website?
+              </h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Saya selalu terbuka untuk berkolaborasi dalam proyek pengembangan web
+                yang kreatif, modern, dan fungsional.
+              </p>
+              <div className="flex justify-center gap-4">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  onClick={() => window.location.href = "/contact"}
+                >
+                  Hubungi Saya
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white/20"
+                  onClick={() => window.open("/cv-gaza-alfath.pdf")}
+                >
+                  Download CV
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

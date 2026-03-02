@@ -6,7 +6,7 @@ export default function Footer() {
     { name: "GitHub", icon: Github, href: "https://github.com/gazfath12" },
     { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/gaza-alfath-0830982a9/" },
     { name: "Instagram", icon: Instagram, href: "https://instagram.com/gaz_fath" },
-    { name: "Twitter", icon: Twitter, href: "https://twitter.com/gazfath12" },
+    { name: "Threeds", icon: Twitter, href: "https://www.threads.com/@gaz_fath" },
   ]
 
   const quickLinks = [
@@ -67,8 +67,8 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Get In Touch</h3>
             <div className="space-y-2 text-gray-400">
-              <p>gazfath12@email.com</p>
-              <p>+62 (895) 3750-3791</p>
+              <p>gazfath12@gmail.com</p>
+              <p>+62 (896) 3750-3791</p>
               <p>Bekasi,ID</p>
             </div>
           </div>
