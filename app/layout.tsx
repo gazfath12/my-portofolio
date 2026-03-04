@@ -8,8 +8,56 @@ import Footer from "../components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Gaza Alfath Nugroho- Full-Stack & Cyber Security ",
-  description: "Modern portfolio website showcasing web development, mobile apps, and design projects.",
+  title: "Gaza Alfath Nugroho - Full-Stack Developer & Cyber Security Enthusiast",
+  description: "Modern portfolio website of Gaza Alfath Nugroho, showcasing expertise in Full-Stack Web Development, Mobile Apps, and Cyber Security.",
+  keywords: ["Gaza Alfath Nugroho", "Full-Stack Developer", "Cyber Security", "Web Development", "Next.js Portfolio", "React Developer", "Software Engineer"],
+  authors: [{ name: "Gaza Alfath Nugroho", url: "https://gazaalfath.my.id" }],
+  creator: "Gaza Alfath Nugroho",
+  publisher: "Gaza Alfath Nugroho",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "Gaza Alfath Nugroho - Full-Stack & Cyber Security",
+    description: "Explore the professional portfolio of Gaza Alfath Nugroho, featuring innovative web projects and cyber security insights.",
+    url: "https://gazaalfath.my.id",
+    siteName: "Gaza Alfath Portfolio",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Gaza Alfath Nugroho Portfolio",
+      },
+    ],
+    locale: "en_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaza Alfath Nugroho - Full-Stack & Cyber Security",
+    description: "Innovative web development and cyber security portfolio.",
+    images: ["/opengraph-image.png"],
+    creator: "@gaz_fath", // Update this if you have a different twitter handle
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({
