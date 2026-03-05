@@ -8,6 +8,10 @@ import Footer from "../components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gazaalfath.my.id"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Gaza Alfath Nugroho - Full-Stack Developer & Cyber Security Enthusiast",
   description: "Modern portfolio website of Gaza Alfath Nugroho, showcasing expertise in Full-Stack Web Development, Mobile Apps, and Cyber Security.",
   keywords: ["Gaza Alfath Nugroho", "Full-Stack Developer", "Cyber Security", "Web Development", "Next.js Portfolio", "React Developer", "Software Engineer"],
@@ -65,8 +69,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Gaza Alfath Nugroho",
+    url: "https://gazaalfath.my.id",
+    jobTitle: "Full-Stack Developer & Cyber Security Enthusiast",
+    sameAs: [
+      "https://linkedin.com",
+      "https://github.com"
+    ]
+  }
+
   return (
-    <html lang="en">
+    <html lang="id">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>
