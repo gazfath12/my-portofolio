@@ -226,8 +226,9 @@ export default function AboutPage() {
             Perjalanan Saya di Dunia Teknologi
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Seorang pengembang web yang antusias dengan keamanan siber, berkomitmen untuk
-            menciptakan solusi digital yang tidak hanya fungsional tetapi juga aman dan terpercaya.
+            Full-Stack Developer dengan spesialisasi dalam membangun aplikasi SaaS yang scalable 
+            dan aman. Saya menggabungkan keahlian pengembangan web modern (Next.js/Laravel) 
+            dengan wawasan mendalam di bidang Cybersecurity untuk menciptakan solusi digital yang tangguh.
           </p>
         </div>
 
@@ -268,9 +269,11 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-gray-600 leading-relaxed mt-4">
-                  Saya memulai perjalanan di dunia IT dengan semangat belajar yang tinggi.
-                  Setiap hari adalah kesempatan untuk meningkatkan keterampilan dan pengetahuan,
-                  baik dalam pengembangan web maupun keamanan siber.
+                  Sebagai developer yang tumbuh di lingkungan pesantren IT, saya memiliki disiplin tinggi 
+                  dan integritas dalam bekerja. Saya berfokus pada efisiensi kode, keamanan data, 
+                  dan skalabilitas infrastruktur. Pengalaman saya membangun produk komersial 
+                  secara mandiri membuktikan kemampuan saya untuk mengambil tanggung jawab penuh 
+                  dalam siklus pengembangan software.
                 </p>
               </CardContent>
             </Card>

@@ -76,8 +76,8 @@ export default function RootLayout({
     url: "https://gazaalfath.my.id",
     jobTitle: "Full-Stack Developer & Cyber Security Enthusiast",
     sameAs: [
-      "https://linkedin.com",
-      "https://github.com"
+      "https://www.linkedin.com/in/gaza-alfath-0830982a9/",
+      "https://github.com/gazfath12"
     ]
   }
 

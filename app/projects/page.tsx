@@ -35,13 +35,42 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+      id: 17,
+      title: "Nexcore SaaS",
+      category: "web",
+      tags: ["SaaS", "Next.js", "Full-stack"],
+      image: "/nexcore.png",
+      description: "SaaS Platform dengan backend yang tangguh.",
+      longDescription: "Aplikasi SaaS yang melayani manajemen bisnis, dibangun dengan performa dan skalabilitas tinggi.",
+      security: ["Auth", "Role Management"],
+      date: "2025",
+      liveUrl: "http://nexcore.web.id/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 16,
+      title: "Pusdiklat Isalam",
+      category: "web",
+      tags: ["Company Profile", "Web"],
+      image: "/pusdiklatisalam.png",
+      description: "Website Company Profile untuk Pusat Pendidikan dan Pelatihan.",
+      longDescription: "Website responsif untuk lembaga pelatihan dengan informasi program dan pendaftaran.",
+      date: "2025",
+      liveUrl: "https://www.pusdiklatisalam.web.id/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
       id: 1,
       title: "IndexDB Management System",
       category: "web",
       tags: ["React", "Next.js", "PWA", "IndexedDB", "Security"],
-      image: "/modern-ecommerce-dashboard.png",
+      image: "/kalkulator.png",
       description: "Aplikasi PWA dengan sistem keamanan data menggunakan enkripsi client-side dan IndexedDB.",
-      longDescription: "Aplikasi ini mengimplementasikan praktik keamanan seperti sanitasi input, enkripsi data sensitif, dan proteksi terhadap serangan XSS menggunakan IndexedDB untuk penyimpanan lokal yang aman.",
+      longDescription: "Aplikasi ini mengimplementasikan praktik keamanan seperti sanitasi input, enkripsi data sensitif, dan proteksi terhadap serangan XSS menggunakan IndexedDB untuk penyimpanan lokal yang aman. Berfokus pada offline-first capability dengan Service Workers.",
       security: ["Enkripsi data client-side", "Sanitasi input", "Secure local storage"],
       date: "2025",
       liveUrl: "https://indexdb-management.vercel.app/",
@@ -54,9 +83,9 @@ export default function ProjectsPage() {
       title: "SantriQue - Keuangan Santri",
       category: "web",
       tags: ["PWA", "React", "Next.js", "PostgreSQL", "Audit Trail"],
-      image: "/mobile-banking-app.png",
+      image: "/santrique.png",
       description: "Sistem manajemen keuangan dengan fitur keamanan berlapis dan audit trail.",
-      longDescription: "Aplikasi ini memiliki sistem keamanan yang mencatat setiap aktivitas pengguna (audit trail), validasi transaksi, dan proteksi terhadap manipulasi data menggunakan PostgreSQL.",
+      longDescription: "Sistem manajemen keuangan pondok pesantren yang mencatat setiap aktivitas pengguna (audit trail), validasi transaksi di sisi server, dan proteksi integritas data menggunakan PostgreSQL.",
       security: ["Audit trail", "Server-side validation", "Session management"],
       date: "2025",
       liveUrl: "https://santrique.gazaalfath.my.id/",
@@ -84,9 +113,9 @@ export default function ProjectsPage() {
       title: "POS Gazaalfath - Enterprise Edition",
       category: "web",
       tags: ["Next.js", "MySQL", "Tailwind", "Enterprise"],
-      image: "/pos.png",
+      image: "/pos_dusky.png",
       description: "Sistem Point of Sale tingkat lanjut dengan manajemen stok dan laporan real-time.",
-      longDescription: "Sistem kasir yang dioptimalkan untuk performa tinggi, mendukung multiple outlets, dan integrasi inventory management yang ketat.",
+      longDescription: "Sistem kasir yang dioptimalkan untuk performa tinggi, mendukung multiple outlets, dan integrasi inventory management yang ketat dengan arsitektur database yang scalable.",
       security: ["SQL Injection Prevention", "Secure API", "Role Management"],
       date: "2025",
       liveUrl: "https://pos.gazaalfath.my.id/",
@@ -227,6 +256,35 @@ export default function ProjectsPage() {
       liveUrl: "https://almutt.gazaalfath.my.id/",
       githubUrl: "#",
       featured: false,
+      categoryType: ["web"],
+    },
+    {
+      id: 18,
+      title: "Gaza Finance App",
+      category: "web",
+      tags: ["Next.js", "Finance", "Dashboard"],
+      image: "/finance.png",
+      description: "Aplikasi manajemen keuangan pribadi dengan pelacakan pengeluaran.",
+      longDescription: "Platform monitoring keuangan yang membantu user mengelola anggaran, mencatat transaksi, dan melihat visualisasi pengeluaran.",
+      security: ["Data Encryption", "Secure Auth"],
+      date: "2025",
+      liveUrl: "https://finance.gazaalfath.my.id/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 19,
+      title: "Nexcore Official",
+      category: "web",
+      tags: ["Next.js", "Landing Page", "Modern UI"],
+      image: "/nexcore_v2.png",
+      description: "Landing page modern untuk platform Nexcore.",
+      longDescription: "Halaman depan yang dirancang dengan estetika modern dan performa tinggi untuk memperkenalkan layanan Nexcore.",
+      date: "2025",
+      liveUrl: "https://www.nexcore.my.id/",
+      githubUrl: "#",
+      featured: true,
       categoryType: ["web"],
     },
   ];
@@ -627,8 +685,8 @@ export default function ProjectsPage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white/20"
-                  onClick={() => window.open("/cv-gaza-alfath.pdf")}
+                  className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600"
+                  onClick={() => window.open("/Gaza_Alfath_CV.pdf")}
                 >
                   Download CV
                 </Button>

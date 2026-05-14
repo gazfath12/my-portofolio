@@ -212,7 +212,7 @@ export default function ContactPage() {
                   variant="secondary"
                   className="w-full mt-4 bg-white/20 hover:bg-white/30 text-white border-white/30"
                 >
-                  <a href="mailto:alex.johnson@email.com">
+                  <a href="mailto:gazfath12@gmail.com">
                     <Mail className="w-4 h-4 mr-2" />
                     Send Email
                   </a>

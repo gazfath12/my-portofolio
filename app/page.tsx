@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Download, ExternalLink, Shield, Code, Zap, Users, Github, Linkedin, Mail, FileText } from "lucide-react"
+import { ChevronRight, Download, ExternalLink, Shield, Code, Zap, Users, Github, Linkedin, Mail, FileText, Coffee } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
@@ -17,10 +17,46 @@ export default function HomePage() {
 
   const portfolioHighlights = [
     {
+      id: 6,
+      title: "Nexcore SaaS",
+      category: "SaaS Platform",
+      image: "/nexcore.png",
+      description: "SaaS Platform melayani manajemen bisnis, dibangun dengan performa dan skalabilitas tinggi",
+      liveUrl: "http://nexcore.web.id/",
+      tech: ["Next.js", "Full-stack", "Auth"]
+    },
+    {
+      id: 5,
+      title: "Pusdiklat Isalam",
+      category: "Company Profile",
+      image: "/pusdiklatisalam.png",
+      description: "Website Company Profile untuk Pusat Pendidikan dan Pelatihan",
+      liveUrl: "https://www.pusdiklatisalam.web.id/",
+      tech: ["Next.js", "Web Profile"]
+    },
+    {
+      id: 8,
+      title: "Nexcore Official",
+      category: "Landing Page",
+      image: "/nexcore_v2.png",
+      description: "Landing page modern untuk platform Nexcore",
+      liveUrl: "https://www.nexcore.my.id/",
+      tech: ["Next.js", "UI/UX", "SEO"]
+    },
+    {
+      id: 7,
+      title: "Finance App",
+      category: "Finance",
+      image: "/finance.png",
+      description: "Aplikasi manajemen keuangan pribadi dengan pelacakan pengeluaran",
+      liveUrl: "https://finance.gazaalfath.my.id/",
+      tech: ["Next.js", "Dashboard", "Charts"]
+    },
+    {
       id: 1,
       title: "Kalkulator PWA",
       category: "Web Development",
-      image: "/modern-ecommerce-website.png",
+      image: "/kalkulator.png",
       description: "Kalkulator progresif yang dapat digunakan secara offline dengan teknologi service worker",
       liveUrl: "https://qalqulator.vercel.app/",
       tech: ["React", "PWA", "Service Worker"]
@@ -29,7 +65,7 @@ export default function HomePage() {
       id: 2,
       title: "Aplikasi Keuangan Santri",
       category: "Web Development",
-      image: "/mobile-banking-app.png",
+      image: "/santrique.png",
       description: "Sistem manajemen keuangan untuk pondok pesantren dengan fitur pencatatan transaksi",
       liveUrl: "https://santrique.vercel.app/",
       tech: ["Next.js", "Prisma", "PostgreSQL"]
@@ -38,7 +74,7 @@ export default function HomePage() {
       id: 3,
       title: "Point Of Sale",
       category: "Aplikasi Kasir",
-      image: "/data-analytics-dashboard.png",
+      image: "/pos_dusky.png",
       description: "Aplikasi kasir berbasis web dengan manajemen inventaris dan laporan penjualan",
       liveUrl: "https://point-of-sale-dusky.vercel.app/",
       tech: ["React", "Node.js", "MongoDB"]
@@ -47,7 +83,7 @@ export default function HomePage() {
       id: 4,
       title: "Aplikasi Hafalan Qur'an",
       category: "Aplikasi Qur'an",
-      image: "/brand-identity-design.png",
+      image: "/alquran_hafalan.png",
       description: "Platform untuk menghafal Al-Qur'an dengan fitur tracking progress dan pengingat",
       liveUrl: "https://quran-hafalan.ppqita.my.id/",
       tech: ["Laravel", "MySQL", "Tailwind"]
@@ -138,15 +174,15 @@ export default function HomePage() {
 
               {/* Social Links */}
               <div className="flex items-center space-x-4">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+                <a href="https://github.com/gazfath12" target="_blank" rel="noopener noreferrer" 
                    className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                   <Github className="w-5 h-5 text-gray-700" />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/gaza-alfath-0830982a9/" target="_blank" rel="noopener noreferrer"
                    className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                   <Linkedin className="w-5 h-5 text-blue-600" />
                 </a>
-                <a href="mailto:gaza@example.com"
+                <a href="mailto:gazfath12@gmail.com"
                    className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                   <Mail className="w-5 h-5 text-red-500" />
                 </a>
@@ -157,7 +193,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all"
-                  onClick={() => window.open('/cv-gaza-alfath.pdf', '_blank')}
+                  onClick={() => window.open('/Gaza_Alfath_CV.pdf', '_blank')}
                 >
                   <FileText className="w-4 h-4 mr-2" />
                   Download CV
@@ -320,6 +356,17 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 border-t border-gray-200 mt-12 bg-white/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-600 text-sm flex items-center justify-center gap-1">
+            &copy; {new Date().getFullYear()} Gaza Alfath Nugroho. Dibangun dengan 
+            <Coffee className="w-4 h-4 text-amber-700" /> 
+            dan kode yang aman.
+          </p>
+        </div>
+      </footer>
     </div>
   )
 }
