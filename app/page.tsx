@@ -8,12 +8,16 @@ import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 
+import { ProjectTransitionModal, ProjectTransitionData } from "../components/project-transition-modal"
+
 export default function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [activeProject, setActiveProject] = useState<ProjectTransitionData | null>(null)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
 
   const portfolioHighlights: Array<{ id: number; title: string; category: string; image?: string; description: string; liveUrl: string; tech: string[]; isPrivate?: boolean; featured?: boolean; }> = [
     {
@@ -347,7 +351,14 @@ export default function HomePage() {
             {portfolioHighlights.map((project, index) => (
               <Card
                 key={project.id}
-                className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                onClick={() => setActiveProject({
+                  title: project.title,
+                  image: project.image || "/placeholder.svg",
+                  description: project.description,
+                  liveUrl: project.liveUrl,
+                  isPrivate: project.isPrivate
+                })}
+                className={`group cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 100 + 600}ms` }}
@@ -390,10 +401,19 @@ export default function HomePage() {
                           <Button 
                             size="sm" 
                             className="w-full bg-white text-gray-900 hover:bg-gray-100 font-medium shadow-lg"
-                            onClick={() => window.open(project.liveUrl, '_blank')}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveProject({
+                                title: project.title,
+                                image: project.image || "/placeholder.svg",
+                                description: project.description,
+                                liveUrl: project.liveUrl,
+                                isPrivate: project.isPrivate
+                              });
+                            }}
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
+                            Lihat & Kunjungi Website
                           </Button>
                         )}
                       </div>
@@ -448,6 +468,12 @@ export default function HomePage() {
           </p>
         </div>
       </footer>
+
+      {/* Interactive Project Transition Modal */}
+      <ProjectTransitionModal
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
     </div>
   )
 }

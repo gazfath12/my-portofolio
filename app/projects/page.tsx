@@ -20,11 +20,14 @@ import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
+import { ProjectTransitionModal, ProjectTransitionData } from "../../components/project-transition-modal";
 
 export default function ProjectsPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [filter, setFilter] = useState("all");
   const [selectedTech, setSelectedTech] = useState<string[]>([]);
+  const [activeProject, setActiveProject] = useState<ProjectTransitionData | null>(null);
+
 
   useEffect(() => {
     setIsVisible(true);
@@ -418,7 +421,14 @@ export default function ProjectsPage() {
             {featuredProjects.slice(0, 6).map((project) => (
               <Card
                 key={project.id}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                onClick={() => setActiveProject({
+                  title: project.title,
+                  image: project.image || "/placeholder.svg",
+                  description: project.longDescription || project.description,
+                  liveUrl: project.liveUrl,
+                  isPrivate: project.isPrivate
+                })}
+                className="group cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
               >
                 <div className="relative overflow-hidden h-64">
                   <Image
@@ -441,11 +451,20 @@ export default function ProjectsPage() {
                       ) : (
                         <Button
                           size="sm"
-                          className="flex-1 bg-white text-gray-900 hover:bg-gray-100"
-                          onClick={() => window.open(project.liveUrl, "_blank")}
+                          className="flex-1 bg-white text-gray-900 hover:bg-gray-100 font-medium"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setActiveProject({
+                              title: project.title,
+                              image: project.image || "/placeholder.svg",
+                              description: project.longDescription || project.description,
+                              liveUrl: project.liveUrl,
+                              isPrivate: project.isPrivate
+                            });
+                          }}
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
+                          Kunjungi Website
                         </Button>
                       )}
                       {project.githubUrl !== "#" && (
@@ -453,7 +472,10 @@ export default function ProjectsPage() {
                           size="sm"
                           variant="outline"
                           className="bg-white/20 text-white border-white hover:bg-white/30"
-                          onClick={() => window.open(project.githubUrl, "_blank")}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.githubUrl, "_blank");
+                          }}
                         >
                           <Github className="w-4 h-4" />
                         </Button>
@@ -617,7 +639,14 @@ export default function ProjectsPage() {
               {filteredProjects.map((project) => (
                 <Card
                   key={project.id}
-                  className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                  onClick={() => setActiveProject({
+                    title: project.title,
+                    image: project.image || "/placeholder.svg",
+                    description: project.longDescription || project.description,
+                    liveUrl: project.liveUrl,
+                    isPrivate: project.isPrivate
+                  })}
+                  className="group cursor-pointer hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
                 >
                   <div className="relative overflow-hidden h-48">
                     <Image
@@ -641,10 +670,19 @@ export default function ProjectsPage() {
                           <Button
                             size="sm"
                             className="flex-1 text-xs"
-                            onClick={() => window.open(project.liveUrl, "_blank")}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveProject({
+                                title: project.title,
+                                image: project.image || "/placeholder.svg",
+                                description: project.longDescription || project.description,
+                                liveUrl: project.liveUrl,
+                                isPrivate: project.isPrivate
+                              });
+                            }}
                           >
                             <ExternalLink className="w-3 h-3 mr-1" />
-                            Demo
+                            Website
                           </Button>
                         )}
                         {project.githubUrl !== "#" && (
@@ -652,7 +690,10 @@ export default function ProjectsPage() {
                             size="sm"
                             variant="outline"
                             className="bg-white/20 text-white border-white hover:bg-white/30"
-                            onClick={() => window.open(project.githubUrl, "_blank")}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.githubUrl, "_blank");
+                            }}
                           >
                             <Github className="w-3 h-3" />
                           </Button>
@@ -758,6 +799,12 @@ export default function ProjectsPage() {
           </Card>
         </div>
       </div>
+
+      {/* Interactive Project Transition Modal */}
+      <ProjectTransitionModal
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
     </div>
   );
 }

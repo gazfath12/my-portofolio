@@ -169,3 +169,22 @@ html {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@keyframes portalZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-portal {
+  animation: portalZoom 0.3s ease-out forwards;
+}
+
