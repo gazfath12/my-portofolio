@@ -1,12 +1,15 @@
 import Link from "next/link"
-import { Github, Linkedin, Instagram, Twitter, Heart } from "lucide-react"
+import { Github, Linkedin, Instagram, Twitter, Heart, Globe, Phone, Mail } from "lucide-react"
 
 export default function Footer() {
   const socialLinks = [
     { name: "GitHub", icon: Github, href: "https://github.com/gazfath12" },
     { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/gaza-alfath-0830982a9/" },
-    { name: "Instagram", icon: Instagram, href: "https://instagram.com/gaz_fath" },
-    { name: "Threeds", icon: Twitter, href: "https://www.threads.com/@gaz_fath" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/gaz_fath/" },
+    { name: "Twitter / X", icon: Twitter, href: "https://twitter.com/gazfath12" },
+    { name: "WhatsApp", icon: Phone, href: "https://wa.me/6289637503791" },
+    { name: "Blog", icon: Globe, href: "https://blog.gazaalfath.my.id/" },
+    { name: "Email", icon: Mail, href: "mailto:gazfath12@gmail.com" },
   ]
 
   const quickLinks = [

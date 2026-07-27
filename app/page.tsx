@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Download, ExternalLink, Shield, Code, Zap, Users, Github, Linkedin, Mail, FileText, Coffee } from "lucide-react"
+import { ChevronRight, ExternalLink, Shield, Code, Zap, Users, Github, Linkedin, Mail, FileText, Coffee, Lock, Instagram, Twitter, Globe, Phone } from "lucide-react"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
@@ -15,7 +15,38 @@ export default function HomePage() {
     setIsVisible(true)
   }, [])
 
-  const portfolioHighlights = [
+  const portfolioHighlights: Array<{ id: number; title: string; category: string; image?: string; description: string; liveUrl: string; tech: string[]; isPrivate?: boolean; featured?: boolean; }> = [
+    {
+      id: 20,
+      title: "SIAKAD Almahir",
+      category: "Sistem Informasi Akademik",
+      image: "/siakad.png",
+      description: "Sistem Informasi Akademik Terintegrasi dengan penjadwalan anti-bentrok real-time, menghemat 80% beban admin sekolah",
+      liveUrl: "#",
+      isPrivate: true,
+      featured: true,
+      tech: ["Laravel", "MySQL", "Real-time Engine", "ERD Optimized"]
+    },
+    {
+      id: 15,
+      title: "Best Kaca Film",
+      category: "Dealer Resmi V-Kool",
+      image: "/bestkaca.png",
+      description: "Website resmi dan katalog produk dealer kaca film V-Kool dengan antarmuka profesional dan responsif",
+      liveUrl: "https://bestkacafilm.com/",
+      featured: true,
+      tech: ["Next.js", "Tailwind CSS", "Responsive UI", "SEO"]
+    },
+    {
+      id: 21,
+      title: "Sistem Keuangan Publik",
+      category: "Finance Management",
+      image: "/finance.png",
+      description: "Aplikasi manajemen dan monitoring keuangan publik dengan sistem autentikasi dan pelacakan anggaran",
+      liveUrl: "https://keuangan-pub.vercel.app/#/login",
+      featured: true,
+      tech: ["Next.js", "React", "Tailwind CSS", "Dashboard"]
+    },
     {
       id: 6,
       title: "Nexcore SaaS",
@@ -41,6 +72,7 @@ export default function HomePage() {
       image: "/nexcore_v2.png",
       description: "Landing page modern untuk platform Nexcore",
       liveUrl: "https://www.nexcore.my.id/",
+      featured: true,
       tech: ["Next.js", "UI/UX", "SEO"]
     },
     {
@@ -173,17 +205,40 @@ export default function HomePage() {
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-wrap items-center gap-3">
                 <a href="https://github.com/gazfath12" target="_blank" rel="noopener noreferrer" 
-                   className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                  <Github className="w-5 h-5 text-gray-700" />
+                   title="GitHub"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                  <Github className="w-5 h-5 text-gray-800" />
                 </a>
                 <a href="https://www.linkedin.com/in/gaza-alfath-0830982a9/" target="_blank" rel="noopener noreferrer"
-                   className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                   title="LinkedIn"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
                   <Linkedin className="w-5 h-5 text-blue-600" />
                 </a>
+                <a href="https://www.instagram.com/gaz_fath/" target="_blank" rel="noopener noreferrer"
+                   title="Instagram"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                  <Instagram className="w-5 h-5 text-pink-600" />
+                </a>
+                <a href="https://twitter.com/gazfath12" target="_blank" rel="noopener noreferrer"
+                   title="Twitter / X"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                  <Twitter className="w-5 h-5 text-sky-500" />
+                </a>
+                <a href="https://wa.me/6289637503791" target="_blank" rel="noopener noreferrer"
+                   title="WhatsApp"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                  <Phone className="w-5 h-5 text-emerald-600" />
+                </a>
+                <a href="https://blog.gazaalfath.my.id/" target="_blank" rel="noopener noreferrer"
+                   title="Blog"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                  <Globe className="w-5 h-5 text-orange-600" />
+                </a>
                 <a href="mailto:gazfath12@gmail.com"
-                   className="p-2 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                   title="Email"
+                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
                   <Mail className="w-5 h-5 text-red-500" />
                 </a>
               </div>
@@ -218,7 +273,7 @@ export default function HomePage() {
                 {/* Main image container */}
                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl transform hover:scale-105 transition-transform duration-500">
                   <Image 
-                    src="/professional-headshot.png" 
+                    src="/gaza-formal.jpg" 
                     alt="Gaza Alfath Nugroho" 
                     fill 
                     className="object-cover"
@@ -305,16 +360,42 @@ export default function HomePage() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    {project.isPrivate && (
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="bg-amber-600/95 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-medium flex items-center shadow-md">
+                          <Lock className="w-3 h-3 mr-1" />
+                          Privat (Internal)
+                        </span>
+                      </div>
+                    )}
+                    {project.featured && (
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className="bg-gradient-to-r from-yellow-500 to-amber-500 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-md flex items-center">
+                          ⭐ Unggulan
+                        </span>
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-4 left-4 right-4">
-                        <Button 
-                          size="sm" 
-                          className="w-full bg-white text-gray-900 hover:bg-gray-100"
-                          onClick={() => window.open(project.liveUrl, '_blank')}
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </Button>
+                        {project.isPrivate ? (
+                          <Button 
+                            size="sm" 
+                            disabled
+                            className="w-full bg-amber-600/90 text-white cursor-not-allowed font-medium shadow-lg"
+                          >
+                            <Lock className="w-4 h-4 mr-2" />
+                            Sistem Privat Sekolah
+                          </Button>
+                        ) : (
+                          <Button 
+                            size="sm" 
+                            className="w-full bg-white text-gray-900 hover:bg-gray-100 font-medium shadow-lg"
+                            onClick={() => window.open(project.liveUrl, '_blank')}
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </div>

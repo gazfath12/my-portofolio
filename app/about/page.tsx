@@ -12,14 +12,7 @@ import { Progress } from "../../components/ui/progress"
 import { Badge } from "../../components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
 import { Button } from "../../components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../../components/ui/dialog"
+
 
 interface Certification {
   id: number
@@ -43,20 +36,21 @@ export default function AboutPage() {
 
   const skills = [
     // Web Development Skills
-    { name: "React/Next.js", level: 70, icon: Code, category: "web" },
+    { name: "React/Next.js", level: 80, icon: Code, category: "web" },
     { name: "Php/Laravel", level: 80, icon: Database, category: "web" },
-    { name: "Node.js", level: 65, icon: Code, category: "web" },
+    { name: "Node.js/NestJS", level: 70, icon: Code, category: "web" },
     { name: "Mobile Development", level: 20, icon: Smartphone, category: "web" },
     { name: "HTML/CSS", level: 85, icon: Palette, category: "web" },
-    { name: "Database (MySQL, MongoDB)", level: 55, icon: Database, category: "web" },
+    { name: "Database (MySQL, MongoDB, PostgreSQL)", level: 75, icon: Database, category: "web" },
+    { name: "DevOps & VPS Linux", level: 75, icon: Network, category: "web" },
 
     // Cybersecurity Skills
-    { name: "Network Security", level: 60, icon: Network, category: "security" },
-    { name: "Penetration Testing", level: 55, icon: Bug, category: "security" },
-    { name: "Security Auditing", level: 50, icon: Shield, category: "security" },
-    { name: "Cryptography Basics", level: 45, icon: Lock, category: "security" },
-    { name: "Secure Coding", level: 65, icon: Code, category: "security" },
-    { name: "Risk Assessment", level: 55, icon: Target, category: "security" },
+    { name: "Network Security & VPS", level: 70, icon: Network, category: "security" },
+    { name: "Penetration Testing & OSINT", level: 65, icon: Bug, category: "security" },
+    { name: "Security Auditing", level: 60, icon: Shield, category: "security" },
+    { name: "AI Automation & Workflows", level: 75, icon: Target, category: "security" },
+    { name: "Secure Coding", level: 70, icon: Code, category: "security" },
+    { name: "Risk Assessment", level: 65, icon: Target, category: "security" },
   ]
 
   // Sertifikat dengan gambar
@@ -125,29 +119,70 @@ export default function AboutPage() {
 
   const education = [
     {
-      degree: "Boarding School Al-Muttaqin",
-      school: "Al-Muttaqin Islamic Boarding School",
-      year: "2020-2023",
-      description: "Fokus pada pendidikan agama Islam, hafalan Qur'an, dan pengetahuan umum",
+      degree: "Information Technology Program",
+      school: "PPQIT Al - Mahir (Al-Mahir IT & Islamic Boarding School)",
+      year: "March 2023 - June 2026",
+      description: "Program intensif IT dengan fokus pada pengembangan Full-Stack Web dan keamanan siber",
       achievements: [
-        "Hafalan 5 Juz Al-Qur'an",
-        "Aktif dalam organisasi santri"
+        "Membangun sistem SIAKAD Almahir dengan fitur anti-conflict scheduling",
+        "Mengembangkan OSINT investigation tools dan arsitektur database relasional",
+        "Anggota aktif tim cybersecurity club dan kepemimpinan"
       ]
     },
     {
-      degree: "Information Technology Program",
-      school: "Al-Mahir IT & Islamic Boarding School",
-      year: "2023-2026",
-      description: "Program intensif IT dengan fokus pada pengembangan web dan keamanan siber",
+      degree: "Cisco Networking Academy",
+      school: "Cisco Networking Certification Program",
+      year: "January 2026 - February 2026",
+      description: "Pelatihan fundamental jaringan komputer dan arsitektur keamanan jaringan",
       achievements: [
-        "Mengembangkan sistem database akademik",
-        "Proyek akhir: Aplikasi Manajemen Pondok",
-        "Anggota tim cybersecurity club"
+        "Pemahaman mendalam mengenai protokol jaringan dan infrastruktur",
+        "Praktik administrasi jaringan dan keamanan sistem"
+      ]
+    },
+    {
+      degree: "Responsive Web Design Certification",
+      school: "freeCodeCamp",
+      year: "April 2024 - December 2024",
+      description: "Sertifikasi keahlian pengembangan antarmuka web responsif dengan standar modern",
+      achievements: [
+        "300+ jam kurikulum praktik web design dan antarmuka responsif",
+        "Membangun berbagai proyek antarmuka web komersial"
+      ]
+    },
+    {
+      degree: "Junior High School & Islamic Studies",
+      school: "Ponpes Al-Muttaqin",
+      year: "April 2020 - June 2023",
+      description: "Fokus pada pendidikan agama Islam, kedisiplinan, dan dasar kepemimpinan santri",
+      achievements: [
+        "Hafalan 5 Juz Al-Qur'an",
+        "Aktif dalam kepengurusan dan organisasi santri"
       ]
     },
   ]
 
   const experience = [
+    {
+      role: "Event Administrator",
+      company: "IIEF (International Islamic Education Fair) - Surakarta",
+      period: "October 2025",
+      description: "Mengelola sistem pendaftaran pengunjung dan pendataan event pameran pendidikan Islam internasional (50+ institusi dari Indonesia dan Timur Tengah)",
+      achievements: [
+        "Berkoordinasi dengan tim operasional untuk memastikan alur teknis dan administrasi berjalan lancar tanpa hambatan",
+        "Menangani integrasi data pengunjung secara real-time selama pameran berlangsung"
+      ]
+    },
+    {
+      role: "Full-Stack Engineer Internship",
+      company: "PPQIT AL Mahir - Boyolali",
+      period: "August 2025 - October 2025",
+      description: "Merancang dan membangun SIAKAD Almahir, sistem informasi akademik terintegrasi yang memangkas beban kerja admin hingga 80%",
+      achievements: [
+        "Membangun mesin penjadwalan anti-bentrok real-time dengan Laravel yang memvalidasi guru, kapasitas ruangan, dan jadwal mata pelajaran secara bersamaan (0 konflik)",
+        "Merancang skema database relasional (ERD) untuk siswa, guru, kelas, dan mapel dengan optimasi performa query untuk generate e-Rapor",
+        "Menghadirkan admin dashboard responsif dengan ringkasan data live yang digunakan harian oleh staf sekolah"
+      ]
+    },
     {
       role: "Junior Full-Stack Developer",
       company: "Mahir System",
@@ -160,25 +195,14 @@ export default function AboutPage() {
       ]
     },
     {
-      role: "Junior Backend Developer",
-      company: "Mahir System",
-      period: "2024 - 2025",
-      description: "Pengembangan sistem backend untuk website Penerimaan Santri Baru (PSB)",
-      achievements: [
-        "Merancang database untuk menampung 1000+ data pengguna",
-        "Mengimplementasikan autentikasi dan otorisasi pengguna",
-        "Melakukan security testing pada sistem login"
-      ]
-    },
-    {
       role: "Frontend Developer & Security Assistant",
       company: "Bestkacafilm",
       period: "2024 - 2025",
-      description: "Mengembangkan aplikasi web untuk manajemen garansi produk kaca film",
+      description: "Mengembangkan aplikasi web dan katalog untuk dealer kaca film resmi",
       achievements: [
-        "Membangun antarmuka yang responsif dan user-friendly",
-        "Mengimplementasikan validasi input untuk mencegah serangan XSS",
-        "Melakukan code review untuk keamanan aplikasi"
+        "Membangun antarmuka yang responsif, modern, dan user-friendly",
+        "Mengimplementasikan validasi input dan proteksi untuk mencegah serangan XSS",
+        "Melakukan code review untuk keamanan aplikasi web"
       ]
     },
   ]
@@ -226,9 +250,7 @@ export default function AboutPage() {
             Perjalanan Saya di Dunia Teknologi
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Full-Stack Developer dengan spesialisasi dalam membangun aplikasi SaaS yang scalable 
-            dan aman. Saya menggabungkan keahlian pengembangan web modern (Next.js/Laravel) 
-            dengan wawasan mendalam di bidang Cybersecurity untuk menciptakan solusi digital yang tangguh.
+            Saya membangun sistem web grade-produksi secara end-to-end — mulai dari API NestJS dan frontend Next.js hingga deployment di Linux VPS serta alur kerja otomatisasi berbasis AI. Menggabungkan pengembangan dan keamanan untuk menciptakan solusi digital yang tangguh dan skalabel.
           </p>
         </div>
 
@@ -244,7 +266,7 @@ export default function AboutPage() {
                 <div className="relative w-48 h-48 mx-auto mb-6">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-lg opacity-50 animate-pulse"></div>
                   <Image
-                    src="/professional-portrait.png"
+                    src="/gaza-formal.jpg"
                     alt="Gaza Alfath Nugroho"
                     fill
                     className="rounded-full object-cover border-4 border-white shadow-lg relative z-10"
@@ -260,20 +282,16 @@ export default function AboutPage() {
                 <div className="space-y-2 text-left mt-4">
                   <div className="flex items-center text-gray-600">
                     <Globe className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="text-sm">Indonesia</span>
+                    <span className="text-sm">Bekasi, West Java, Indonesia</span>
                   </div>
                   <div className="flex items-center text-gray-600">
                     <Users className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="text-sm">Tersedia untuk kolaborasi</span>
+                    <span className="text-sm">Open to Internship / Junior Role & Kolaborasi</span>
                   </div>
                 </div>
 
                 <p className="text-gray-600 leading-relaxed mt-4">
-                  Sebagai developer yang tumbuh di lingkungan pesantren IT, saya memiliki disiplin tinggi 
-                  dan integritas dalam bekerja. Saya berfokus pada efisiensi kode, keamanan data, 
-                  dan skalabilitas infrastruktur. Pengalaman saya membangun produk komersial 
-                  secara mandiri membuktikan kemampuan saya untuk mengambil tanggung jawab penuh 
-                  dalam siklus pengembangan software.
+                  Dengan pengalaman 3+ tahun dalam belajar mandiri dan pengerjaan proyek nyata, saya telah meluncurkan platform SaaS komersial, membangun sistem manajemen sekolah (SIAKAD) dengan penjadwalan anti-bentrok, dan mengembangkan perangkat investigasi OSINT di server Ubuntu VPS. Saya tidak hanya menulis fitur, tetapi memikirkan skalabilitas, area serangan (attack surface), dan keandalan operasional sejak hari pertama, serta memanfaatkan AI (Local LLMs, n8n, Python bots) untuk akselerasi pengiriman.
                 </p>
               </CardContent>
             </Card>
@@ -362,11 +380,10 @@ export default function AboutPage() {
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg mt-4">
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
                     <Target className="w-4 h-4 mr-2 text-blue-600" />
-                    Tujuan Karir
+                    Kesiapan Kerja & Tujuan Karir
                   </h4>
                   <p className="text-gray-600 text-sm">
-                    Menjadi Full-Stack Engineer yang kompeten dengan spesialisasi keamanan siber,
-                    serta berkontribusi dalam menciptakan ekosistem digital yang lebih aman di Indonesia.
+                    Terbuka untuk peran Internship atau Junior Backend / Full-Stack Engineer (Remote, Hybrid, maupun On-site), kolaborasi proyek, serta bimbingan dan mentorship dari engineer senior di tim yang berfokus pada produk teknologi yang berdampak nyata.
                   </p>
                 </div>
               </CardContent>

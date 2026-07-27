@@ -29,15 +29,15 @@ export default function ContactPage() {
     {
       icon: MapPin,
       label: "Location",
-      value: "bekasi",
+      value: "Bekasi, West Java, Indonesia",
       href: "#map",
       color: "bg-purple-100 text-purple-600",
     },
     {
       icon: Globe,
       label: "Website",
-      value: "bestkacafilm.com",
-      href: "https://bestkacafilm.com",
+      value: "gazaalfath.my.id",
+      href: "https://www.gazaalfath.my.id/",
       color: "bg-orange-100 text-orange-600",
     },
   ]
@@ -68,20 +68,36 @@ export default function ContactPage() {
       description: "@gaz_fath",
     },
     {
-      name: "Twitter",
+      name: "Twitter / X",
       icon: Twitter,
       url: "https://twitter.com/gazfath12",
       color: "hover:text-sky-500",
       bgColor: "bg-sky-50 hover:bg-sky-100 dark:bg-sky-900/20 dark:hover:bg-sky-900/30",
-      description: "@gaza-alfath",
+      description: "@gazfath12",
+    },
+    {
+      name: "WhatsApp",
+      icon: Phone,
+      url: "https://wa.me/6289637503791",
+      color: "hover:text-emerald-600",
+      bgColor: "bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-900/20 dark:hover:bg-emerald-900/30",
+      description: "+62 896-3750-3791",
+    },
+    {
+      name: "Personal Blog",
+      icon: Globe,
+      url: "https://blog.gazaalfath.my.id/",
+      color: "hover:text-orange-600",
+      bgColor: "bg-orange-50 hover:bg-orange-100 dark:bg-orange-900/20 dark:hover:bg-orange-900/30",
+      description: "blog.gazaalfath.my.id",
     },
   ]
 
   const availability = {
-    status: "Available",
-    timezone: "PST (UTC-8)",
+    status: "Available for Internship & Junior Role",
+    timezone: "WIB (UTC+7)",
     responseTime: "Usually within 2-4 hours",
-    workingHours: "Mon-Fri, 9AM-6PM PST",
+    workingHours: "Mon-Sat, 08:00 - 20:00 WIB",
   }
 
   return (
@@ -101,7 +117,7 @@ export default function ContactPage() {
         <div
           className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          {contactInfo.map((contact, index) => {
+          {contactInfo.map((contact) => {
             const IconComponent = contact.icon
             return (
               <Card
@@ -234,7 +250,7 @@ export default function ContactPage() {
                 Find Me Here
               </CardTitle>
               <p className="text-gray-600 dark:text-gray-300">
-            Berdasarkan di jantung dunia teknologi San Francisco, terbuka untuk kolaborasi jarak jauh di seluruh dunia.
+            Berdomisili di Bekasi, Jawa Barat, Indonesia, dan terbuka untuk kesempatan kerja maupun kolaborasi secara Remote, Hybrid, maupun On-site.
               </p>
             </CardHeader>
             <CardContent className="p-0">

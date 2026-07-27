@@ -6,7 +6,6 @@ import {
   ExternalLink,
   Github,
   Calendar,
-  Tag,
   Shield,
   Lock,
   Code,
@@ -15,14 +14,12 @@ import {
   Award,
   Filter,
   X,
-  Layout,
-  Smartphone,
-  Cpu
+  Smartphone
 } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "../../components/ui/tabs";
 
 export default function ProjectsPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +30,67 @@ export default function ProjectsPage() {
     setIsVisible(true);
   }, []);
 
-  const projects = [
+  const projects: Array<{ id: number; title: string; category: string; tags: string[]; image: string; description: string; longDescription: string; security?: string[]; date: string; liveUrl: string; githubUrl: string; featured: boolean; isPrivate?: boolean; categoryType: string[]; }> = [
+    {
+      id: 20,
+      title: "SIAKAD Almahir",
+      category: "web",
+      tags: ["Laravel", "MySQL", "Real-time", "SIAKAD"],
+      image: "/siakad.png",
+      description: "Sistem Informasi Akademik dengan penjadwalan anti-bentrok real-time.",
+      longDescription: "Sistem terintegrasi untuk manajemen data akademik sekolah, memangkas 80% beban administrasi manual. Dilengkapi mesin penjadwalan anti-bentrok secara real-time yang memvalidasi ketersediaan guru, kapasitas ruangan, dan mata pelajaran secara bersamaan.",
+      security: ["Anti-conflict Engine", "Role Management", "ERD Optimized"],
+      date: "2025",
+      liveUrl: "#",
+      githubUrl: "#",
+      featured: true,
+      isPrivate: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 15,
+      title: "Best Kaca Film - Dealer Resmi V-Kool",
+      category: "web",
+      tags: ["Next.js", "Tailwind", "Responsive", "Business"],
+      image: "/bestkaca.png",
+      description: "Website profesional untuk dealer kaca film V-Kool dengan fitur katalog produk.",
+      longDescription: "Platform bisnis yang menyajikan informasi lengkap tentang produk kaca film, spesifikasi teknis, dan layanan pemasangan profesional.",
+      security: ["HTTPS enforcement", "Secure contact form"],
+      date: "2025",
+      liveUrl: "https://bestkacafilm.com/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 21,
+      title: "Sistem Keuangan Publik",
+      category: "web",
+      tags: ["Next.js", "React", "Tailwind", "Finance"],
+      image: "/finance.png",
+      description: "Aplikasi manajemen dan monitoring keuangan publik.",
+      longDescription: "Platform manajemen keuangan publik yang membantu pemantauan anggaran, autentikasi pengguna, dan visualisasi data pengeluaran secara interaktif dan transparan.",
+      security: ["Data Encryption", "Secure Auth", "Audit Logging"],
+      date: "2025",
+      liveUrl: "https://keuangan-pub.vercel.app/#/login",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
+      id: 19,
+      title: "Nexcore Official",
+      category: "web",
+      tags: ["Next.js", "Landing Page", "Modern UI"],
+      image: "/nexcore_v2.png",
+      description: "Landing page modern untuk platform Nexcore.",
+      longDescription: "Halaman depan yang dirancang dengan estetika modern dan performa tinggi untuk memperkenalkan layanan Nexcore.",
+      date: "2025",
+      liveUrl: "https://www.nexcore.my.id/",
+      githubUrl: "#",
+      featured: true,
+      categoryType: ["web"],
+    },
     {
       id: 17,
       title: "Nexcore SaaS",
@@ -123,21 +180,7 @@ export default function ProjectsPage() {
       featured: true,
       categoryType: ["web"],
     },
-    {
-      id: 15,
-      title: "Best Kaca Film - Dealer Resmi V-Kool",
-      category: "web",
-      tags: ["Next.js", "Tailwind", "Responsive", "Business"],
-      image: "/bestkaca.png",
-      description: "Website profesional untuk dealer kaca film V-Kool dengan fitur katalog produk.",
-      longDescription: "Platform bisnis yang menyajikan informasi lengkap tentang produk kaca film, spesifikasi teknis, dan layanan pemasangan profesional.",
-      security: ["HTTPS enforcement", "Secure contact form"],
-      date: "2025",
-      liveUrl: "https://bestkacafilm.com/",
-      githubUrl: "#",
-      featured: true,
-      categoryType: ["web"],
-    },
+
     {
       id: 5,
       title: "Zakat Mall App",
@@ -273,20 +316,6 @@ export default function ProjectsPage() {
       featured: true,
       categoryType: ["web"],
     },
-    {
-      id: 19,
-      title: "Nexcore Official",
-      category: "web",
-      tags: ["Next.js", "Landing Page", "Modern UI"],
-      image: "/nexcore_v2.png",
-      description: "Landing page modern untuk platform Nexcore.",
-      longDescription: "Halaman depan yang dirancang dengan estetika modern dan performa tinggi untuk memperkenalkan layanan Nexcore.",
-      date: "2025",
-      liveUrl: "https://www.nexcore.my.id/",
-      githubUrl: "#",
-      featured: true,
-      categoryType: ["web"],
-    },
   ];
 
   // Gabungkan semua proyek
@@ -386,7 +415,7 @@ export default function ProjectsPage() {
             Proyek Unggulan
           </h2>
           <div className="grid lg:grid-cols-2 gap-8">
-            {featuredProjects.slice(0, 2).map((project, index) => (
+            {featuredProjects.slice(0, 6).map((project) => (
               <Card
                 key={project.id}
                 className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
@@ -400,14 +429,25 @@ export default function ProjectsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-white text-gray-900 hover:bg-gray-100"
-                        onClick={() => window.open(project.liveUrl, "_blank")}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
+                      {project.isPrivate ? (
+                        <Button
+                          size="sm"
+                          disabled
+                          className="flex-1 bg-amber-600/90 text-white cursor-not-allowed"
+                        >
+                          <Lock className="w-4 h-4 mr-2" />
+                          Sistem Privat Sekolah
+                        </Button>
+                      ) : (
+                        <Button
+                          size="sm"
+                          className="flex-1 bg-white text-gray-900 hover:bg-gray-100"
+                          onClick={() => window.open(project.liveUrl, "_blank")}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      )}
                       {project.githubUrl !== "#" && (
                         <Button
                           size="sm"
@@ -424,6 +464,12 @@ export default function ProjectsPage() {
                     <Badge className="bg-blue-600 hover:bg-blue-700">
                       Featured
                     </Badge>
+                    {project.isPrivate && (
+                      <Badge className="bg-amber-600 hover:bg-amber-700">
+                        <Lock className="w-3 h-3 mr-1" />
+                        Privat Sekolah
+                      </Badge>
+                    )}
                     {project.categoryType.includes("security") && (
                       <Badge className="bg-purple-600 hover:bg-purple-700">
                         <Shield className="w-3 h-3 mr-1" />
@@ -568,7 +614,7 @@ export default function ProjectsPage() {
             </Card>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project, index) => (
+              {filteredProjects.map((project) => (
                 <Card
                   key={project.id}
                   className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
@@ -582,14 +628,25 @@ export default function ProjectsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-3 left-3 right-3 flex gap-2">
-                        <Button
-                          size="sm"
-                          className="flex-1 text-xs"
-                          onClick={() => window.open(project.liveUrl, "_blank")}
-                        >
-                          <ExternalLink className="w-3 h-3 mr-1" />
-                          Demo
-                        </Button>
+                        {project.isPrivate ? (
+                          <Button
+                            size="sm"
+                            disabled
+                            className="flex-1 text-xs bg-amber-600/90 text-white cursor-not-allowed"
+                          >
+                            <Lock className="w-3 h-3 mr-1" />
+                            Privat
+                          </Button>
+                        ) : (
+                          <Button
+                            size="sm"
+                            className="flex-1 text-xs"
+                            onClick={() => window.open(project.liveUrl, "_blank")}
+                          >
+                            <ExternalLink className="w-3 h-3 mr-1" />
+                            Demo
+                          </Button>
+                        )}
                         {project.githubUrl !== "#" && (
                           <Button
                             size="sm"
@@ -606,6 +663,12 @@ export default function ProjectsPage() {
                       {project.featured && (
                         <Badge className="bg-yellow-600 text-xs py-0 h-5">
                           Featured
+                        </Badge>
+                      )}
+                      {project.isPrivate && (
+                        <Badge className="bg-amber-600 text-xs py-0 h-5">
+                          <Lock className="w-3 h-3 mr-1" />
+                          Privat
                         </Badge>
                       )}
                       {project.categoryType.includes("security") && (
