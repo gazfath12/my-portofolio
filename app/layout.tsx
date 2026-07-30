@@ -7,6 +7,13 @@ import Footer from "../components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0f172a",
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://gazaalfath.my.id"),
   alternates: {
@@ -89,9 +96,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen overflow-x-hidden antialiased text-slate-900 bg-slate-50 selection:bg-blue-500 selection:text-white`}>
         <Navbar />
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

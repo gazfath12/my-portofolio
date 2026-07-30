@@ -360,23 +360,23 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20 sm:pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`text-center mb-10 sm:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <Badge className="mb-4 px-4 py-2 bg-blue-100 text-blue-800 hover:bg-blue-200">
+          <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-blue-100 text-blue-800 hover:bg-blue-200 text-xs sm:text-sm font-semibold">
             Portofolio Proyek
           </Badge>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-4 sm:mb-6 tracking-tight">
             Karya &{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Pengembangan Web
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Koleksi proyek pengembangan web yang fokus pada fungsionalitas,
             performa, dan pengalaman pengguna yang modern.
           </p>
@@ -384,24 +384,24 @@ export default function ProjectsPage() {
 
         {/* Security Stats */}
         <div
-          className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
           {[
             { label: "Total Proyek Web", value: "14+", icon: Globe, color: "blue" },
             { label: "Teknologi Modern", value: "12+", icon: Code, color: "purple" },
             { label: "PWA Apps", value: "5+", icon: Smartphone, color: "red" },
-            { label: "Happy Clients", value: "100%", icon: Award, color: "green" },
+            { label: "Klien Puas", value: "100%", icon: Award, color: "green" },
           ].map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <Card key={index} className="text-center p-4 hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center p-3 sm:p-4 hover:shadow-lg transition-shadow border-slate-200/80 rounded-xl">
                 <CardContent className="p-0">
-                  <div className={`w-12 h-12 mx-auto mb-3 bg-${stat.color}-100 rounded-full flex items-center justify-center`}>
-                    <Icon className={`w-6 h-6 text-${stat.color}-600`} />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-blue-50 dark:bg-slate-800 rounded-full flex items-center justify-center`}>
+                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-600`} />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-slate-900">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</div>
                 </CardContent>
               </Card>
             );
@@ -410,14 +410,14 @@ export default function ProjectsPage() {
 
         {/* Featured Projects */}
         <div
-          className={`mb-16 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`mb-12 sm:mb-16 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <Star className="w-8 h-8 mr-3 text-yellow-500 fill-current" />
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6 sm:mb-8 flex items-center tracking-tight">
+            <Star className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 text-yellow-500 fill-current" />
             Proyek Unggulan
           </h2>
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {featuredProjects.slice(0, 6).map((project) => (
               <Card
                 key={project.id}

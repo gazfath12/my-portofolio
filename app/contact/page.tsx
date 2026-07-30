@@ -101,39 +101,39 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 pt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 pt-20 sm:pt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
         <div
-          className={`text-center mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`text-center mb-10 sm:mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white mb-3 sm:mb-4 tracking-tight">Get In Touch</h1>
+          <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
            Mari kita terhubung dan membahas peluang, kolaborasi, atau sekadar mengobrol santai tentang teknologi dan desain.
           </p>
         </div>
 
         {/* Contact Information Grid */}
         <div
-          className={`grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           {contactInfo.map((contact) => {
             const IconComponent = contact.icon
             return (
               <Card
                 key={contact.label}
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl border-slate-200/80"
               >
-                <CardContent className="p-6 text-center">
+                <CardContent className="p-5 sm:p-6 text-center">
                   <div
-                    className={`w-16 h-16 ${contact.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-14 h-14 sm:w-16 sm:h-16 ${contact.color} rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <IconComponent className="w-8 h-8" />
+                    <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{contact.label}</h3>
+                  <h3 className="font-bold text-slate-900 dark:text-white mb-1.5 text-base sm:text-lg">{contact.label}</h3>
                   <a
                     href={contact.href}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm"
+                    className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm font-medium break-all"
                   >
                     {contact.value}
                   </a>

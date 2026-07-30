@@ -20,21 +20,21 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="bg-slate-900 text-white border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">GZ</span>
+          <div className="sm:col-span-2 space-y-4">
+            <div className="flex items-center space-x-2.5">
+              <div className="w-9 h-9 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
+                <span className="text-white font-black text-sm">GZ</span>
               </div>
-              <span className="font-bold text-xl">Gaza Alfath Nugroho</span>
+              <span className="font-bold text-xl tracking-tight">Gaza Alfath Nugroho</span>
             </div>
-            <p className="text-gray-400 mb-6 max-w-md">
-            Pengembang Full-Stack  yang bersemangat menciptakan pengalaman digital yang membuat perbedaan. Mari kita bangun sesuatu yang menakjubkan bersama..
+            <p className="text-slate-400 text-sm leading-relaxed max-w-md">
+              Pengembang Full-Stack yang bersemangat menciptakan pengalaman digital yang membuat perbedaan. Mari kita bangun sesuatu yang menakjubkan bersama.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-2.5 pt-2">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon
                 return (
@@ -43,9 +43,10 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 group"
+                    title={social.name}
+                    className="w-9 h-9 sm:w-10 sm:h-10 bg-slate-800 rounded-xl flex items-center justify-center hover:bg-slate-700 active:scale-95 transition-all duration-200 group"
                   >
-                    <IconComponent className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
+                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-white transition-colors duration-200" />
                   </a>
                 )
               })}
@@ -54,11 +55,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-slate-200">Quick Links</h3>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href={link.href} className="text-slate-400 hover:text-white transition-colors duration-200 text-sm font-medium">
                     {link.name}
                   </Link>
                 </li>
@@ -68,20 +69,20 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Get In Touch</h3>
-            <div className="space-y-2 text-gray-400">
-              <p>gazfath12@gmail.com</p>
-              <p>+62 (896) 3750-3791</p>
-              <p>Bekasi,ID</p>
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-slate-200">Get In Touch</h3>
+            <div className="space-y-2.5 text-slate-400 text-sm">
+              <p className="hover:text-white transition-colors"><a href="mailto:gazfath12@gmail.com">gazfath12@gmail.com</a></p>
+              <p className="hover:text-white transition-colors"><a href="tel:+6289637503791">+62 (896) 3750-3791</a></p>
+              <p>Bekasi, West Java, ID</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Gaza Alfath. All rights reserved.</p>
-          <p className="text-gray-400 text-sm flex items-center mt-4 sm:mt-0">
-            Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> using Next.js & Tailwind CSS
+        <div className="border-t border-slate-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
+          <p className="text-slate-400 text-xs sm:text-sm">© {new Date().getFullYear()} Gaza Alfath Nugroho. All rights reserved.</p>
+          <p className="text-slate-400 text-xs sm:text-sm flex items-center justify-center">
+            Made with <Heart className="w-3.5 h-3.5 mx-1 text-red-500 fill-current animate-pulse" /> using Next.js & Tailwind CSS
           </p>
         </div>
       </div>

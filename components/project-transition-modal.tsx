@@ -34,15 +34,15 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-md transition-all duration-300 animate-portal">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/70 backdrop-blur-md transition-all duration-300 animate-portal overflow-y-auto">
       {/* Overlay Backdrop click to close */}
-      <div className="absolute inset-0" onClick={onClose} />
+      <div className="fixed inset-0" onClick={onClose} />
 
       {/* Modal Content */}
-      <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-lg w-full overflow-hidden z-10 transition-transform duration-300 transform scale-100">
+      <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-lg w-full max-h-[90vh] overflow-y-auto z-10 transition-transform duration-300 my-auto">
         
         {/* Header Preview Image */}
-        <div className="relative h-56 w-full overflow-hidden bg-slate-950">
+        <div className="relative h-44 sm:h-56 w-full overflow-hidden bg-slate-950 flex-shrink-0">
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
@@ -53,31 +53,32 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
           
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 text-xs transition-colors backdrop-blur-sm"
+            className="absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm transition-colors backdrop-blur-md z-10"
+            aria-label="Close modal"
           >
             ✕
           </button>
 
-          <div className="absolute bottom-4 left-5 right-5 text-white">
-            <div className="flex items-center gap-2 mb-1">
-              <Sparkles className="w-4 h-4 text-yellow-400" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-blue-300">
+          <div className="absolute bottom-3 left-4 right-4 sm:bottom-4 sm:left-5 sm:right-5 text-white">
+            <div className="flex items-center gap-1.5 mb-1">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-blue-300">
                 Pratinjau Proyek
               </span>
             </div>
-            <h3 className="text-2xl font-bold leading-tight">{project.title}</h3>
+            <h3 className="text-xl sm:text-2xl font-bold leading-tight line-clamp-1">{project.title}</h3>
           </div>
         </div>
 
         {/* Body Content */}
-        <div className="p-6 space-y-4">
-          <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+        <div className="p-4 sm:p-6 space-y-4">
+          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
             {project.description}
           </p>
 
-          <div className="pt-2 flex flex-col gap-3">
+          <div className="pt-2 flex flex-col gap-2.5 sm:gap-3">
             {project.isPrivate || project.liveUrl === "#" ? (
-              <div className="p-3.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-xl flex items-center gap-3 text-amber-800 dark:text-amber-300">
+              <div className="p-3 sm:p-3.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-xl flex items-center gap-3 text-amber-800 dark:text-amber-300">
                 <Lock className="w-5 h-5 flex-shrink-0" />
                 <span className="text-xs font-medium">
                   Proyek ini bersifat privat/internal sekolah dan tidak memiliki akses demo publik secara langsung.
@@ -88,16 +89,16 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
                 size="lg"
                 onClick={handleGoToWebsite}
                 disabled={isNavigating}
-                className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold shadow-lg shadow-blue-500/25 rounded-xl py-6 transition-all duration-300 hover:scale-[1.02]"
+                className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold shadow-lg shadow-blue-500/25 rounded-xl py-5 sm:py-6 transition-all duration-300 active:scale-98 text-xs sm:text-sm"
               >
                 {isNavigating ? (
                   <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 mr-2 animate-spin" />
                     Membuka Website Proyek...
                   </>
                 ) : (
                   <>
-                    <ExternalLink className="w-5 h-5 mr-2" />
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                     Kunjungi Website Proyek
                     <ArrowRight className="w-4 h-4 ml-auto" />
                   </>
@@ -108,7 +109,7 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
             <Button
               variant="ghost"
               onClick={onClose}
-              className="w-full text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+              className="w-full text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white text-xs sm:text-sm"
             >
               Tutup Preview
             </Button>

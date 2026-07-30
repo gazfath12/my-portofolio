@@ -159,38 +159,38 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section - Enhanced */}
-      <section className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(0deg,transparent,black)] opacity-20"></div>
-        <div className="absolute top-20 right-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute top-40 left-0 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+        <div className="absolute top-40 left-0 w-72 h-72 sm:w-96 sm:h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Left Content */}
             <div
-              className={`space-y-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              <div className="space-y-4">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-sm font-medium shadow-lg">
-                  <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
-                  🚀 Tersedia untuk Kolaborasi & Proyek Baru
+              <div className="space-y-3 sm:space-y-4">
+                <div className="inline-flex items-center px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs sm:text-sm font-medium shadow-md max-w-full">
+                  <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse flex-shrink-0"></div>
+                  <span className="truncate">🚀 Tersedia untuk Kolaborasi & Proyek Baru</span>
                 </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight">
                   Hi, Saya{" "}
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                     Gaza Alfath Nugroho
                   </span>
                 </h1>
                 
-                <p className="text-xl text-gray-600 font-medium flex items-center flex-wrap gap-2">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Full-Stack Developer</span>
-                  <span className="text-gray-400">•</span>
-                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Cybersecurity Enthusiast</span>
-                </p>
+                <div className="text-sm sm:text-base text-gray-600 font-medium flex items-center flex-wrap gap-2 pt-1">
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Full-Stack Developer</span>
+                  <span className="text-gray-300 hidden sm:inline">•</span>
+                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Cybersecurity Enthusiast</span>
+                </div>
                 
-                <p className="text-lg text-gray-500 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
                   Saya menciptakan solusi digital yang tidak hanya indah secara visual, 
                   tetapi juga aman dan andal. Dengan latar belakang di bidang pengembangan 
                   web dan keamanan siber, saya membantu bisnis dan organisasi membangun 
@@ -199,66 +199,66 @@ export default function HomePage() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 py-2 sm:py-4">
                 {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                    <div className="text-sm text-gray-500">{stat.label}</div>
+                  <div key={index} className="text-center p-3 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200/80 shadow-xs">
+                    <div className="text-xl sm:text-2xl font-bold text-slate-900">{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Social Links */}
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <a href="https://github.com/gazfath12" target="_blank" rel="noopener noreferrer" 
                    title="GitHub"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Github className="w-5 h-5 text-gray-800" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Github className="w-4 h-4 sm:w-5 sm:h-5 text-slate-800" />
                 </a>
                 <a href="https://www.linkedin.com/in/gaza-alfath-0830982a9/" target="_blank" rel="noopener noreferrer"
                    title="LinkedIn"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Linkedin className="w-5 h-5 text-blue-600" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 </a>
                 <a href="https://www.instagram.com/gaz_fath/" target="_blank" rel="noopener noreferrer"
                    title="Instagram"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Instagram className="w-5 h-5 text-pink-600" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" />
                 </a>
                 <a href="https://twitter.com/gazfath12" target="_blank" rel="noopener noreferrer"
                    title="Twitter / X"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Twitter className="w-5 h-5 text-sky-500" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-sky-500" />
                 </a>
                 <a href="https://wa.me/6289637503791" target="_blank" rel="noopener noreferrer"
                    title="WhatsApp"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Phone className="w-5 h-5 text-emerald-600" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
                 </a>
                 <a href="https://blog.gazaalfath.my.id/" target="_blank" rel="noopener noreferrer"
                    title="Blog"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Globe className="w-5 h-5 text-orange-600" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" />
                 </a>
                 <a href="mailto:gazfath12@gmail.com"
                    title="Email"
-                   className="p-2.5 bg-white rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                  <Mail className="w-5 h-5 text-red-500" />
+                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                 </a>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all"
+                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/20 rounded-xl py-6 hover:shadow-xl active:scale-98 transition-all"
                   onClick={() => window.open('/Gaza_Alfath_CV.pdf', '_blank')}
                 >
                   <FileText className="w-4 h-4 mr-2" />
                   Download CV
                 </Button>
-                <Button variant="outline" size="lg" asChild className="border-2 hover:bg-gray-50">
-                  <Link href="/projects">
+                <Button variant="outline" size="lg" asChild className="w-full sm:w-auto border-2 rounded-xl py-6 hover:bg-slate-50">
+                  <Link href="/projects" className="justify-center">
                     Lihat Portofolio
                     <ChevronRight className="w-4 h-4 ml-2" />
                   </Link>
@@ -268,9 +268,9 @@ export default function HomePage() {
 
             {/* Right Content - Profile Image */}
             <div
-              className={`relative transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              className={`relative transition-all duration-1000 delay-300 mt-6 lg:mt-0 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto">
                 {/* Animated background */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
                 
@@ -286,11 +286,11 @@ export default function HomePage() {
                 </div>
                 
                 {/* Decorative elements */}
-                <div className="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-xl p-3 animate-bounce">
-                  <Shield className="w-6 h-6 text-blue-600" />
+                <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-white rounded-xl shadow-xl p-2.5 sm:p-3 animate-bounce">
+                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
                 </div>
-                <div className="absolute -top-4 -left-4 bg-white rounded-lg shadow-xl p-3">
-                  <Code className="w-6 h-6 text-purple-600" />
+                <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 bg-white rounded-xl shadow-xl p-2.5 sm:p-3">
+                  <Code className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
                 </div>
               </div>
             </div>
@@ -299,33 +299,33 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 px-4 py-2 bg-blue-100 text-blue-800 hover:bg-blue-200">Layanan Saya</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Solusi Digital Terintegrasi</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-blue-100 text-blue-800 hover:bg-blue-200 text-xs sm:text-sm font-semibold">Layanan Saya</Badge>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4 tracking-tight">Solusi Digital Terintegrasi</h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Menggabungkan keahlian pengembangan web dengan prinsip keamanan siber untuk hasil yang optimal
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service, index) => {
               const Icon = service.icon
               return (
                 <Card 
                   key={index}
-                  className={`group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
+                  className={`group border-slate-200/80 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${index * 100 + 400}ms` }}
                 >
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className="w-8 h-8 text-blue-600" />
+                  <CardContent className="p-5 sm:p-6 text-center">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                    <p className="text-gray-600 text-sm">{service.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{service.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -335,19 +335,19 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio Highlights - Enhanced */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div
-            className={`text-center mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <Badge className="mb-4 px-4 py-2 bg-purple-100 text-purple-800 hover:bg-purple-200">Portofolio</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Proyek Unggulan</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-purple-100 text-purple-800 hover:bg-purple-200 text-xs sm:text-sm font-semibold">Portofolio</Badge>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4 tracking-tight">Proyek Unggulan</h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Berikut adalah beberapa karya terbaru yang menunjukkan keterampilan dan kreativitas saya
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
             {portfolioHighlights.map((project, index) => (
               <Card
                 key={project.id}

@@ -236,20 +236,20 @@ export default function AboutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20 sm:pt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`text-center mb-10 sm:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <Badge className="mb-4 px-4 py-2 bg-blue-100 text-blue-800 hover:bg-blue-200">
+          <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-blue-100 text-blue-800 hover:bg-blue-200 text-xs sm:text-sm font-semibold">
             Tentang Saya
           </Badge>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-4 sm:mb-6 tracking-tight">
             Perjalanan Saya di Dunia Teknologi
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Saya membangun sistem web grade-produksi secara end-to-end — mulai dari API NestJS dan frontend Next.js hingga deployment di Linux VPS serta alur kerja otomatisasi berbasis AI. Menggabungkan pengembangan dan keamanan untuk menciptakan solusi digital yang tangguh dan skalabel.
           </p>
         </div>
@@ -545,56 +545,56 @@ export default function AboutPage() {
 
       {/* Certification Modal */}
       {showModal && selectedCert && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="relative bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
-            <div className="sticky top-0 bg-white border-b p-4 flex items-center justify-between">
-              <h3 className="text-xl font-bold text-gray-900">{selectedCert.name}</h3>
-              <Button variant="ghost" size="icon" onClick={closeCertModal}>
+        <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center z-50 p-3 sm:p-4 overflow-y-auto">
+          <div className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl my-auto">
+            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b p-3.5 sm:p-4 flex items-center justify-between z-10">
+              <h3 className="text-base sm:text-xl font-bold text-gray-900 pr-4 line-clamp-1">{selectedCert.name}</h3>
+              <Button variant="ghost" size="icon" onClick={closeCertModal} className="rounded-full flex-shrink-0">
                 <X className="w-5 h-5" />
               </Button>
             </div>
-            <div className="p-6">
-              <div className="relative w-full h-96 mb-6 bg-gray-100 rounded-lg overflow-hidden">
+            <div className="p-4 sm:p-6">
+              <div className="relative w-full h-52 xs:h-64 sm:h-80 mb-6 bg-slate-100 rounded-xl overflow-hidden">
                 <Image
                   src={selectedCert.image}
                   alt={selectedCert.name}
                   fill
-                  className="object-contain"
+                  className="object-contain p-2"
                 />
               </div>
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm text-gray-500">Issuer</p>
-                    <p className="font-medium text-gray-900">{selectedCert.issuer}</p>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
+                  <div className="p-2.5 bg-slate-50 rounded-lg">
+                    <p className="text-xs text-slate-500 font-medium">Issuer</p>
+                    <p className="font-semibold text-slate-900">{selectedCert.issuer}</p>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Year</p>
-                    <p className="font-medium text-gray-900">{selectedCert.year}</p>
+                  <div className="p-2.5 bg-slate-50 rounded-lg">
+                    <p className="text-xs text-slate-500 font-medium">Tahun</p>
+                    <p className="font-semibold text-slate-900">{selectedCert.year}</p>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Credential ID</p>
-                    <p className="font-medium text-gray-900">{selectedCert.credential}</p>
+                  <div className="p-2.5 bg-slate-50 rounded-lg">
+                    <p className="text-xs text-slate-500 font-medium">Credential ID</p>
+                    <p className="font-semibold text-slate-900 truncate">{selectedCert.credential}</p>
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Category</p>
+                  <div className="p-2.5 bg-slate-50 rounded-lg">
+                    <p className="text-xs text-slate-500 font-medium">Kategori</p>
                     <Badge className={selectedCert.category === "security" ? "bg-purple-100 text-purple-800" : "bg-blue-100 text-blue-800"}>
                       {selectedCert.category === "security" ? "Cybersecurity" : "Web Development"}
                     </Badge>
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 mb-1">Description</p>
-                  <p className="text-gray-700">{selectedCert.description}</p>
+                  <p className="text-xs text-slate-500 font-medium mb-1">Deskripsi</p>
+                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">{selectedCert.description}</p>
                 </div>
-                <div className="flex gap-3 pt-4">
-                  <Button className="flex-1" onClick={() => window.open(`/certificates/${selectedCert.credential}.pdf`, '_blank')}>
+                <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-4">
+                  <Button className="w-full sm:flex-1 py-5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl text-xs sm:text-sm" onClick={() => window.open(`/certificates/${selectedCert.credential}.pdf`, '_blank')}>
                     <Download className="w-4 h-4 mr-2" />
                     Download Sertifikat
                   </Button>
-                  <Button variant="outline" className="flex-1" onClick={() => window.open(`https://verify.${selectedCert.issuer.toLowerCase().replace(' ', '')}.com/${selectedCert.credential}`, '_blank')}>
+                  <Button variant="outline" className="w-full sm:flex-1 py-5 rounded-xl text-xs sm:text-sm" onClick={() => window.open(`https://verify.${selectedCert.issuer.toLowerCase().replace(' ', '')}.com/${selectedCert.credential}`, '_blank')}>
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Verifikasi
+                    Verifikasi Sertifikat
                   </Button>
                 </div>
               </div>
