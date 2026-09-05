@@ -19,9 +19,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Gaza Alfath Nugroho - Full-Stack Developer & Cyber Security Enthusiast",
-  description: "Modern portfolio website of Gaza Alfath Nugroho, showcasing expertise in Full-Stack Web Development, Mobile Apps, and Cyber Security.",
-  keywords: ["Gaza Alfath Nugroho", "Full-Stack Developer", "Cyber Security", "Web Development", "Next.js Portfolio", "React Developer", "Software Engineer"],
+  title: "Gaza Alfath Nugroho (gazaa alafath) - D3 Teknik Informatika Politeknik Negeri Semarang",
+  description: "Portofolio resmi Gaza Alfath Nugroho (gazaa alafath), Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Full-Stack Developer & Cyber Security Enthusiast.",
+  keywords: [
+    "gazaa alafath",
+    "Gaza Alfath Nugroho",
+    "Gaza Alfath",
+    "gaza alfath polines",
+    "gazaa alafath politeknik negeri semarang",
+    "D3 Teknik Informatika Politeknik Negeri Semarang",
+    "Teknik Informatika Polines",
+    "Politeknik Negeri Semarang",
+    "POLINES",
+    "Gaza Alfath Kuliah Dimana",
+    "Full-Stack Developer",
+    "Cyber Security",
+    "Next.js Portfolio",
+    "React Developer",
+    "Software Engineer"
+  ],
   authors: [{ name: "Gaza Alfath Nugroho", url: "https://gazaalfath.my.id" }],
   creator: "Gaza Alfath Nugroho",
   publisher: "Gaza Alfath Nugroho",
@@ -31,8 +47,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Gaza Alfath Nugroho - Full-Stack & Cyber Security",
-    description: "Explore the professional portfolio of Gaza Alfath Nugroho, featuring innovative web projects and cyber security insights.",
+    title: "Gaza Alfath Nugroho (gazaa alafath) - D3 Teknik Informatika POLINES",
+    description: "Portofolio Gaza Alfath Nugroho (gazaa alafath), Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Menampilkan proyek Web Development & Cyber Security.",
     url: "https://gazaalfath.my.id",
     siteName: "Gaza Alfath Portfolio",
     images: [
@@ -43,15 +59,15 @@ export const metadata: Metadata = {
         alt: "Gaza Alfath Nugroho Portfolio",
       },
     ],
-    locale: "en_ID",
+    locale: "id_ID",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaza Alfath Nugroho - Full-Stack & Cyber Security",
-    description: "Innovative web development and cyber security portfolio.",
+    title: "Gaza Alfath Nugroho (gazaa alafath) - D3 Teknik Informatika POLINES",
+    description: "Portofolio Gaza Alfath Nugroho, Mahasiswa D3 Teknik Informatika Politeknik Negeri Semarang.",
     images: ["/opengraph-image.png"],
-    creator: "@gaz_fath", // Update this if you have a different twitter handle
+    creator: "@gazfath12",
   },
   robots: {
     index: true,
@@ -80,11 +96,32 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Gaza Alfath Nugroho",
+    alternateName: ["gazaa alafath", "Gaza Alfath", "gazfath", "gazfath12"],
     url: "https://gazaalfath.my.id",
     jobTitle: "Full-Stack Developer & Cyber Security Enthusiast",
+    description: "Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES) yang berfokus pada Full-Stack Web Development dan Cybersecurity.",
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Politeknik Negeri Semarang",
+        alternateName: "POLINES",
+        url: "https://www.polines.ac.id"
+      }
+    ],
+    knowsAbout: [
+      "Teknik Informatika",
+      "Full-Stack Web Development",
+      "Cyber Security",
+      "Next.js",
+      "React",
+      "Laravel",
+      "Node.js"
+    ],
     sameAs: [
       "https://www.linkedin.com/in/gaza-alfath-0830982a9/",
-      "https://github.com/gazfath12"
+      "https://github.com/gazfath12",
+      "https://www.instagram.com/gaz_fath/",
+      "https://twitter.com/gazfath12"
     ]
   }
 

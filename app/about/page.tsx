@@ -119,6 +119,17 @@ export default function AboutPage() {
 
   const education = [
     {
+      degree: "D3 Teknik Informatika",
+      school: "Politeknik Negeri Semarang (POLINES)",
+      year: "2024 - Sekarang",
+      description: "Menempuh pendidikan vokasi D3 Teknik Informatika dengan fokus pada Software Engineering, Web & Mobile Development, serta Keamanan Jaringan.",
+      achievements: [
+        "Mendalami pemrograman tingkat lanjut, struktur data, dan arsitektur perangkat lunak",
+        "Mengembangkan proyek aplikasi web & sistem informasi berbasis standar industri",
+        "Fokus pada integrasi Full-Stack Software Engineering dan Cybersecurity"
+      ]
+    },
+    {
       degree: "Information Technology Program",
       school: "PPQIT Al - Mahir (Al-Mahir IT & Islamic Boarding School)",
       year: "March 2023 - June 2026",
@@ -273,25 +284,31 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Gaza Alfath Nugroho</h3>
+                <p className="text-xs text-blue-600 font-semibold mb-3">(@gazaa alafath)</p>
                 <div className="flex flex-wrap gap-2 justify-center mb-4">
-                  <Badge className="bg-blue-100 text-blue-800">Full-Stack Developer</Badge>
+                  <Badge className="bg-blue-100 text-blue-800">D3 Teknik Informatika POLINES</Badge>
+                  <Badge className="bg-emerald-100 text-emerald-800">Full-Stack Developer</Badge>
                   <Badge className="bg-purple-100 text-purple-800">Cybersecurity Enthusiast</Badge>
                 </div>
 
                 {/* Quick Info */}
                 <div className="space-y-2 text-left mt-4">
                   <div className="flex items-center text-gray-600">
-                    <Globe className="w-4 h-4 mr-2 text-blue-600" />
-                    <span className="text-sm">Bekasi, West Java, Indonesia</span>
+                    <GraduationCap className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm font-medium text-slate-800">Politeknik Negeri Semarang (POLINES)</span>
                   </div>
                   <div className="flex items-center text-gray-600">
-                    <Users className="w-4 h-4 mr-2 text-blue-600" />
+                    <Globe className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm">Semarang & Bekasi, Indonesia</span>
+                  </div>
+                  <div className="flex items-center text-gray-600">
+                    <Users className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
                     <span className="text-sm">Open to Internship / Junior Role & Kolaborasi</span>
                   </div>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed mt-4">
-                  Dengan pengalaman 3+ tahun dalam belajar mandiri dan pengerjaan proyek nyata, saya telah meluncurkan platform SaaS komersial, membangun sistem manajemen sekolah (SIAKAD) dengan penjadwalan anti-bentrok, dan mengembangkan perangkat investigasi OSINT di server Ubuntu VPS. Saya tidak hanya menulis fitur, tetapi memikirkan skalabilitas, area serangan (attack surface), dan keandalan operasional sejak hari pertama, serta memanfaatkan AI (Local LLMs, n8n, Python bots) untuk akselerasi pengiriman.
+                <p className="text-gray-600 leading-relaxed mt-4 text-sm">
+                  Saya <strong>Gaza Alfath Nugroho</strong> (dikenal di dunia maya sebagai <strong>gazaa alafath</strong>), seorang mahasiswa <strong>D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES)</strong>. Memiliki pengalaman 3+ tahun dalam pengembangan aplikasi web dan riset keamanan siber. Saya telah meluncurkan platform SaaS komersial, membangun sistem manajemen akademik (SIAKAD), serta mengembangkan arsitektur sistem yang aman dan scalable.
                 </p>
               </CardContent>
             </Card>

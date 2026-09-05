@@ -185,16 +185,15 @@ export default function HomePage() {
                 </h1>
                 
                 <div className="text-sm sm:text-base text-gray-600 font-medium flex items-center flex-wrap gap-2 pt-1">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Full-Stack Developer</span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">🎓 D3 Teknik Informatika POLINES</span>
+                  <span className="text-gray-300 hidden sm:inline">•</span>
+                  <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Full-Stack Developer</span>
                   <span className="text-gray-300 hidden sm:inline">•</span>
                   <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Cybersecurity Enthusiast</span>
                 </div>
                 
                 <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                  Saya menciptakan solusi digital yang tidak hanya indah secara visual, 
-                  tetapi juga aman dan andal. Dengan latar belakang di bidang pengembangan 
-                  web dan keamanan siber, saya membantu bisnis dan organisasi membangun 
-                  produk digital yang tangguh dan terpercaya.
+                  Saya <strong>Gaza Alfath Nugroho</strong> (dikenal juga sebagai <strong>gazaa alafath</strong>), mahasiswa <strong>D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES)</strong>. Saya menciptakan solusi digital yang tidak hanya indah secara visual, tetapi juga aman, performan, dan andal.
                 </p>
               </div>
 
