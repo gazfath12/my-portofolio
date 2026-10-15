@@ -22,104 +22,111 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://gazaalfath.my.id"),
   alternates: {
-    canonical: "/",
+    canonical: "https://gazaalfath.my.id",
   },
-  title: "Gaza Alfath Nugroho — Fullstack Developer | Semarang",
-  description: "Fullstack Developer berbasis di Semarang. Membangun sistem web yang cepat, aman, dan menyelesaikan masalah bisnis nyata. Laravel, Next.js, MySQL.",
+
+  // ── Primary SEO ─────────────────────────────────────────────────────────────
+  title: {
+    default: "Gaza Alfath Nugroho — Full-Stack Developer & Cybersecurity | Semarang",
+    template: "%s | Gaza Alfath Nugroho",
+  },
+  description: "Full-Stack Developer & Cybersecurity Practitioner dari Semarang. Membangun sistem web production-grade dengan Laravel, Next.js, dan PostgreSQL. Tersertifikasi Google Gemini & CodeRed. Tersedia untuk freelance dan kolaborasi.",
   keywords: [
-    "Gaza Alfath Nugroho",
-    "Gaza Alfath",
-    "gaza alfath polines",
-    "gazaalfath",
-    "portofolio Gaza Alfath",
-    "D3 Teknik Informatika Politeknik Negeri Semarang",
-    "Teknik Informatika Polines",
-    "Politeknik Negeri Semarang",
-    "POLINES",
-    "Full-Stack Developer",
-    "full-stack developer Indonesia",
-    "fullstack developer Semarang",
-    "web developer Semarang",
-    "pengembang web Semarang",
-    "pengembang aplikasi web",
-    "jasa pembuatan website",
-    "jasa web developer Indonesia",
-    "freelance web developer Indonesia",
-    "software engineer Indonesia",
-    "programmer Semarang",
-    "Cyber Security Practitioner",
-    "cybersecurity Indonesia",
-    "praktisi keamanan siber",
-    "Next.js Portfolio",
-    "Next.js developer",
-    "React Developer",
-    "react developer Indonesia",
-    "Laravel developer",
-    "TypeScript developer",
-    "Node.js developer",
-    "PostgreSQL developer",
-    "MySQL developer",
-    "Tailwind CSS developer",
-    "Docker",
-    "Linux VPS",
-    "OSINT",
-    "pentesting",
-    "SIAKAD Almahir",
-    "PDFForge",
-    "sistem informasi akademik",
-    "portofolio programmer Indonesia",
-    "portofolio mahasiswa informatika",
-    "Software Engineer",
-    "frontend developer Indonesia",
-    "backend developer Indonesia"
+    // Name variants
+    "Gaza Alfath Nugroho", "Gaza Alfath", "gazaalfath", "gaz fath", "gazfath12",
+    // Portfolio
+    "portofolio Gaza Alfath", "portfolio Gaza Alfath Nugroho", "Gaza Alfath portfolio",
+    // Education
+    "D3 Teknik Informatika POLINES", "Politeknik Negeri Semarang", "POLINES Semarang",
+    "mahasiswa informatika Semarang", "Teknik Informatika Polines",
+    // Job roles
+    "Full-Stack Developer Indonesia", "fullstack developer Semarang", "web developer Semarang",
+    "freelance web developer Indonesia", "software engineer Indonesia", "programmer Semarang",
+    "jasa pembuatan website Semarang", "jasa web developer Indonesia",
+    "frontend developer Indonesia", "backend developer Indonesia",
+    // Security
+    "Cybersecurity Practitioner Indonesia", "praktisi keamanan siber", "OSINT Indonesia",
+    "pentesting Indonesia", "cybersecurity Semarang",
+    // Tech stack
+    "Next.js developer Indonesia", "Laravel developer Indonesia", "React developer Indonesia",
+    "TypeScript developer", "Node.js developer", "PostgreSQL developer",
+    "Tailwind CSS", "Docker", "Linux VPS", "MySQL developer",
+    // Projects
+    "SIAKAD Almahir", "PDFForge PDF compress", "Nexcore ERP", "SantriQue",
+    "sistem informasi akademik", "aplikasi web Laravel",
+    // General
+    "portofolio programmer Indonesia", "portofolio mahasiswa informatika",
+    "Google Gemini Certified", "Gemini tersertifikasi",
   ],
   authors: [{ name: "Gaza Alfath Nugroho", url: "https://gazaalfath.my.id" }],
   creator: "Gaza Alfath Nugroho",
   publisher: "Gaza Alfath Nugroho",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  category: "technology",
+  classification: "Portfolio, Web Development, Cybersecurity",
+  formatDetection: { email: false, address: false, telephone: false },
+
+  // ── Open Graph (link preview di WhatsApp, Telegram, Discord, FB, dll) ───────
   openGraph: {
-    title: "Gaza Alfath Nugroho - D3 Teknik Informatika POLINES",
-    description: "Portofolio Gaza Alfath Nugroho, Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Full-Stack Developer & Cybersecurity Practitioner.",
+    title: "Gaza Alfath Nugroho — Full-Stack Developer & Cybersecurity",
+    description: "Lihat proyek production-grade: SIAKAD Almahir, Nexcore ERP, PDFForge, dan lebih banyak lagi. Laravel, Next.js, React, PostgreSQL. Tersertifikasi Google Gemini.",
     url: "https://gazaalfath.my.id",
-    siteName: "Gaza Alfath Portfolio",
+    siteName: "Gaza Alfath — Portfolio",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "https://gazaalfath.my.id/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Gaza Alfath Nugroho Portfolio",
+        alt: "Gaza Alfath Nugroho — Full-Stack Developer & Cybersecurity Portfolio",
+        type: "image/png",
       },
     ],
     locale: "id_ID",
+    alternateLocale: "en_US",
     type: "website",
   },
+
+  // ── Twitter / X Card ────────────────────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Gaza Alfath Nugroho - D3 Teknik Informatika POLINES",
-    description: "Portofolio Gaza Alfath Nugroho, Mahasiswa D3 Teknik Informatika Politeknik Negeri Semarang.",
-    images: ["/opengraph-image.png"],
+    site: "@gazfath12",
     creator: "@gazfath12",
+    title: "Gaza Alfath Nugroho — Full-Stack Developer & Cybersecurity",
+    description: "Portfolio: SIAKAD, Nexcore ERP, PDFForge. Laravel, Next.js, React, PostgreSQL. Google Gemini Certified. Based in Semarang, Indonesia.",
+    images: [
+      {
+        url: "https://gazaalfath.my.id/opengraph-image.png",
+        alt: "Gaza Alfath Nugroho Portfolio",
+      },
+    ],
   },
+
+  // ── Robots & Crawling ───────────────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
+
+  // ── Icons ───────────────────────────────────────────────────────────────────
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/icon.png",
   },
+
+  // ── Verification (isi setelah daftar di Google Search Console) ──────────────
+  // verification: { google: "PASTE_YOUR_GSC_VERIFICATION_CODE_HERE" },
 }
 
 export default function RootLayout({
@@ -127,37 +134,95 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const jsonLd = {
+  const jsonLdPerson = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://gazaalfath.my.id/#person",
     name: "Gaza Alfath Nugroho",
+    alternateName: ["Gaza Alfath", "gazaalfath", "gazfath12"],
     url: "https://gazaalfath.my.id",
+    image: "https://gazaalfath.my.id/gaza-formal.jpg",
     jobTitle: "Full-Stack Developer & Cybersecurity Practitioner",
-    description: "Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES) yang berfokus pada Full-Stack Web Development dan Cybersecurity.",
+    description: "Full-Stack Developer dan Cybersecurity Practitioner dari Semarang, Indonesia. Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Membangun sistem web production-grade dengan Laravel, Next.js, dan PostgreSQL.",
+    email: "gazfath12@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Semarang",
+      addressRegion: "Jawa Tengah",
+      addressCountry: "ID",
+    },
     alumniOf: [
       {
         "@type": "EducationalOrganization",
         name: "Politeknik Negeri Semarang",
         alternateName: "POLINES",
-        url: "https://www.polines.ac.id"
-      }
+        url: "https://www.polines.ac.id",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Semarang",
+          addressCountry: "ID",
+        },
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "PPQIT Al-Mahir Boarding School",
+        addressLocality: "Boyolali",
+        addressCountry: "ID",
+      },
+    ],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        name: "Siswa Tersertifikasi Gemini",
+        credentialCategory: "certificate",
+        recognizedBy: { "@type": "Organization", name: "Google for Education" },
+        url: "https://edu.google.accredible.com/dd1362d5-cb8d-42fb-8aa0-b03e31ee843a",
+        validFrom: "2026-10-06",
+        validUntil: "2029-10-06",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        name: "Basic Cybersecurity Practitioner",
+        credentialCategory: "certificate",
+        recognizedBy: { "@type": "Organization", name: "Codepolitan (JagoanSiber)" },
+      },
     ],
     knowsAbout: [
-      "Teknik Informatika",
-      "Full-Stack Web Development",
-      "Cybersecurity",
-      "Next.js",
-      "React",
-      "Laravel",
-      "Node.js"
+      "Full-Stack Web Development", "Cybersecurity", "Teknik Informatika",
+      "Next.js", "React", "Laravel", "Node.js", "PostgreSQL", "MySQL",
+      "TypeScript", "Docker", "Linux VPS", "OSINT", "Penetration Testing",
     ],
+    knowsLanguage: ["id", "en"],
     sameAs: [
       "https://www.linkedin.com/in/gaza-alfath-0830982a9/",
       "https://github.com/gazfath12",
       "https://www.instagram.com/gaz_fath/",
-      "https://twitter.com/gazfath12"
-    ]
+    ],
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://gazaalfath.my.id",
+    },
   }
+
+  const jsonLdWebsite = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://gazaalfath.my.id/#website",
+    name: "Gaza Alfath Nugroho — Portfolio",
+    url: "https://gazaalfath.my.id",
+    description: "Portfolio Full-Stack Developer & Cybersecurity Practitioner dari Semarang, Indonesia.",
+    author: { "@id": "https://gazaalfath.my.id/#person" },
+    inLanguage: ["id", "en"],
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://gazaalfath.my.id/projects?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  }
+
 
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
@@ -169,7 +234,11 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
       </head>
       <body className={`${inter.className} min-h-screen overflow-x-hidden antialiased bg-page text-ink selection:bg-orange-500 selection:text-white`}>

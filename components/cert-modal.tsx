@@ -45,14 +45,47 @@ export function CertModal({ cert, onClose }: CertModalProps) {
         {/* Body */}
         <div className="p-5 sm:p-6 space-y-5 text-xs sm:text-sm">
           {/* Certificate Image Box */}
-          <div className="relative w-full h-56 sm:h-72 bg-surface2 rounded-xl overflow-hidden border border-line flex items-center justify-center p-2">
-            <Image
-              src={cert.image}
-              alt={cert.name}
-              fill
-              className="object-contain"
-            />
-          </div>
+          {cert.category === "ai" ? (
+            // Premium Gemini thumbnail - dark gradient with star icon
+            <div className="relative w-full h-56 sm:h-72 rounded-xl overflow-hidden border border-line flex flex-col items-center justify-center gap-4"
+              style={{ background: "linear-gradient(135deg, #0d1117 0%, #0a1628 40%, #0d1a2e 70%, #0f1117 100%)" }}
+            >
+              {/* Subtle glow behind star */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div style={{ width: 180, height: 180, borderRadius: "50%", background: "radial-gradient(circle, rgba(66,133,244,0.18) 0%, transparent 70%)" }} />
+              </div>
+              {/* Gemini 4-pointed star SVG */}
+              <svg viewBox="0 0 100 100" className="w-20 h-20 relative z-10" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="gStar" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#4285F4" />
+                    <stop offset="33%" stopColor="#EA4335" />
+                    <stop offset="66%" stopColor="#FBBC05" />
+                    <stop offset="100%" stopColor="#34A853" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#gStar)" d="M50 5 C50 5 55 45 95 50 C55 55 50 95 50 95 C50 95 45 55 5 50 C45 45 50 5 50 5Z" />
+              </svg>
+              {/* Text */}
+              <div className="relative z-10 text-center space-y-1 px-4">
+                <p className="text-white font-bold text-base sm:text-lg tracking-tight">Gemini Certified</p>
+                <p className="text-blue-400 text-xs font-medium">Google for Education</p>
+                <div className="flex items-center justify-center gap-2 pt-1">
+                  <span className="text-[10px] text-slate-400 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full">Issued 2026</span>
+                  <span className="text-[10px] text-slate-400 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full">Valid until 2029</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="relative w-full h-56 sm:h-72 bg-surface2 rounded-xl overflow-hidden border border-line flex items-center justify-center p-2">
+              <Image
+                src={cert.image}
+                alt={cert.name}
+                fill
+                className="object-contain"
+              />
+            </div>
+          )}
 
           {/* Details Table Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
