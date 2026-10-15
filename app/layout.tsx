@@ -1,17 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { ThemeProvider } from "next-themes"
 import "./globals.css"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+})
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0f172a",
+  themeColor: "#09090b",
 }
 
 export const metadata: Metadata = {
@@ -19,24 +24,54 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Gaza Alfath Nugroho (gazaa alafath) - D3 Teknik Informatika Politeknik Negeri Semarang",
-  description: "Portofolio resmi Gaza Alfath Nugroho (gazaa alafath), Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Full-Stack Developer & Cyber Security Enthusiast.",
+  title: "Gaza Alfath Nugroho — Fullstack Developer | Semarang",
+  description: "Fullstack Developer berbasis di Semarang. Membangun sistem web yang cepat, aman, dan menyelesaikan masalah bisnis nyata. Laravel, Next.js, MySQL.",
   keywords: [
-    "gazaa alafath",
     "Gaza Alfath Nugroho",
     "Gaza Alfath",
     "gaza alfath polines",
-    "gazaa alafath politeknik negeri semarang",
+    "gazaalfath",
+    "portofolio Gaza Alfath",
     "D3 Teknik Informatika Politeknik Negeri Semarang",
     "Teknik Informatika Polines",
     "Politeknik Negeri Semarang",
     "POLINES",
-    "Gaza Alfath Kuliah Dimana",
     "Full-Stack Developer",
-    "Cyber Security",
+    "full-stack developer Indonesia",
+    "fullstack developer Semarang",
+    "web developer Semarang",
+    "pengembang web Semarang",
+    "pengembang aplikasi web",
+    "jasa pembuatan website",
+    "jasa web developer Indonesia",
+    "freelance web developer Indonesia",
+    "software engineer Indonesia",
+    "programmer Semarang",
+    "Cyber Security Practitioner",
+    "cybersecurity Indonesia",
+    "praktisi keamanan siber",
     "Next.js Portfolio",
+    "Next.js developer",
     "React Developer",
-    "Software Engineer"
+    "react developer Indonesia",
+    "Laravel developer",
+    "TypeScript developer",
+    "Node.js developer",
+    "PostgreSQL developer",
+    "MySQL developer",
+    "Tailwind CSS developer",
+    "Docker",
+    "Linux VPS",
+    "OSINT",
+    "pentesting",
+    "SIAKAD Almahir",
+    "PDFForge",
+    "sistem informasi akademik",
+    "portofolio programmer Indonesia",
+    "portofolio mahasiswa informatika",
+    "Software Engineer",
+    "frontend developer Indonesia",
+    "backend developer Indonesia"
   ],
   authors: [{ name: "Gaza Alfath Nugroho", url: "https://gazaalfath.my.id" }],
   creator: "Gaza Alfath Nugroho",
@@ -47,8 +82,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Gaza Alfath Nugroho (gazaa alafath) - D3 Teknik Informatika POLINES",
-    description: "Portofolio Gaza Alfath Nugroho (gazaa alafath), Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Menampilkan proyek Web Development & Cyber Security.",
+    title: "Gaza Alfath Nugroho - D3 Teknik Informatika POLINES",
+    description: "Portofolio Gaza Alfath Nugroho, Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES). Full-Stack Developer & Cybersecurity Practitioner.",
     url: "https://gazaalfath.my.id",
     siteName: "Gaza Alfath Portfolio",
     images: [
@@ -64,7 +99,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaza Alfath Nugroho (gazaa alafath) - D3 Teknik Informatika POLINES",
+    title: "Gaza Alfath Nugroho - D3 Teknik Informatika POLINES",
     description: "Portofolio Gaza Alfath Nugroho, Mahasiswa D3 Teknik Informatika Politeknik Negeri Semarang.",
     images: ["/opengraph-image.png"],
     creator: "@gazfath12",
@@ -96,9 +131,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Gaza Alfath Nugroho",
-    alternateName: ["gazaa alafath", "Gaza Alfath", "gazfath", "gazfath12"],
     url: "https://gazaalfath.my.id",
-    jobTitle: "Full-Stack Developer & Cyber Security Enthusiast",
+    jobTitle: "Full-Stack Developer & Cybersecurity Practitioner",
     description: "Mahasiswa D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES) yang berfokus pada Full-Stack Web Development dan Cybersecurity.",
     alumniOf: [
       {
@@ -111,7 +145,7 @@ export default function RootLayout({
     knowsAbout: [
       "Teknik Informatika",
       "Full-Stack Web Development",
-      "Cyber Security",
+      "Cybersecurity",
       "Next.js",
       "React",
       "Laravel",
@@ -126,18 +160,26 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="id">
+    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.classList.add(t)}else{document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}})()`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen overflow-x-hidden antialiased text-slate-900 bg-slate-50 selection:bg-blue-500 selection:text-white`}>
-        <Navbar />
-        <main className="overflow-x-hidden">{children}</main>
-        <Footer />
+      <body className={`${inter.className} min-h-screen overflow-x-hidden antialiased bg-page text-ink selection:bg-orange-500 selection:text-white`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Navbar />
+          <main className="overflow-x-hidden">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
 }
+

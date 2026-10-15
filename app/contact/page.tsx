@@ -17,28 +17,28 @@ export default function ContactPage() {
       label: "Email",
       value: "gazfath12@gmail.com",
       href: "mailto:gazfath12@gmail.com",
-      color: "bg-blue-100 text-blue-600",
+      color: "bg-brand-soft text-brand",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+62 (896) 3750 3791",
       href: "tel:+629637503791",
-      color: "bg-green-100 text-green-600",
+      color: "bg-green-soft text-green",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Bekasi, West Java, Indonesia",
       href: "#map",
-      color: "bg-purple-100 text-purple-600",
+      color: "bg-purple-soft text-purple",
     },
     {
       icon: Globe,
       label: "Website",
       value: "gazaalfath.my.id",
       href: "https://www.gazaalfath.my.id/",
-      color: "bg-orange-100 text-orange-600",
+      color: "bg-orange-soft text-orange",
     },
   ]
 
@@ -47,48 +47,48 @@ export default function ContactPage() {
       name: "GitHub",
       icon: Github,
       url: "https://github.com/gazfath12",
-      color: "hover:text-gray-900 dark:hover:text-white",
-      bgColor: "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700",
+      color: "hover:text-ink",
+      bgColor: "bg-surface2 hover:bg-surface3",
       description: "@gazfath12",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
       url: "https://www.linkedin.com/in/gaza-alfath-0830982a9/",
-      color: "hover:text-blue-600",
-      bgColor: "bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30",
+      color: "hover:text-brand",
+      bgColor: "bg-brand-soft hover:bg-brand/10",
       description: "Gaza Alfath",
     },
     {
       name: "Instagram",
       icon: Instagram,
       url: "https://www.instagram.com/gaz_fath/",
-      color: "hover:text-pink-600",
-      bgColor: "bg-pink-50 hover:bg-pink-100 dark:bg-pink-900/20 dark:hover:bg-pink-900/30",
+      color: "hover:text-pink",
+      bgColor: "bg-pink-soft hover:bg-pink/10",
       description: "@gaz_fath",
     },
     {
       name: "Twitter / X",
       icon: Twitter,
       url: "https://twitter.com/gazfath12",
-      color: "hover:text-sky-500",
-      bgColor: "bg-sky-50 hover:bg-sky-100 dark:bg-sky-900/20 dark:hover:bg-sky-900/30",
+      color: "hover:text-sky",
+      bgColor: "bg-sky-soft hover:bg-sky/10",
       description: "@gazfath12",
     },
     {
       name: "WhatsApp",
       icon: Phone,
       url: "https://wa.me/6289637503791",
-      color: "hover:text-emerald-600",
-      bgColor: "bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-900/20 dark:hover:bg-emerald-900/30",
+      color: "hover:text-emerald",
+      bgColor: "bg-emerald-soft hover:bg-emerald/10",
       description: "+62 896-3750-3791",
     },
     {
       name: "Personal Blog",
       icon: Globe,
       url: "https://blog.gazaalfath.my.id/",
-      color: "hover:text-orange-600",
-      bgColor: "bg-orange-50 hover:bg-orange-100 dark:bg-orange-900/20 dark:hover:bg-orange-900/30",
+      color: "hover:text-orange",
+      bgColor: "bg-orange-soft hover:bg-orange/10",
       description: "blog.gazaalfath.my.id",
     },
   ]
@@ -101,14 +101,14 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 pt-20 sm:pt-24">
+    <div className="min-h-screen bg-page pt-20 sm:pt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
         <div
           className={`text-center mb-10 sm:mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white mb-3 sm:mb-4 tracking-tight">Get In Touch</h1>
-          <p className="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-ink mb-3 sm:mb-4 tracking-tight">Get In Touch</h1>
+          <p className="text-base sm:text-xl text-ink3 max-w-3xl mx-auto leading-relaxed">
            Mari kita terhubung dan membahas peluang, kolaborasi, atau sekadar mengobrol santai tentang teknologi dan desain.
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function ContactPage() {
             return (
               <Card
                 key={contact.label}
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl border-slate-200/80"
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl border-line"
               >
                 <CardContent className="p-5 sm:p-6 text-center">
                   <div
@@ -130,10 +130,10 @@ export default function ContactPage() {
                   >
                     <IconComponent className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
-                  <h3 className="font-bold text-slate-900 dark:text-white mb-1.5 text-base sm:text-lg">{contact.label}</h3>
+                  <h3 className="font-bold text-ink mb-1.5 text-base sm:text-lg">{contact.label}</h3>
                   <a
                     href={contact.href}
-                    className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm font-medium break-all"
+                    className="text-ink3 hover:text-brand transition-colors duration-300 text-xs sm:text-sm font-medium break-all"
                   >
                     {contact.value}
                   </a>
@@ -150,13 +150,13 @@ export default function ContactPage() {
           >
             <Card className="h-full">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900 dark:text-white flex items-center">
+                <CardTitle className="text-2xl text-ink flex items-center">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-sm">SM</span>
                   </div>
                   Connect With Me
                 </CardTitle>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-ink3">
                   Ikuti perjalanan saya dan tetap terupdate dengan proyek dan wawasan terbaru saya.
                 </p>
               </CardHeader>
@@ -177,8 +177,8 @@ export default function ContactPage() {
                             className={`w-6 h-6 transition-all duration-300 group-hover:scale-110 ${social.color}`}
                           />
                           <div>
-                            <p className="font-semibold text-gray-900 dark:text-white">{social.name}</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-300">{social.description}</p>
+                            <p className="font-semibold text-ink">{social.name}</p>
+                            <p className="text-sm text-ink3">{social.description}</p>
                           </div>
                         </div>
                       </a>
@@ -226,7 +226,7 @@ export default function ContactPage() {
                 <Button
                   asChild
                   variant="secondary"
-                  className="w-full mt-4 bg-white/20 hover:bg-white/30 text-white border-white/30"
+                  className="w-full mt-4 bg-surface/20 hover:bg-surface/30 text-white border-white/30"
                 >
                   <a href="mailto:gazfath12@gmail.com">
                     <Mail className="w-4 h-4 mr-2" />
@@ -245,11 +245,11 @@ export default function ContactPage() {
         >
           <Card className="overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-2xl text-gray-900 dark:text-white flex items-center">
+              <CardTitle className="text-2xl text-ink flex items-center">
                 <MapPin className="w-6 h-6 mr-3 text-purple-600" />
                 Find Me Here
               </CardTitle>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-ink3">
             Berdomisili di Bekasi, Jawa Barat, Indonesia, dan terbuka untuk kesempatan kerja maupun kolaborasi secara Remote, Hybrid, maupun On-site.
               </p>
             </CardHeader>
@@ -267,12 +267,12 @@ export default function ContactPage() {
                 ></iframe>
 
                 {/* Map Overlay Info */}
-                <div className="absolute top-4 left-4 bg-white dark:bg-gray-900 rounded-lg shadow-lg p-4 max-w-xs">
+                <div className="absolute top-4 left-4 bg-surface rounded-lg shadow-lg p-4 max-w-xs">
                   <div className="flex items-center space-x-2 mb-2">
                     <div className="w-3 h-3 bg-purple-600 rounded-full"></div>
-                    <span className="font-semibold text-gray-900 dark:text-white">Bekasi, ID</span>
+                    <span className="font-semibold text-ink">Bekasi, ID</span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-ink3">
                     Available for local meetups and coffee chats!
                   </p>
                 </div>

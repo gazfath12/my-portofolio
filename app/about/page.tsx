@@ -121,7 +121,7 @@ export default function AboutPage() {
     {
       degree: "D3 Teknik Informatika",
       school: "Politeknik Negeri Semarang (POLINES)",
-      year: "2024 - Sekarang",
+      year: "2026 - Sekarang",
       description: "Menempuh pendidikan vokasi D3 Teknik Informatika dengan fokus pada Software Engineering, Web & Mobile Development, serta Keamanan Jaringan.",
       achievements: [
         "Mendalami pemrograman tingkat lanjut, struktur data, dan arsitektur perangkat lunak",
@@ -195,17 +195,6 @@ export default function AboutPage() {
       ]
     },
     {
-      role: "Junior Full-Stack Developer",
-      company: "Mahir System",
-      period: "2025 - Present",
-      description: "Bertanggung jawab dalam pengembangan dan pengelolaan database akademik pondok pesantren",
-      achievements: [
-        "Mengoptimalkan query database sehingga meningkatkan performa 30%",
-        "Mengimplementasikan sistem backup dan recovery data",
-        "Memberikan pelatihan dasar keamanan siber kepada staf"
-      ]
-    },
-    {
       role: "Frontend Developer & Security Assistant",
       company: "Bestkacafilm",
       period: "2024 - 2025",
@@ -247,20 +236,20 @@ export default function AboutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20 sm:pt-24">
+    <div className="min-h-screen bg-page pt-20 sm:pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
         <div
           className={`text-center mb-10 sm:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-blue-100 text-blue-800 hover:bg-blue-200 text-xs sm:text-sm font-semibold">
+          <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-brand-soft text-brand-ink hover:bg-brand/10 text-xs sm:text-sm font-semibold">
             Tentang Saya
           </Badge>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-4 sm:mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-ink mb-4 sm:mb-6 tracking-tight">
             Perjalanan Saya di Dunia Teknologi
           </h1>
-          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-ink3 max-w-3xl mx-auto leading-relaxed">
             Saya membangun sistem web grade-produksi secara end-to-end — mulai dari API NestJS dan frontend Next.js hingga deployment di Linux VPS serta alur kerja otomatisasi berbasis AI. Menggabungkan pengembangan dan keamanan untuk menciptakan solusi digital yang tangguh dan skalabel.
           </p>
         </div>
@@ -276,38 +265,38 @@ export default function AboutPage() {
               <CardContent className="pt-6">
                 <div className="relative w-48 h-48 mx-auto mb-6">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-lg opacity-50 animate-pulse"></div>
-                  <Image
-                    src="/gaza-formal.jpg"
-                    alt="Gaza Alfath Nugroho"
-                    fill
-                    className="rounded-full object-cover border-4 border-white shadow-lg relative z-10"
-                  />
+                <Image
+                  src="/gaza-formal.jpg"
+                  alt="Gaza Alfath Nugroho"
+                  fill
+                  className="rounded-full object-cover border-4 border-surface shadow-lg relative z-10"
+                />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Gaza Alfath Nugroho</h3>
-                <p className="text-xs text-blue-600 font-semibold mb-3">(@gazaa alafath)</p>
+                <h3 className="text-2xl font-bold text-ink mb-2">Gaza Alfath Nugroho</h3>
+                <p className="text-xs text-brand font-semibold mb-3">(@gazaa alafath)</p>
                 <div className="flex flex-wrap gap-2 justify-center mb-4">
-                  <Badge className="bg-blue-100 text-blue-800">D3 Teknik Informatika POLINES</Badge>
-                  <Badge className="bg-emerald-100 text-emerald-800">Full-Stack Developer</Badge>
-                  <Badge className="bg-purple-100 text-purple-800">Cybersecurity Enthusiast</Badge>
+                  <Badge className="bg-brand-soft text-brand-ink">D3 Teknik Informatika POLINES</Badge>
+                  <Badge className="bg-emerald-soft text-emerald">Full-Stack Developer</Badge>
+                  <Badge className="bg-purple-soft text-purple">Cybersecurity Enthusiast</Badge>
                 </div>
 
                 {/* Quick Info */}
                 <div className="space-y-2 text-left mt-4">
-                  <div className="flex items-center text-gray-600">
-                    <GraduationCap className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
-                    <span className="text-sm font-medium text-slate-800">Politeknik Negeri Semarang (POLINES)</span>
+                  <div className="flex items-center text-ink3">
+                    <GraduationCap className="w-4 h-4 mr-2 text-brand flex-shrink-0" />
+                    <span className="text-sm font-medium text-ink2">Politeknik Negeri Semarang (POLINES)</span>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <Globe className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
+                  <div className="flex items-center text-ink3">
+                    <Globe className="w-4 h-4 mr-2 text-brand flex-shrink-0" />
                     <span className="text-sm">Semarang & Bekasi, Indonesia</span>
                   </div>
-                  <div className="flex items-center text-gray-600">
-                    <Users className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
+                  <div className="flex items-center text-ink3">
+                    <Users className="w-4 h-4 mr-2 text-brand flex-shrink-0" />
                     <span className="text-sm">Open to Internship / Junior Role & Kolaborasi</span>
                   </div>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed mt-4 text-sm">
+                <p className="text-ink3 leading-relaxed mt-4 text-sm">
                   Saya <strong>Gaza Alfath Nugroho</strong> (dikenal di dunia maya sebagai <strong>gazaa alafath</strong>), seorang mahasiswa <strong>D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES)</strong>. Memiliki pengalaman 3+ tahun dalam pengembangan aplikasi web dan riset keamanan siber. Saya telah meluncurkan platform SaaS komersial, membangun sistem manajemen akademik (SIAKAD), serta mengembangkan arsitektur sistem yang aman dan scalable.
                 </p>
               </CardContent>
@@ -323,7 +312,7 @@ export default function AboutPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Code className="w-5 h-5 mr-2 text-blue-600" />
+                  <Code className="w-5 h-5 mr-2 text-brand" />
                   Keahlian Teknis
                 </CardTitle>
               </CardHeader>
@@ -341,10 +330,10 @@ export default function AboutPage() {
                           <div key={skill.name} className="space-y-2">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center">
-                                <IconComponent className="w-4 h-4 mr-2 text-blue-600" />
-                                <span className="font-medium text-gray-900">{skill.name}</span>
+                                <IconComponent className="w-4 h-4 mr-2 text-brand" />
+                                <span className="font-medium text-ink">{skill.name}</span>
                               </div>
-                              <span className="text-sm text-gray-500">{skill.level}%</span>
+                              <span className="text-sm text-ink4">{skill.level}%</span>
                             </div>
                             <Progress value={skill.level} className="h-2" />
                           </div>
@@ -360,12 +349,12 @@ export default function AboutPage() {
                           <div key={skill.name} className="space-y-2">
                             <div className="flex items-center justify-between">
                               <div className="flex items-center">
-                                <IconComponent className="w-4 h-4 mr-2 text-purple-600" />
-                                <span className="font-medium text-gray-900">{skill.name}</span>
+                                <IconComponent className="w-4 h-4 mr-2 text-purple" />
+                                <span className="font-medium text-ink">{skill.name}</span>
                               </div>
-                              <span className="text-sm text-gray-500">{skill.level}%</span>
+                              <span className="text-sm text-ink4">{skill.level}%</span>
                             </div>
-                            <Progress value={skill.level} className="h-2 bg-purple-100" />
+                            <Progress value={skill.level} className="h-2 bg-purple-soft" />
                           </div>
                         )
                       })}
@@ -381,25 +370,25 @@ export default function AboutPage() {
                 <CardTitle>Perjalanan Karir & Minat</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-ink3 leading-relaxed">
                   Perjalanan saya di dunia teknologi dimulai sejak masa SMA, berawal dari rasa penasaran
                   tentang bagaimana website bekerja hingga akhirnya menemukan passion dalam pengembangan web.
                   Seiring waktu, saya menyadari pentingnya aspek keamanan dalam setiap produk digital,
                   yang membawa saya untuk mendalami cybersecurity.
                 </p>
 
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-ink3 leading-relaxed">
                   Saat ini, saya fokus mengintegrasikan prinsip-prinsip keamanan siber dalam setiap proyek
                   pengembangan yang saya kerjakan. Saya percaya bahwa aplikasi yang baik tidak hanya harus
                   berfungsi dengan sempurna, tetapi juga harus aman dari berbagai ancaman siber.
                 </p>
 
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg mt-4">
-                  <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                    <Target className="w-4 h-4 mr-2 text-blue-600" />
+                <div className="bg-gradient-to-r from-brand-soft to-purple-soft p-4 rounded-lg mt-4">
+                  <h4 className="font-semibold text-ink mb-2 flex items-center">
+                    <Target className="w-4 h-4 mr-2 text-brand" />
                     Kesiapan Kerja & Tujuan Karir
                   </h4>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-ink3 text-sm">
                     Terbuka untuk peran Internship atau Junior Backend / Full-Stack Engineer (Remote, Hybrid, maupun On-site), kolaborasi proyek, serta bimbingan dan mentorship dari engineer senior di tim yang berfokus pada produk teknologi yang berdampak nyata.
                   </p>
                 </div>
@@ -414,8 +403,8 @@ export default function AboutPage() {
             }`}
         >
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 flex items-center">
-              <Award className="w-8 h-8 mr-3 text-blue-600" />
+            <h2 className="text-3xl font-bold text-ink flex items-center">
+              <Award className="w-8 h-8 mr-3 text-brand" />
               Sertifikasi & Lisensi
             </h2>
             <Badge variant="outline" className="px-3 py-1">
@@ -473,20 +462,20 @@ export default function AboutPage() {
           className={`mb-16 transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <Shield className="w-8 h-8 mr-3 text-purple-600" />
+          <h2 className="text-3xl font-bold text-ink mb-8 flex items-center">
+            <Shield className="w-8 h-8 mr-3 text-purple" />
             Proyek & Aktivitas Cybersecurity
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {securityProjects.map((project, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all hover:border-purple-200">
+              <Card key={index} className="hover:shadow-lg transition-all hover:border-purple/40">
                 <CardContent className="pt-6">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <Lock className="w-6 h-6 text-purple-600" />
+                  <div className="w-12 h-12 bg-purple-soft rounded-lg flex items-center justify-center mb-4">
+                    <Lock className="w-6 h-6 text-purple" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{project.name}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{project.description}</p>
-                  <Badge variant="outline" className="text-purple-600 border-purple-200">
+                  <h3 className="text-lg font-bold text-ink mb-2">{project.name}</h3>
+                  <p className="text-ink3 text-sm mb-3">{project.description}</p>
+                  <Badge variant="outline" className="text-purple border-purple/40">
                     {project.year}
                   </Badge>
                 </CardContent>
@@ -500,22 +489,22 @@ export default function AboutPage() {
           className={`mb-16 transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <GraduationCap className="w-8 h-8 mr-3 text-blue-600" />
+          <h2 className="text-3xl font-bold text-ink mb-8 flex items-center">
+            <GraduationCap className="w-8 h-8 mr-3 text-brand" />
             Pendidikan
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {education.map((edu, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="pt-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{edu.degree}</h3>
-                  <p className="text-blue-600 font-medium mb-2">{edu.school}</p>
-                  <p className="text-gray-500 text-sm mb-3">{edu.year}</p>
-                  <p className="text-gray-600 mb-3">{edu.description}</p>
+                  <h3 className="text-xl font-bold text-ink mb-2">{edu.degree}</h3>
+                  <p className="text-brand font-medium mb-2">{edu.school}</p>
+                  <p className="text-ink4 text-sm mb-3">{edu.year}</p>
+                  <p className="text-ink3 mb-3">{edu.description}</p>
                   <ul className="space-y-1">
                     {edu.achievements.map((achievement, i) => (
-                      <li key={i} className="text-sm text-gray-600 flex items-start">
-                        <span className="text-blue-600 mr-2">•</span>
+                      <li key={i} className="text-sm text-ink3 flex items-start">
+                        <span className="text-brand mr-2">•</span>
                         {achievement}
                       </li>
                     ))}
@@ -531,8 +520,8 @@ export default function AboutPage() {
           className={`transition-all duration-1000 delay-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <Award className="w-8 h-8 mr-3 text-blue-600" />
+          <h2 className="text-3xl font-bold text-ink mb-8 flex items-center">
+            <Award className="w-8 h-8 mr-3 text-brand" />
             Pengalaman Kerja
           </h2>
           <div className="space-y-6">
@@ -540,15 +529,15 @@ export default function AboutPage() {
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="pt-6">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                    <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
-                    <span className="text-blue-600 font-medium">{exp.period}</span>
+                    <h3 className="text-xl font-bold text-ink">{exp.role}</h3>
+                    <span className="text-brand font-medium">{exp.period}</span>
                   </div>
-                  <p className="text-gray-700 font-medium mb-2">{exp.company}</p>
-                  <p className="text-gray-600 mb-3">{exp.description}</p>
+                  <p className="text-ink2 font-medium mb-2">{exp.company}</p>
+                  <p className="text-ink3 mb-3">{exp.description}</p>
                   <ul className="space-y-1">
                     {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="text-sm text-gray-600 flex items-start">
-                        <span className="text-green-500 mr-2">✓</span>
+                      <li key={i} className="text-sm text-ink3 flex items-start">
+                        <span className="text-success mr-2">✓</span>
                         {achievement}
                       </li>
                     ))}
@@ -563,15 +552,15 @@ export default function AboutPage() {
       {/* Certification Modal */}
       {showModal && selectedCert && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center z-50 p-3 sm:p-4 overflow-y-auto">
-          <div className="relative bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl my-auto">
-            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b p-3.5 sm:p-4 flex items-center justify-between z-10">
-              <h3 className="text-base sm:text-xl font-bold text-gray-900 pr-4 line-clamp-1">{selectedCert.name}</h3>
+          <div className="relative bg-surface rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl my-auto">
+            <div className="sticky top-0 bg-surface/95 backdrop-blur-md border-b p-3.5 sm:p-4 flex items-center justify-between z-10">
+              <h3 className="text-base sm:text-xl font-bold text-ink pr-4 line-clamp-1">{selectedCert.name}</h3>
               <Button variant="ghost" size="icon" onClick={closeCertModal} className="rounded-full flex-shrink-0">
                 <X className="w-5 h-5" />
               </Button>
             </div>
             <div className="p-4 sm:p-6">
-              <div className="relative w-full h-52 xs:h-64 sm:h-80 mb-6 bg-slate-100 rounded-xl overflow-hidden">
+              <div className="relative w-full h-52 xs:h-64 sm:h-80 mb-6 bg-surface2 rounded-xl overflow-hidden">
                 <Image
                   src={selectedCert.image}
                   alt={selectedCert.name}
@@ -581,28 +570,28 @@ export default function AboutPage() {
               </div>
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
-                  <div className="p-2.5 bg-slate-50 rounded-lg">
-                    <p className="text-xs text-slate-500 font-medium">Issuer</p>
-                    <p className="font-semibold text-slate-900">{selectedCert.issuer}</p>
+                  <div className="p-2.5 bg-surface2 rounded-lg">
+                    <p className="text-xs text-ink4 font-medium">Issuer</p>
+                    <p className="font-semibold text-ink">{selectedCert.issuer}</p>
                   </div>
-                  <div className="p-2.5 bg-slate-50 rounded-lg">
-                    <p className="text-xs text-slate-500 font-medium">Tahun</p>
-                    <p className="font-semibold text-slate-900">{selectedCert.year}</p>
+                  <div className="p-2.5 bg-surface2 rounded-lg">
+                    <p className="text-xs text-ink4 font-medium">Tahun</p>
+                    <p className="font-semibold text-ink">{selectedCert.year}</p>
                   </div>
-                  <div className="p-2.5 bg-slate-50 rounded-lg">
-                    <p className="text-xs text-slate-500 font-medium">Credential ID</p>
-                    <p className="font-semibold text-slate-900 truncate">{selectedCert.credential}</p>
+                  <div className="p-2.5 bg-surface2 rounded-lg">
+                    <p className="text-xs text-ink4 font-medium">Credential ID</p>
+                    <p className="font-semibold text-ink truncate">{selectedCert.credential}</p>
                   </div>
-                  <div className="p-2.5 bg-slate-50 rounded-lg">
-                    <p className="text-xs text-slate-500 font-medium">Kategori</p>
-                    <Badge className={selectedCert.category === "security" ? "bg-purple-100 text-purple-800" : "bg-blue-100 text-blue-800"}>
+                  <div className="p-2.5 bg-surface2 rounded-lg">
+                    <p className="text-xs text-ink4 font-medium">Kategori</p>
+                    <Badge className={selectedCert.category === "security" ? "bg-purple-soft text-purple" : "bg-brand-soft text-brand-ink"}>
                       {selectedCert.category === "security" ? "Cybersecurity" : "Web Development"}
                     </Badge>
                   </div>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-medium mb-1">Deskripsi</p>
-                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">{selectedCert.description}</p>
+                  <p className="text-xs text-ink4 font-medium mb-1">Deskripsi</p>
+                  <p className="text-ink2 text-xs sm:text-sm leading-relaxed">{selectedCert.description}</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-4">
                   <Button className="w-full sm:flex-1 py-5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl text-xs sm:text-sm" onClick={() => window.open(`/certificates/${selectedCert.credential}.pdf`, '_blank')}>
@@ -631,7 +620,7 @@ function CertificationCard({ cert, onClick }: { cert: Certification; onClick: ()
       onClick={onClick}
     >
       <CardContent className="p-4">
-        <div className="relative w-full h-40 mb-4 bg-gray-100 rounded-lg overflow-hidden">
+        <div className="relative w-full h-40 mb-4 bg-surface2 rounded-lg overflow-hidden">
           <Image
             src={cert.image}
             alt={cert.name}
@@ -643,13 +632,13 @@ function CertificationCard({ cert, onClick }: { cert: Certification; onClick: ()
           </div>
         </div>
         <div className="flex items-start justify-between mb-2">
-          <h3 className="font-semibold text-gray-900 line-clamp-2">{cert.name}</h3>
-          <Badge className={cert.category === "security" ? "bg-purple-100 text-purple-800 ml-2" : "bg-blue-100 text-blue-800 ml-2"}>
+          <h3 className="font-semibold text-ink line-clamp-2">{cert.name}</h3>
+          <Badge className={cert.category === "security" ? "bg-purple-soft text-purple ml-2" : "bg-brand-soft text-brand-ink ml-2"}>
             {cert.category === "security" ? "Sec" : "Web"}
           </Badge>
         </div>
-        <p className="text-sm text-gray-600 mb-1">{cert.issuer}</p>
-        <p className="text-xs text-gray-500">{cert.year}</p>
+        <p className="text-sm text-ink3 mb-1">{cert.issuer}</p>
+        <p className="text-xs text-ink4">{cert.year}</p>
       </CardContent>
     </Card>
   )

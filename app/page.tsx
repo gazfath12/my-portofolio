@@ -1,478 +1,879 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import Image from "next/image"
-import Link from "next/link"
-import { ChevronRight, ExternalLink, Shield, Code, Zap, Users, Github, Linkedin, Mail, FileText, Coffee, Lock, Instagram, Twitter, Globe, Phone } from "lucide-react"
-import { Button } from "../components/ui/button"
-import { Card, CardContent } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  ChevronRight,
+  Award,
+  Send
+} from "lucide-react"
 
-import { ProjectTransitionModal, ProjectTransitionData } from "../components/project-transition-modal"
+import { ResumeModal } from "../components/resume-modal"
+import { ProjectPreviewModal, ProjectData } from "../components/project-preview-modal"
+import { CertModal, CertData } from "../components/cert-modal"
+import { ChatWidget } from "../components/chat-widget"
+import { StackedPhotos } from "../components/stacked-photos"
+import { TechTicker } from "../components/tech-ticker"
+import { GithubActivityGraph } from "../components/github-activity"
+import { TechIcon } from "../components/tech-icon"
 
-export default function HomePage() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [activeProject, setActiveProject] = useState<ProjectTransitionData | null>(null)
+// ─── DATA SOURCES ─────────────────────────────────────────────────────────────
 
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
+const TECH_PILLS = [
+  { name: "Laravel", category: "backend", icon: "⚡" },
+  { name: "Next.js", category: "frontend", icon: "▲" },
+  { name: "React", category: "frontend", icon: "⚛" },
+  { name: "TypeScript", category: "frontend", icon: "TS" },
+  { name: "PostgreSQL", category: "backend", icon: "🐘" },
+  { name: "MySQL", category: "backend", icon: "🗄" },
+  { name: "Tailwind CSS", category: "frontend", icon: "🎨" },
+  { name: "Node.js", category: "backend", icon: "🟢" },
+  { name: "Docker", category: "devops", icon: "🐳" },
+  { name: "Linux VPS", category: "devops", icon: "🐧" },
+  { name: "Cybersecurity", category: "security", icon: "🛡" },
+  { name: "Git & GitHub", category: "devops", icon: "🔀" },
+]
 
+const FEATURED_SPOTLIGHTS: ProjectData[] = [
+  {
+    title: "SIAKAD Almahir Platform",
+    subtitle: "Academic Management & Automated e-Rapor Engine",
+    image: "/siakad-1.png",
+    description: "Production academic management platform built for PPQIT Al-Mahir. Integrated a real-time zero-conflict scheduling algorithm for teachers, classes, and subjects while automating e-Rapor generation.",
+    tech: ["Laravel", "PostgreSQL", "Tailwind CSS", "Linux VPS"],
+    impact: "80% Admin Workload Reduced",
+    status: "PRODUCTION LIVE",
+    liveUrl: "https://github.com/gazfath12",
+    isPrivate: true,
+  },
+  {
+    title: "Nexcore ERP & Inventory System",
+    subtitle: "Real-time Stock Management & Financial POS",
+    image: "/nexcore.png",
+    description: "Enterprise resource planning system featuring barcode scanning, low-stock reorder triggers, role-based access control, and live sales performance dashboards.",
+    tech: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
+    impact: "Zero Stock Conflict",
+    status: "FEATURED BUILD",
+    liveUrl: "https://github.com/gazfath12/nexcore",
+    isPrivate: false,
+  }
+]
 
-  const portfolioHighlights: Array<{ id: number; title: string; category: string; image?: string; description: string; liveUrl: string; tech: string[]; isPrivate?: boolean; featured?: boolean; }> = [
-    {
-      id: 20,
-      title: "SIAKAD Almahir",
-      category: "Sistem Informasi Akademik",
-      image: "/siakad.png",
-      description: "Sistem Informasi Akademik Terintegrasi dengan penjadwalan anti-bentrok real-time, menghemat 80% beban admin sekolah",
-      liveUrl: "#",
-      isPrivate: true,
-      featured: true,
-      tech: ["Laravel", "MySQL", "Real-time Engine", "ERD Optimized"]
-    },
-    {
-      id: 15,
-      title: "Best Kaca Film",
-      category: "Dealer Resmi V-Kool",
-      image: "/bestkaca.png",
-      description: "Website resmi dan katalog produk dealer kaca film V-Kool dengan antarmuka profesional dan responsif",
-      liveUrl: "https://bestkacafilm.com/",
-      featured: true,
-      tech: ["Next.js", "Tailwind CSS", "Responsive UI", "SEO"]
-    },
-    {
-      id: 21,
-      title: "Sistem Keuangan Publik",
-      category: "Finance Management",
-      image: "/finance.png",
-      description: "Aplikasi manajemen dan monitoring keuangan publik dengan sistem autentikasi dan pelacakan anggaran",
-      liveUrl: "https://keuangan-pub.vercel.app/#/login",
-      featured: true,
-      tech: ["Next.js", "React", "Tailwind CSS", "Dashboard"]
-    },
-    {
-      id: 6,
-      title: "Nexcore SaaS",
-      category: "SaaS Platform",
-      image: "/nexcore.png",
-      description: "SaaS Platform melayani manajemen bisnis, dibangun dengan performa dan skalabilitas tinggi",
-      liveUrl: "http://nexcore.web.id/",
-      tech: ["Next.js", "Full-stack", "Auth"]
-    },
-    {
-      id: 5,
-      title: "Pusdiklat Isalam",
-      category: "Company Profile",
-      image: "/pusdiklatisalam.png",
-      description: "Website Company Profile untuk Pusat Pendidikan dan Pelatihan",
-      liveUrl: "https://www.pusdiklatisalam.web.id/",
-      tech: ["Next.js", "Web Profile"]
-    },
-    {
-      id: 8,
-      title: "Nexcore Official",
-      category: "Landing Page",
-      image: "/nexcore_v2.png",
-      description: "Landing page modern untuk platform Nexcore",
-      liveUrl: "https://www.nexcore.my.id/",
-      featured: true,
-      tech: ["Next.js", "UI/UX", "SEO"]
-    },
-    {
-      id: 7,
-      title: "Finance App",
-      category: "Finance",
-      image: "/finance.png",
-      description: "Aplikasi manajemen keuangan pribadi dengan pelacakan pengeluaran",
-      liveUrl: "https://finance.gazaalfath.my.id/",
-      tech: ["Next.js", "Dashboard", "Charts"]
-    },
-    {
-      id: 1,
-      title: "Kalkulator PWA",
-      category: "Web Development",
-      image: "/kalkulator.png",
-      description: "Kalkulator progresif yang dapat digunakan secara offline dengan teknologi service worker",
-      liveUrl: "https://qalqulator.vercel.app/",
-      tech: ["React", "PWA", "Service Worker"]
-    },
-    {
-      id: 2,
-      title: "Aplikasi Keuangan Santri",
-      category: "Web Development",
-      image: "/santrique.png",
-      description: "Sistem manajemen keuangan untuk pondok pesantren dengan fitur pencatatan transaksi",
-      liveUrl: "https://santrique.vercel.app/",
-      tech: ["Next.js", "Prisma", "PostgreSQL"]
-    },
-    {
-      id: 3,
-      title: "Point Of Sale",
-      category: "Aplikasi Kasir",
-      image: "/pos_dusky.png",
-      description: "Aplikasi kasir berbasis web dengan manajemen inventaris dan laporan penjualan",
-      liveUrl: "https://point-of-sale-dusky.vercel.app/",
-      tech: ["React", "Node.js", "MongoDB"]
-    },
-    {
-      id: 4,
-      title: "Aplikasi Hafalan Qur'an",
-      category: "Aplikasi Qur'an",
-      image: "/alquran_hafalan.png",
-      description: "Platform untuk menghafal Al-Qur'an dengan fitur tracking progress dan pengingat",
-      liveUrl: "https://quran-hafalan.ppqita.my.id/",
-      tech: ["Laravel", "MySQL", "Tailwind"]
-    },
-  ]
+const ALL_PROJECTS: ProjectData[] = [
+  {
+    title: "PDFForge - PDF Compression & Tooling",
+    subtitle: "100% Client-Side Local PDF Suite",
+    image: "/pdfforge.png",
+    description: "Browser-native PDF compression and conversion tool. Compresses PDF files, image-to-PDF, and PDF-to-image 100% locally without uploading data to servers.",
+    longDescription: "A privacy-first web application designed for processing documents entirely in client memory. Eliminates server egress and security risks by running WebAssembly and canvas rendering client-side.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    impact: "100% Offline & Private",
+    status: "LIVE TOOL",
+    isPrivate: false,
+    liveUrl: "https://pdf-compressed.vercel.app/",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "SIAKAD Almahir",
+    subtitle: "Academic Information System",
+    image: "/siakad-1.png",
+    description: "Comprehensive school management platform featuring zero-conflict scheduler, e-Rapor generation, and student grade tracking.",
+    longDescription: "Designed and engineered SIAKAD Almahir to streamline school administration. Features an intelligent anti-conflict scheduling matrix that validates teacher availability, classroom capacity, and course requirements simultaneously.",
+    tech: ["Laravel", "PostgreSQL", "Bootstrap", "Linux VPS"],
+    impact: "80% Admin Workload Cut",
+    status: "PROD LIVE",
+    isPrivate: true,
+    liveUrl: "#",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "Nexcore POS & ERP System",
+    subtitle: "Business Inventory Management",
+    image: "/nexcore-official.png",
+    description: "Real-time POS and inventory management system with automated stock alerts and sales analytics.",
+    longDescription: "High-performance POS system built for retail management. Includes real-time inventory synchronization, barcode scanner integration, and executive reporting dashboards.",
+    tech: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
+    impact: "30% Faster Query Response",
+    status: "LIVE DEMO",
+    isPrivate: false,
+    liveUrl: "https://github.com/gazfath12",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "Bestkacafilm - Dealer Resmi V-Kool",
+    subtitle: "Automotive Window Film Dealer Catalog",
+    image: "/bestkaca.png",
+    description: "Modern product showcase and dealer booking portal with input sanitization and XSS security protections.",
+    longDescription: "Developed for an official automotive window tint dealer. Built with clean UI/UX, responsive product catalog, and secure lead inquiry form.",
+    tech: ["Next.js", "Tailwind CSS", "React", "Node.js"],
+    impact: "Enhanced Mobile UX",
+    status: "LIVE",
+    isPrivate: false,
+    liveUrl: "https://bestkacafilm.com/",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "SantriQue - Keuangan Santri",
+    subtitle: "Financial Audit Trail Platform",
+    image: "/santrique.png",
+    description: "Sistem manajemen keuangan santri dengan multi-level audit trail dan validasi transaksi real-time.",
+    longDescription: "Dibangun dengan validasi ketat, session management aman, dan schema database terisolasi untuk transaksi keuangan santri.",
+    tech: ["React", "Next.js", "PostgreSQL", "Tailwind"],
+    impact: "Secure Financial Logs",
+    status: "LIVE APP",
+    isPrivate: false,
+    liveUrl: "https://santrique.gazaalfath.my.id/",
+    githubUrl: "https://github.com/gazfath12/dompet-santri"
+  },
+  {
+    title: "Al-Quran Hafalan Digital",
+    subtitle: "Islamic Hafalan Web Application",
+    image: "/alquran_hafalan.png",
+    description: "Web application interaktif untuk mendukung program hafalan Quran dengan audio streaming dan tracker hafalan.",
+    longDescription: "Aplikasi hafalan Al-Quran digital terintegrasi API yang menyajikan mushaf digital, bookmark ayat, dan monitoring setoran hafalan.",
+    tech: ["React", "Next.js", "REST APIs", "Tailwind"],
+    impact: "Interaktif & Ringan",
+    status: "LIVE APP",
+    isPrivate: false,
+    liveUrl: "https://quran-hafalan.ppqita.my.id/",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "OSINT Investigation Suite",
+    subtitle: "Cybersecurity & Security Tools",
+    image: "/data-analytics-dashboard.png",
+    description: "Custom OSINT and web security audit tools developed in personal pentesting laboratory environments.",
+    longDescription: "Built for security auditing and threat intelligence gathering. Automates domain reconnaissance, header inspection, and vulnerability reporting.",
+    tech: ["Python", "Linux", "Bash", "Security Audit"],
+    impact: "Automated Auditing",
+    status: "SECURITY LAB",
+    isPrivate: false,
+    liveUrl: "#",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "Smart Finance & Budget Calculator",
+    subtitle: "Personal Financial Management App",
+    image: "/finance.png",
+    description: "Interactive financial goal tracking application with visual charts and expense analysis.",
+    longDescription: "Sleek web application for personal expense tracking, monthly budget planning, and financial milestone visualization.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    impact: "Interactive Visuals",
+    status: "COMPLETED",
+    isPrivate: false,
+    liveUrl: "https://finance.gazaalfath.my.id/",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "Smart Calculator App",
+    subtitle: "Utility Web Application",
+    image: "/kalkulator-smart.png",
+    description: "Clean, responsive scientific calculator tool built with keyboard shortcuts and dark theme.",
+    longDescription: "A minimalist web calculator supporting complex mathematical operations, history log, and responsive layout.",
+    tech: ["JavaScript", "HTML5", "CSS3"],
+    impact: "Fast & Lightweight",
+    status: "COMPLETED",
+    isPrivate: false,
+    liveUrl: "https://kalkulator.gazaalfath.my.id/",
+    githubUrl: "https://github.com/gazfath12"
+  }
+]
 
-  const services = [
-    {
-      icon: Code,
-      title: "Web Development",
-      description: "Membangun website responsif dan dinamis dengan teknologi modern",
-    },
-    {
-      icon: Shield,
-      title: "Cybersecurity",
-      description: "Analisis keamanan sistem dan implementasi praktik secure coding",
-    },
-    {
-      icon: Zap,
-      title: "Performance Optimization",
-      description: "Optimasi kecepatan dan kinerja aplikasi web",
-    },
-    {
-      icon: Users,
-      title: "IT Consulting",
-      description: "Konsultasi teknologi untuk kebutuhan bisnis Anda",
-    },
-  ]
+const EXPERIENCES = [
+  {
+    period: "Aug 2025 – Oct 2025",
+    role: "Full-Stack Engineer Internship",
+    company: "PPQIT AL Mahir",
+    location: "Boyolali, Central Java (On-site)",
+    description: "Designed and built SIAKAD Almahir, an integrated academic system reducing admin workload by 80%. Engineered zero-conflict scheduling algorithms and automated e-Rapor generation.",
+    tags: ["Laravel", "PostgreSQL", "System Architecture", "Scheduling Engine"]
+  },
+  {
+    period: "Oct 2025",
+    role: "Event Administrator",
+    company: "International Islamic Education Fair (IIEF)",
+    location: "Surakarta, Central Java",
+    description: "Managed visitor registration systems and database synchronization for an international educational expo featuring 50+ institutions.",
+    tags: ["Database Integration", "Event Tech", "Administration"]
+  },
+  {
+    period: "2024 – 2025",
+    role: "Frontend Developer & Security Assistant",
+    company: "Bestkacafilm Dealer",
+    location: "Indonesia (Remote)",
+    description: "Built responsive e-commerce catalog web applications. Implemented security input validation, XSS prevention, and user-centric UI design.",
+    tags: ["Next.js", "Tailwind CSS", "Web Security"]
+  }
+]
 
-  const stats = [
-    { value: "2+", label: "Tahun Pengalaman" },
-    { value: "10+", label: "Proyek Selesai" },
-    { value: "5+", label: "Klien Puas" },
-    { value: "24/7", label: "Dukungan" },
-  ]
+const CERTIFICATIONS: CertData[] = [
+  {
+    id: 1,
+    name: "Dark Web, Anonymity & Cryptocurrency Fundamentals",
+    issuer: "CodeRed",
+    year: "2026",
+    credential: "464820",
+    image: "/certificates/sertifikat-1.png",
+    category: "security",
+    description: "Mastered dark web fundamentals, anonymity protocols, and cryptocurrency tracking in cybersecurity contexts."
+  },
+  {
+    id: 2,
+    name: "Basic Cybersecurity Practitioner",
+    issuer: "Codepolitan (JagoanSiber)",
+    year: "2025",
+    credential: "CPJS-CR/2025/XII/0183",
+    image: "/certificates/sertifikat-2.jpg",
+    category: "security",
+    description: "Core cyber threat analysis, data protection standards, and digital security best practices."
+  },
+  {
+    id: 3,
+    name: "Cybersecurity for Businesses — Fundamental Edition",
+    issuer: "CodeRed",
+    year: "2026",
+    credential: "465065",
+    image: "/certificates/sertifikat-3.png",
+    category: "security",
+    description: "Enterprise digital risk management, security posture auditing, and corporate asset protection."
+  },
+  {
+    id: 4,
+    name: "Responsive Web Design V8 Certification",
+    issuer: "freeCodeCamp",
+    year: "2023",
+    credential: "fcc47c5583-3481-4906-8719-df263c13813f",
+    image: "/certificates/sertifikat-4.jpg",
+    category: "web",
+    description: "300+ hours of modern HTML5, CSS3, accessibility, and responsive interface design."
+  },
+  {
+    id: 5,
+    name: "National Web Design Competition Finalist",
+    issuer: "Technotraction UNS",
+    year: "2024",
+    credential: "021/B/UN27.02.3.14.14/MIKROPTIK/SK/X/2024",
+    image: "/certificates/sertifikat-5.png",
+    category: "web",
+    description: "Participated in national web design competition hosted by Sebelas Maret University (UNS)."
+  },
+  {
+    id: 6,
+    name: "In-house Hacking & Pentesting Lab Setup",
+    issuer: "CodeRed",
+    year: "2026",
+    credential: "475753",
+    image: "/certificates/sertifikat-6.png",
+    category: "security",
+    description: "Building custom pentesting environments, vulnerable VM setups, and vulnerability verification tools."
+  },
+  {
+    id: 7,
+    name: "Siswa Tersertifikasi Gemini",
+    issuer: "Google for Education",
+    year: "2026",
+    credential: "https://edu.google.accredible.com/dd1362d5-cb8d-42fb-8aa0-b03e31ee843a#acc.Swhliyrf",
+    image: "/certificates/sertifikat-gemini.png",
+    category: "ai",
+    description: "Menunjukkan pengetahuan, keterampilan, dan kompetensi dasar yang diperlukan untuk menggunakan AI Google di lingkungan pendidikan. Berlaku hingga 06/10/2029."
+  }
+]
+
+const EDUCATION_ITEMS = [
+  {
+    degree: "D3 Teknik Informatika",
+    institution: "Politeknik Negeri Semarang (POLINES)",
+    period: "2026 – Present",
+    desc: "Vocational IT degree focused on Software Engineering, Full-Stack Development, Database Systems, and Cybersecurity."
+  },
+  {
+    degree: "IT & Software Development Program",
+    institution: "PPQIT Al - Mahir Boarding School",
+    period: "2023 – 2026",
+    desc: "Intensive full-stack web engineering, system architecture, OSINT tools, and academic software development."
+  },
+  {
+    degree: "Cisco Networking Certification",
+    institution: "Cisco Networking Academy",
+    period: "2026",
+    desc: "Network infrastructure protocols, routing & switching, and network security administration."
+  },
+  {
+    degree: "Responsive Web Design Certification",
+    institution: "freeCodeCamp",
+    period: "2024",
+    desc: "300+ hours of responsive web interface design and modern web standards."
+  },
+  {
+    degree: "Junior High & Islamic Studies",
+    institution: "Ponpes Al-Muttaqin",
+    period: "2020 – 2023",
+    desc: "Islamic character building, discipline, and memorization of 5 Juz Al-Qur'an."
+  }
+]
+
+// ─── MAIN PAGE COMPONENT ──────────────────────────────────────────────────────
+
+export default function PortfolioHome() {
+  const router = useRouter()
+  const [profileImage, setProfileImage] = useState<string>("/avatar.png")
+  const [resumeOpen, setResumeOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null)
+  const [selectedCert, setSelectedCert] = useState<CertData | null>(null)
+  const [techCategory, setTechCategory] = useState("all")
+  const [projectCategory, setProjectCategory] = useState("all")
+  const [copiedEmail, setCopiedEmail] = useState(false)
+
+  const toggleAvatar = () => {
+    setProfileImage((prev) => (prev === "/avatar.png" ? "/gaza-formal.jpg" : "/avatar.png"))
+  }
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("gazfath12@gmail.com")
+    setCopiedEmail(true)
+    setTimeout(() => setCopiedEmail(false), 2000)
+  }
+
+  const filteredTech = techCategory === "all"
+    ? TECH_PILLS
+    : TECH_PILLS.filter((t) => t.category === techCategory)
+
+  const filteredProjects = projectCategory === "all"
+    ? ALL_PROJECTS
+    : ALL_PROJECTS.filter((p) => {
+        if (projectCategory === "featured") return p.featured
+        if (projectCategory === "web") return p.tech.includes("Next.js") || p.tech.includes("Laravel") || p.tech.includes("React")
+        if (projectCategory === "security") return p.tech.includes("Security Audit") || p.tech.includes("Python")
+        return true
+      })
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Hero Section - Enhanced */}
-      <section className="relative pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(0deg,transparent,black)] opacity-20"></div>
-        <div className="absolute top-20 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute top-40 left-0 w-72 h-72 sm:w-96 sm:h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-            {/* Left Content */}
-            <div
-              className={`space-y-6 sm:space-y-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            >
-              <div className="space-y-3 sm:space-y-4">
-                <div className="inline-flex items-center px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full text-xs sm:text-sm font-medium shadow-md max-w-full">
-                  <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse flex-shrink-0"></div>
-                  <span className="truncate">🚀 Tersedia untuk Kolaborasi & Proyek Baru</span>
+    <div className="bg-page text-ink min-h-screen font-sans selection:bg-blue-600 selection:text-ink">
+
+      {/* Subtle Mesh Background Aura */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/10 blur-[140px] pointer-events-none z-0 rounded-full" />
+      <div className="fixed bottom-0 right-0 w-[500px] h-[400px] bg-purple-600/5 blur-[160px] pointer-events-none z-0 rounded-full" />
+
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-20 space-y-16 sm:space-y-20">
+
+        {/* ── HERO SECTION (Exact renlenon.vercel.app layout) ──────────────── */}
+        <section id="hero" className="flex flex-col justify-center pt-6 pb-4 sm:pt-12">
+          <div className="space-y-6 sm:space-y-8">
+            
+            {/* Avatar Profile Frame + Verified Pill */}
+            <div className="flex items-center gap-4 sm:gap-6">
+              <div 
+                onClick={toggleAvatar}
+                className="h-28 w-28 sm:h-36 sm:w-36 shrink-0 rounded-full border-2 border-line2 hover:border-brand bg-surface2 overflow-hidden relative shadow-2xl group cursor-pointer transition-colors"
+                title="Click to switch photo (Anime / Formal)"
+              >
+                <Image
+                  src={profileImage}
+                  alt="Gaza Alfath Nugroho"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[10px] text-white font-medium text-center px-1">
+                  Switch Photo
                 </div>
-                
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight">
-                  Hi, Saya{" "}
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Gaza Alfath Nugroho
+              </div>
+
+              <div className="flex h-full flex-col justify-center gap-2 sm:gap-3">
+                <h1 className="flex items-center gap-2 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+                  <span>Gaza Alfath Nugroho</span>
+                  {/* Verified Checkmark Badge */}
+                  <span title="Verified">
+                    <svg viewBox="0 0 22 22" className="w-6 h-6 shrink-0 inline-block align-middle" aria-label="Verified">
+                      <path fill="#1D9BF0" d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.053-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.607-.274 1.264-.144 1.898.13.634.435 1.219.88 1.688.47.443 1.054.749 1.688.879.633.13 1.29.083 1.897-.14.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.607.224 1.264.272 1.897.14.634-.13 1.217-.436 1.687-.878.445-.47.75-1.055.88-1.688.13-.634.083-1.291-.14-1.897.586-.274 1.084-.705 1.438-1.246.354-.541.551-1.17.57-1.817Zm-11.343 3.9-3.5-3.5 1.238-1.238 2.262 2.262 5.315-5.315L15.5 8.35l-6.5 6.55Z"></path>
+                    </svg>
                   </span>
                 </h1>
-                
-                <div className="text-sm sm:text-base text-gray-600 font-medium flex items-center flex-wrap gap-2 pt-1">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">🎓 D3 Teknik Informatika POLINES</span>
-                  <span className="text-gray-300 hidden sm:inline">•</span>
-                  <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Full-Stack Developer</span>
-                  <span className="text-gray-300 hidden sm:inline">•</span>
-                  <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">Cybersecurity Enthusiast</span>
+
+                {/* Social Links */}
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://github.com/gazfath12"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="opacity-70 hover:opacity-100 transition-all hover:-translate-y-0.5 text-ink2 hover:text-ink"
+                    title="GitHub"
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/gaza-alfath-0830982a9/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="opacity-70 hover:opacity-100 transition-all hover:-translate-y-0.5 text-ink2 hover:text-[#0A66C2]"
+                    title="LinkedIn"
+                  >
+                    <Linkedin size={20} />
+                  </a>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="opacity-70 hover:opacity-100 transition-all hover:-translate-y-0.5 text-ink2 hover:text-ink relative"
+                    title="Copy Email"
+                  >
+                    <Mail size={20} />
+                    {copiedEmail && (
+                      <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-blue-600 text-ink text-[10px] px-2 py-0.5 rounded shadow">
+                        Copied!
+                      </span>
+                    )}
+                  </button>
                 </div>
-                
-                <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-                  Saya <strong>Gaza Alfath Nugroho</strong> (dikenal juga sebagai <strong>gazaa alafath</strong>), mahasiswa <strong>D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES)</strong>. Saya menciptakan solusi digital yang tidak hanya indah secara visual, tetapi juga aman, performan, dan andal.
-                </p>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 py-2 sm:py-4">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center p-3 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200/80 shadow-xs">
-                    <div className="text-xl sm:text-2xl font-bold text-slate-900">{stat.value}</div>
-                    <div className="text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Social Links */}
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                <a href="https://github.com/gazfath12" target="_blank" rel="noopener noreferrer" 
-                   title="GitHub"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Github className="w-4 h-4 sm:w-5 sm:h-5 text-slate-800" />
-                </a>
-                <a href="https://www.linkedin.com/in/gaza-alfath-0830982a9/" target="_blank" rel="noopener noreferrer"
-                   title="LinkedIn"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
-                </a>
-                <a href="https://www.instagram.com/gaz_fath/" target="_blank" rel="noopener noreferrer"
-                   title="Instagram"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-pink-600" />
-                </a>
-                <a href="https://twitter.com/gazfath12" target="_blank" rel="noopener noreferrer"
-                   title="Twitter / X"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-sky-500" />
-                </a>
-                <a href="https://wa.me/6289637503791" target="_blank" rel="noopener noreferrer"
-                   title="WhatsApp"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
-                </a>
-                <a href="https://blog.gazaalfath.my.id/" target="_blank" rel="noopener noreferrer"
-                   title="Blog"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" />
-                </a>
-                <a href="mailto:gazfath12@gmail.com"
-                   title="Email"
-                   className="p-2.5 sm:p-3 bg-white rounded-xl shadow-xs border border-slate-200/80 hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition-all">
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
-                </a>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/20 rounded-xl py-6 hover:shadow-xl active:scale-98 transition-all"
-                  onClick={() => window.open('/Gaza_Alfath_CV.pdf', '_blank')}
-                >
-                  <FileText className="w-4 h-4 mr-2" />
-                  Download CV
-                </Button>
-                <Button variant="outline" size="lg" asChild className="w-full sm:w-auto border-2 rounded-xl py-6 hover:bg-slate-50">
-                  <Link href="/projects" className="justify-center">
-                    Lihat Portofolio
-                    <ChevronRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
               </div>
             </div>
 
-            {/* Right Content - Profile Image */}
-            <div
-              className={`relative transition-all duration-1000 delay-300 mt-6 lg:mt-0 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            {/* Headline Title */}
+            <div className="space-y-4">
+              <h2 className="text-[1.7rem] sm:text-[2.05rem] md:text-[2.15rem] font-normal tracking-tight leading-tight text-ink">
+                Full-Stack Web Developer <span className="text-[0.95em] font-light text-ink3">— Next.js, Laravel &amp; Security</span>
+              </h2>
+
+              {/* Bio Paragraph with renlenon-style dashed tech badges */}
+              <p className="text-base sm:text-lg font-light leading-7 sm:leading-8 text-ink3">
+                I&apos;m a full-stack web developer and cybersecurity practitioner building high-performance websites and backend systems with{" "}
+                <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
+                  <TechIcon name="Laravel" size={13} className="shrink-0" /> Laravel
+                </span>{" "}
+                <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
+                  <TechIcon name="Next.js" size={13} className="shrink-0" /> Next.js
+                </span>{" "}
+                <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
+                  <TechIcon name="React" size={13} className="shrink-0" /> React
+                </span>{" "}
+                <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
+                  <TechIcon name="PostgreSQL" size={13} className="shrink-0" /> PostgreSQL
+                </span>{" "}
+                with security experience from production client work. Currently studying IT at POLINES and lead architect of SIAKAD Almahir, an academic system that reduced 80% admin workload.
+              </p>
+
+              {/* View Resume Button */}
+              <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
+                <button
+                  onClick={() => setResumeOpen(true)}
+                  className="group inline-flex items-center gap-2 bg-ink px-6 py-3 text-base font-medium text-page rounded-lg hover:scale-[1.03] transition-transform active:scale-95"
+                >
+                  <span>View Resume</span>
+                  <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </div>
+
+            {/* 🚀 ANIMATED TECH TICKER (MARQUEE) 🚀 */}
+            <div className="pt-4">
+              <TechTicker />
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── EXPERIENCE SECTION (Exact renlenon style) ────────────────────── */}
+        <section id="experience" className="w-full space-y-6">
+          <div className="flex items-center justify-between border-b border-line pb-3">
+            <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">Experience</p>
+            <button
+              onClick={() => setResumeOpen(true)}
+              className="group inline-flex items-center gap-1 text-sm text-ink3 hover:text-ink transition-colors"
             >
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto">
-                {/* Animated background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                
-                {/* Main image container */}
-                <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                  <Image 
-                    src="/gaza-formal.jpg" 
-                    alt="Gaza Alfath Nugroho" 
-                    fill 
-                    className="object-cover"
-                    priority 
-                  />
-                </div>
-                
-                {/* Decorative elements */}
-                <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-white rounded-xl shadow-xl p-2.5 sm:p-3 animate-bounce">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
-                </div>
-                <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 bg-white rounded-xl shadow-xl p-2.5 sm:p-3">
-                  <Code className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+              <span>View Details</span>
+              <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
+
+          <div className="space-y-7 sm:space-y-8">
+            {EXPERIENCES.map((exp, idx) => (
+              <div key={idx} className="sm:grid sm:grid-cols-[160px_1fr] sm:gap-6 group">
+                <p className="text-xs font-medium text-ink3 whitespace-nowrap mb-1 sm:mb-0 sm:pt-1 font-mono">
+                  {exp.period}
+                </p>
+                <div>
+                  <h3 className="text-base sm:text-[17px] font-semibold text-ink leading-tight group-hover:text-brand transition-colors">
+                    {exp.role}
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-ink2">
+                    {exp.company}
+                  </p>
+                  <p className="mt-0.5 text-sm text-ink3">
+                    {exp.location}
+                  </p>
+                  <p className="mt-2 text-xs text-ink3 leading-relaxed">
+                    {exp.description}
+                  </p>
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FEATURED WORK SPOTLIGHTS ──────────────────────────────────── */}
+        <section id="featured" className="w-full space-y-5">
+          <div className="flex items-center justify-between">
+            <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">Featured Work</p>
+            <button
+              onClick={() => router.push("/projects")}
+              className="text-xs text-ink3 hover:text-ink flex items-center gap-1 transition-colors"
+            >
+              See all projects <ChevronRight size={14} />
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {FEATURED_SPOTLIGHTS.map((spot, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedProject(spot)}
+                className="group relative bg-surface border border-line hover:border-line2 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl flex flex-col justify-between"
+              >
+                {/* Banner Thumbnail */}
+                <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-surface2">
+                  <Image
+                    src={spot.image}
+                    alt={spot.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 img-scrim" />
+                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md border border-line2/60 text-[10px] text-brand font-bold px-2.5 py-1 rounded-full uppercase">
+                    {spot.status}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="text-[11px] text-brand font-semibold uppercase tracking-wider mb-1">
+                      {spot.subtitle}
+                    </div>
+                    <h4 className="text-lg font-bold text-ink group-hover:text-brand transition-colors">
+                      {spot.title}
+                    </h4>
+                    <p className="text-xs text-ink3 leading-relaxed mt-2 line-clamp-3">
+                      {spot.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-line flex items-center justify-between">
+                    <span className="text-[11px] text-success font-medium">
+                      ✓ {spot.impact}
+                    </span>
+                    <span className="text-xs text-ink3 group-hover:text-ink font-semibold flex items-center gap-1 transition-colors">
+                      Read case study <ExternalLink size={12} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── PROJECTS GRID ──────────────────────────────────────────────── */}
+        <section id="projects" className="w-full space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line pb-3">
+            <div className="flex items-center gap-3">
+              <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">All Projects</p>
+              <button
+                onClick={() => router.push("/projects")}
+                className="text-xs bg-surface2 hover:bg-surface3 border border-line2 text-ink2 hover:text-ink px-3 py-1 rounded-full transition-colors flex items-center gap-1"
+              >
+                Explore Full Archive ({ALL_PROJECTS.length}) <ChevronRight size={12} />
+              </button>
+            </div>
+            
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+              {[
+                { id: "all", label: "All" },
+                { id: "web", label: "Full-Stack" },
+                { id: "security", label: "Security & Tools" }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setProjectCategory(tab.id)}
+                  className={`text-xs px-3 py-1 rounded-full font-medium transition-all ${
+                    projectCategory === tab.id
+                      ? "bg-ink text-page"
+                      : "bg-surface2 border border-line text-ink3 hover:text-ink"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Services Section */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-blue-100 text-blue-800 hover:bg-blue-200 text-xs sm:text-sm font-semibold">Layanan Saya</Badge>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4 tracking-tight">Solusi Digital Terintegrasi</h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Menggabungkan keahlian pengembangan web dengan prinsip keamanan siber untuk hasil yang optimal
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {services.map((service, index) => {
-              const Icon = service.icon
-              return (
-                <Card 
-                  key={index}
-                  className={`group border-slate-200/80 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 rounded-2xl ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: `${index * 100 + 400}ms` }}
-                >
-                  <CardContent className="p-5 sm:p-6 text-center">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{service.title}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{service.description}</p>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Highlights - Enhanced */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div
-            className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-          >
-            <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-purple-100 text-purple-800 hover:bg-purple-200 text-xs sm:text-sm font-semibold">Portofolio</Badge>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 sm:mb-4 tracking-tight">Proyek Unggulan</h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Berikut adalah beberapa karya terbaru yang menunjukkan keterampilan dan kreativitas saya
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
-            {portfolioHighlights.map((project, index) => (
-              <Card
-                key={project.id}
-                onClick={() => setActiveProject({
-                  title: project.title,
-                  image: project.image || "/placeholder.svg",
-                  description: project.description,
-                  liveUrl: project.liveUrl,
-                  isPrivate: project.isPrivate
-                })}
-                className={`group cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${index * 100 + 600}ms` }}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {filteredProjects.map((p, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedProject(p)}
+                className="group bg-surface border border-line hover:border-line2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between"
               >
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg h-48">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {project.isPrivate && (
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="bg-amber-600/95 backdrop-blur-sm text-white text-xs px-2.5 py-1 rounded-full font-medium flex items-center shadow-md">
-                          <Lock className="w-3 h-3 mr-1" />
-                          Privat (Internal)
-                        </span>
-                      </div>
-                    )}
-                    {project.featured && (
-                      <div className="absolute top-3 right-3 z-10">
-                        <span className="bg-gradient-to-r from-yellow-500 to-amber-500 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-md flex items-center">
-                          ⭐ Unggulan
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-4 left-4 right-4">
-                        {project.isPrivate ? (
-                          <Button 
-                            size="sm" 
-                            disabled
-                            className="w-full bg-amber-600/90 text-white cursor-not-allowed font-medium shadow-lg"
-                          >
-                            <Lock className="w-4 h-4 mr-2" />
-                            Sistem Privat Sekolah
-                          </Button>
-                        ) : (
-                          <Button 
-                            size="sm" 
-                            className="w-full bg-white text-gray-900 hover:bg-gray-100 font-medium shadow-lg"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setActiveProject({
-                                title: project.title,
-                                image: project.image || "/placeholder.svg",
-                                description: project.description,
-                                liveUrl: project.liveUrl,
-                                isPrivate: project.isPrivate
-                              });
-                            }}
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Lihat & Kunjungi Website
-                          </Button>
-                        )}
-                      </div>
-                    </div>
+                <div className="relative h-36 w-full bg-surface2 overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 img-scrim" />
+                  {p.status && (
+                    <span className="absolute top-2.5 right-2.5 bg-black/70 backdrop-blur-md text-[9px] font-bold text-ink2 px-2 py-0.5 rounded border border-line2/60">
+                      {p.status}
+                    </span>
+                  )}
+                </div>
+
+                <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="font-bold text-ink text-sm group-hover:text-brand transition-colors line-clamp-1">
+                      {p.title}
+                    </h4>
+                    <p className="text-[11px] text-ink3 line-clamp-2 mt-1">
+                      {p.description}
+                    </p>
                   </div>
-                  <div className="p-6">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {project.tech.slice(0, 2).map((tech, i) => (
-                        <span key={i} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                          {tech}
-                        </span>
-                      ))}
-                      {project.tech.length > 2 && (
-                        <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
-                          +{project.tech.length - 2}
-                        </span>
-                      )}
-                    </div>
-                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm line-clamp-2">{project.description}</p>
+
+                  <div className="pt-3 flex items-center justify-between text-[10px] text-ink3 border-t border-line">
+                    <span className="font-mono">{p.tech.slice(0, 2).join(" • ")}</span>
+                    <span className="text-brand font-semibold flex items-center gap-0.5">
+                      Preview <ChevronRight size={10} />
+                    </span>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── TECHNOLOGIES STACK ─────────────────────────────────────────── */}
+        <section id="tech" className="w-full space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line pb-3">
+            <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">Technologies</p>
+            
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+              {[
+                { id: "all", label: "All" },
+                { id: "frontend", label: "Frontend" },
+                { id: "backend", label: "Backend & DB" },
+                { id: "devops", label: "DevOps & Linux" },
+                { id: "security", label: "Security" }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setTechCategory(tab.id)}
+                  className={`text-xs px-3 py-1 rounded-full font-medium transition-all ${
+                    techCategory === tab.id
+                      ? "bg-ink text-page"
+                      : "bg-surface2 border border-line text-ink3 hover:text-ink"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+            {filteredTech.map((tech, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-2.5 p-3 rounded-xl bg-surface border border-line hover:border-line2 transition-all duration-200 group cursor-default"
+              >
+                <div className="w-5 h-5 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-200">
+                  <TechIcon name={tech.name} size={18} />
+                </div>
+                <span className="text-xs text-ink2 font-medium group-hover:text-ink transition-colors">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CERTIFICATIONS & EDUCATION ─────────────────────────────────── */}
+        <section id="certificates" className="w-full space-y-6">
+          <div className="border-b border-line pb-3 flex items-center justify-between">
+            <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">Certifications &amp; Education</p>
+            <span className="text-xs text-ink3 font-mono">{CERTIFICATIONS.length} Credentials</span>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {CERTIFICATIONS.map((cert) => (
+              <div
+                key={cert.id}
+                onClick={() => setSelectedCert(cert)}
+                className="bg-surface border border-line hover:border-line2 p-4 rounded-xl cursor-pointer transition-all duration-200 group flex items-start gap-3.5"
+              >
+                <div className="w-10 h-10 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <Award size={20} />
+                </div>
+                <div className="flex-1 space-y-1">
+                  <h4 className="font-bold text-ink text-xs sm:text-sm group-hover:text-brand transition-colors line-clamp-1">
+                    {cert.name}
+                  </h4>
+                  <div className="text-[11px] text-ink3 flex items-center gap-2">
+                    <span>{cert.issuer}</span> • <span className="font-mono">{cert.year}</span>
+                  </div>
+                  <span className="text-[10px] text-brand font-medium flex items-center gap-1 pt-1">
+                    View Credential <ChevronRight size={10} />
+                  </span>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              asChild 
-              className="border-2 hover:bg-gray-50 hover:border-blue-600 transition-all"
-            >
-              <Link href="/projects">
-                Lihat Semua Proyek
-                <ChevronRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
+          {/* Education Sub-Grid */}
+          <div className="pt-4 grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {EDUCATION_ITEMS.map((edu, idx) => (
+              <div key={idx} className="bg-surface border border-line p-4 rounded-xl space-y-1">
+                <div className="text-[10px] text-brand font-mono uppercase font-semibold">{edu.period}</div>
+                <h4 className="font-bold text-ink text-xs leading-snug">{edu.degree}</h4>
+                <p className="text-[11px] text-ink3 font-medium">{edu.institution}</p>
+              </div>
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-4 border-t border-gray-200 mt-12 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-600 text-sm flex items-center justify-center gap-1">
-            &copy; {new Date().getFullYear()} Gaza Alfath Nugroho. Dibangun dengan 
-            <Coffee className="w-4 h-4 text-amber-700" /> 
-            dan kode yang aman.
-          </p>
-        </div>
-      </footer>
+        {/* ── OUTSIDE THE IDE (Personal Stacked Photo Deck) ──────────────── */}
+        <section id="highlights" className="w-full space-y-6">
+          <div className="border-b border-line pb-3">
+            <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">Outside the IDE</p>
+          </div>
 
-      {/* Interactive Project Transition Modal */}
-      <ProjectTransitionModal
-        project={activeProject}
-        onClose={() => setActiveProject(null)}
-      />
+          <div className="grid md:grid-cols-2 gap-8 items-center bg-ghost border border-line p-6 sm:p-8 rounded-2xl">
+            <div className="space-y-4">
+              <p className="text-ink2 text-xs sm:text-sm leading-relaxed">
+                When I step away from the tech world, I recharge through physical activity, tech hardware tinkering, cybersecurity CTFs, and returning to my projects with fresh energy and perspective.
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                {["Web Applications", "PDFForge & Tools", "Cybersecurity CTFs", "Tech Tinkering", "Islamic Studies"].map((tag, idx) => (
+                  <span key={idx} className="text-xs bg-surface2 border border-line text-ink2 px-3 py-1 rounded-full font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          {/* Single Beach Photo */}
+            <div className="relative w-full max-w-sm mx-auto aspect-[4/3] rounded-2xl overflow-hidden border border-line shadow-2xl">
+              <Image
+                src="/pantai.jpg"
+                alt="Gaza Alfath - Beach"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white">
+                <p className="text-xs font-semibold text-brand uppercase tracking-wider">On the Shore</p>
+                <p className="text-sm font-bold mt-0.5">Recharging, one wave at a time.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── REALISTIC GITHUB CONTRIBUTION HEATMAP ──────────────────────── */}
+        <section className="space-y-4">
+          <GithubActivityGraph />
+        </section>
+
+        {/* ── CONTACT SECTION ────────────────────────────────────────────── */}
+        <section id="contact" className="w-full space-y-6">
+          <div className="border-b border-line pb-3">
+            <p className="text-2xl sm:text-3xl font-light tracking-tight text-ink">Let&apos;s work together.</p>
+            <p className="text-xs text-ink3 mt-1">Open for freelance projects, internships, and full-stack software engineering roles.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              {[
+                { label: "Email", val: "gazfath12@gmail.com", href: "mailto:gazfath12@gmail.com", icon: Mail },
+                { label: "LinkedIn", val: "Gaza Alfath Nugroho", href: "https://www.linkedin.com/in/gaza-alfath-0830982a9/", icon: Linkedin },
+                { label: "GitHub", val: "@gazfath12", href: "https://github.com/gazfath12", icon: Github },
+              ].map((c, i) => {
+                const Icon = c.icon
+                return (
+                  <a
+                    key={i}
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 rounded-xl bg-surface border border-line hover:border-line2 hover:bg-ghost2 transition-all group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Icon size={18} className="text-brand" />
+                      <div>
+                        <div className="text-[10px] text-ink3 font-medium">{c.label}</div>
+                        <div className="text-xs sm:text-sm font-bold text-ink group-hover:text-brand transition-colors">{c.val}</div>
+                      </div>
+                    </div>
+                    <ChevronRight size={16} className="text-ink4 group-hover:text-ink transition-colors" />
+                  </a>
+                )
+              })}
+            </div>
+
+            {/* Quick Contact Form */}
+            <form onSubmit={(e) => e.preventDefault()} className="space-y-3 bg-ghost border border-line p-5 rounded-xl">
+              <div>
+                <label className="block text-[11px] text-ink3 font-medium mb-1">Your Name</label>
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  className="w-full bg-surface2 border border-line rounded-lg px-3 py-2 text-xs text-ink placeholder-ink4 focus:outline-none focus:border-brand/60"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] text-ink3 font-medium mb-1">Your Email</label>
+                <input
+                  type="email"
+                  placeholder="john@company.com"
+                  className="w-full bg-surface2 border border-line rounded-lg px-3 py-2 text-xs text-ink placeholder-ink4 focus:outline-none focus:border-brand/60"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] text-ink3 font-medium mb-1">Message</label>
+                <textarea
+                  rows={3}
+                  placeholder="Tell me about your project..."
+                  className="w-full bg-surface2 border border-line rounded-lg px-3 py-2 text-xs text-ink placeholder-ink4 focus:outline-none focus:border-brand/60 resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                onClick={() => alert("Message sent! Gaza will respond to your email shortly.")}
+                className="w-full bg-ink hover:opacity-90 text-page font-bold py-2.5 rounded-lg text-xs transition-all flex items-center justify-center gap-2"
+              >
+                Send Message <Send size={13} />
+              </button>
+            </form>
+          </div>
+        </section>
+
+        {/* ── FOOTER ────────────────────────────────────────────────────── */}
+        <footer className="pt-12 border-t border-line flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink3">
+          <div>
+            © 2026 <span className="text-ink font-medium">Gaza Alfath Nugroho</span>. Crafted with Next.js &amp; Tailwind CSS.
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/gazfath12" target="_blank" rel="noopener noreferrer" className="hover:text-ink transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/gaza-alfath-0830982a9/" target="_blank" rel="noopener noreferrer" className="hover:text-ink transition-colors">LinkedIn</a>
+          </div>
+        </footer>
+
+      </div>
+
+      {/* ── MODALS & CHAT WIDGET ────────────────────────────────────────── */}
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
+      <ProjectPreviewModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      <CertModal cert={selectedCert} onClose={() => setSelectedCert(null)} />
+      <ChatWidget />
     </div>
   )
 }

@@ -35,11 +35,26 @@ export default function ProjectsPage() {
 
   const projects: Array<{ id: number; title: string; category: string; tags: string[]; image: string; description: string; longDescription: string; security?: string[]; date: string; liveUrl: string; githubUrl: string; featured: boolean; isPrivate?: boolean; categoryType: string[]; }> = [
     {
+      id: 25,
+      title: "PDFForge - PDF Compression & Tooling",
+      category: "web",
+      tags: ["Next.js", "React", "TypeScript", "Tailwind", "Client-Side"],
+      image: "/file.svg",
+      description: "Aplikasi web kompres PDF, konversi Gambar ke PDF, dan PDF ke Gambar 100% lokal & privat.",
+      longDescription: "Aplikasi web kompres PDF, konversi Gambar ke PDF, dan PDF ke Gambar 100% aman dan lokal di browser tanpa unggah server (client-side processing).",
+      security: ["100% Local Browser Processing", "Zero Server Upload", "No Data Egress"],
+      date: "2026",
+      liveUrl: "https://pdf-compressed.vercel.app/",
+      githubUrl: "https://github.com/gazfath12",
+      featured: true,
+      categoryType: ["web"],
+    },
+    {
       id: 20,
       title: "SIAKAD Almahir",
       category: "web",
-      tags: ["Laravel", "MySQL", "Real-time", "SIAKAD"],
-      image: "/siakad.png",
+      tags: ["Laravel", "PostgreSQL", "Real-time", "SIAKAD"],
+      image: "/siakad-1.png",
       description: "Sistem Informasi Akademik dengan penjadwalan anti-bentrok real-time.",
       longDescription: "Sistem terintegrasi untuk manajemen data akademik sekolah, memangkas 80% beban administrasi manual. Dilengkapi mesin penjadwalan anti-bentrok secara real-time yang memvalidasi ketersediaan guru, kapasitas ruangan, dan mata pelajaran secara bersamaan.",
       security: ["Anti-conflict Engine", "Role Management", "ERD Optimized"],
@@ -52,7 +67,7 @@ export default function ProjectsPage() {
     },
     {
       id: 15,
-      title: "Best Kaca Film - Dealer Resmi V-Kool",
+      title: "Bestkacafilm - Dealer Resmi V-Kool",
       category: "web",
       tags: ["Next.js", "Tailwind", "Responsive", "Business"],
       image: "/bestkaca.png",
@@ -70,7 +85,7 @@ export default function ProjectsPage() {
       title: "Sistem Keuangan Publik",
       category: "web",
       tags: ["Next.js", "React", "Tailwind", "Finance"],
-      image: "/finance.png",
+      image: "/keuangan.png",
       description: "Aplikasi manajemen dan monitoring keuangan publik.",
       longDescription: "Platform manajemen keuangan publik yang membantu pemantauan anggaran, autentikasi pengguna, dan visualisasi data pengeluaran secara interaktif dan transparan.",
       security: ["Data Encryption", "Secure Auth", "Audit Logging"],
@@ -111,7 +126,7 @@ export default function ProjectsPage() {
     },
     {
       id: 16,
-      title: "Pusdiklat Isalam",
+      title: "Pusdiklat Islam",
       category: "web",
       tags: ["Company Profile", "Web"],
       image: "/pusdiklatisalam.png",
@@ -158,7 +173,7 @@ export default function ProjectsPage() {
       title: "Point Of Sale (Vercel Version)",
       category: "web",
       tags: ["PWA", "React", "TypeScript", "Next.js", "JWT"],
-      image: "/data-analytics-dashboard.png",
+      image: "/pos.png",
       description: "Aplikasi kasir dengan sistem autentikasi JWT yang aman dan proteksi route.",
       longDescription: "Mengimplementasikan JWT tokens dengan refresh token mechanism, proteksi terhadap CSRF, dan secure session management.",
       security: ["JWT Auth", "CSRF Protection", "RBAC"],
@@ -189,7 +204,7 @@ export default function ProjectsPage() {
       title: "Zakat Mall App",
       category: "web",
       tags: ["HTML", "CSS", "JavaScript", "Validation"],
-      image: "/ai-chatbot-interface.png",
+      image: "/modern-ecommerce-website.png",
       description: "Aplikasi penghitung zakat dengan validasi input dan sanitasi data.",
       longDescription: "Meskipun sederhana, aplikasi ini mengimplementasikan validasi input ketat dan sanitasi data untuk mencegah injeksi kode berbahaya.",
       security: ["Input sanitization", "Data validation"],
@@ -249,7 +264,7 @@ export default function ProjectsPage() {
       title: "Ujian STS Semester 1 App",
       category: "web",
       tags: ["JavaScript", "Exam System", "Logic"],
-      image: "/ai-chatbot-interface.png",
+      image: "/task-management-app.png",
       description: "Aplikasi ujian online semester 1 dengan sistem penilaian otomatis.",
       longDescription: "Media pembelajaran digital untuk mendukung proses ujian sekolah yang lebih efisien dan transparan.",
       security: ["Anti-cheat measures", "Session protection"],
@@ -264,7 +279,7 @@ export default function ProjectsPage() {
       title: "Al-Quran Hafalan Digital",
       category: "web",
       tags: ["React", "API", "Islamic App", "Next.js"],
-      image: "/alquran.png",
+      image: "/alquran_hafalan.png",
       description: "Web app untuk membantu menghafal Al-Quran dengan fitur pelacakan progress.",
       longDescription: "Menggunakan Al-Quran API untuk menyajikan mushaf digital yang interaktif dan memudahkan user dalam menghafal.",
       security: ["Secure API consumption"],
@@ -276,7 +291,7 @@ export default function ProjectsPage() {
     },
     {
       id: 13,
-      title: "Kalkulator Smart - Gazaalfath",
+      title: "Smart Calculator App",
       category: "web",
       tags: ["JavaScript", "Tools", "Utility"],
       image: "/kalkulator-smart.png",
@@ -306,7 +321,7 @@ export default function ProjectsPage() {
     },
     {
       id: 18,
-      title: "Gaza Finance App",
+      title: "Smart Finance & Budget Calculator",
       category: "web",
       tags: ["Next.js", "Finance", "Dashboard"],
       image: "/finance.png",
@@ -360,23 +375,23 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20 sm:pt-24">
+    <div className="min-h-screen bg-page pt-20 sm:pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
         <div
           className={`text-center mb-10 sm:mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-blue-100 text-blue-800 hover:bg-blue-200 text-xs sm:text-sm font-semibold">
+          <Badge className="mb-3 sm:mb-4 px-4 py-1.5 bg-brand-soft text-brand-ink hover:bg-brand/10 text-xs sm:text-sm font-semibold">
             Portofolio Proyek
           </Badge>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-4 sm:mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-ink mb-4 sm:mb-6 tracking-tight">
             Karya &{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Pengembangan Web
             </span>
           </h1>
-          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-ink3 max-w-3xl mx-auto leading-relaxed">
             Koleksi proyek pengembangan web yang fokus pada fungsionalitas,
             performa, dan pengalaman pengguna yang modern.
           </p>
@@ -395,13 +410,13 @@ export default function ProjectsPage() {
           ].map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <Card key={index} className="text-center p-3 sm:p-4 hover:shadow-lg transition-shadow border-slate-200/80 rounded-xl">
+              <Card key={index} className="text-center p-3 sm:p-4 hover:shadow-lg transition-shadow border-line rounded-xl">
                 <CardContent className="p-0">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-blue-50 dark:bg-slate-800 rounded-full flex items-center justify-center`}>
-                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-600`} />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 bg-brand-soft rounded-full flex items-center justify-center`}>
+                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 text-brand`} />
                   </div>
-                  <div className="text-xl sm:text-2xl font-bold text-slate-900">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-ink">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-ink4 font-medium">{stat.label}</div>
                 </CardContent>
               </Card>
             );
@@ -413,7 +428,7 @@ export default function ProjectsPage() {
           className={`mb-12 sm:mb-16 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6 sm:mb-8 flex items-center tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-ink mb-6 sm:mb-8 flex items-center tracking-tight">
             <Star className="w-6 h-6 sm:w-8 sm:h-8 mr-2 sm:mr-3 text-yellow-500 fill-current" />
             Proyek Unggulan
           </h2>
@@ -451,7 +466,7 @@ export default function ProjectsPage() {
                       ) : (
                         <Button
                           size="sm"
-                          className="flex-1 bg-white text-gray-900 hover:bg-gray-100 font-medium"
+                          className="flex-1 bg-surface text-ink hover:bg-ghost2 font-medium"
                           onClick={(e) => {
                             e.stopPropagation();
                             setActiveProject({
@@ -471,7 +486,7 @@ export default function ProjectsPage() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="bg-white/20 text-white border-white hover:bg-white/30"
+                          className="bg-surface/20 text-white border-white hover:bg-surface/30"
                           onClick={(e) => {
                             e.stopPropagation();
                             window.open(project.githubUrl, "_blank");
@@ -503,29 +518,29 @@ export default function ProjectsPage() {
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                      <h3 className="text-2xl font-bold text-ink group-hover:text-brand transition-colors mb-2">
                         {project.title}
                       </h3>
-                      <div className="flex items-center text-gray-500 text-sm">
+                      <div className="flex items-center text-ink4 text-sm">
                         <Calendar className="w-4 h-4 mr-1" />
                         {project.date}
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-ink3 mb-4 leading-relaxed">
                     {project.longDescription || project.description}
                   </p>
 
                   {/* Security Features */}
                   {project.security && (
-                    <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-                      <p className="text-sm font-semibold text-blue-800 mb-2 flex items-center">
+                    <div className="mb-4 p-3 bg-brand-soft rounded-lg">
+                      <p className="text-sm font-semibold text-brand-ink mb-2 flex items-center">
                         <Shield className="w-4 h-4 mr-1" />
                         Fitur Keamanan:
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {project.security.map((item, i) => (
-                          <Badge key={i} variant="outline" className="bg-white text-blue-700 border-blue-200">
+                          <Badge key={i} variant="outline" className="bg-surface text-brand-ink border-brand-soft">
                             {item}
                           </Badge>
                         ))}
@@ -554,9 +569,9 @@ export default function ProjectsPage() {
           <Card className="p-6">
             <CardContent className="p-0">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Filter Proyek</h3>
+                <h3 className="text-lg font-semibold text-ink">Filter Proyek</h3>
                 {(filter !== "all" || selectedTech.length > 0) && (
-                  <Button variant="ghost" size="sm" onClick={clearFilters} className="text-red-600">
+                  <Button variant="ghost" size="sm" onClick={clearFilters} className="text-red">
                     <X className="w-4 h-4 mr-2" />
                     Hapus Filter
                   </Button>
@@ -580,7 +595,7 @@ export default function ProjectsPage() {
 
               {/* Technology Filters */}
               <div>
-                <p className="text-sm font-medium text-gray-700 mb-3 flex items-center">
+                <p className="text-sm font-medium text-ink2 mb-3 flex items-center">
                   <Code className="w-4 h-4 mr-2" />
                   Filter berdasarkan Teknologi:
                 </p>
@@ -591,7 +606,7 @@ export default function ProjectsPage() {
                       variant={selectedTech.includes(tech) ? "default" : "outline"}
                       className={`cursor-pointer transition-all ${selectedTech.includes(tech)
                         ? "bg-blue-600 hover:bg-blue-700"
-                        : "hover:bg-gray-100"
+                        : "hover:bg-ghost2"
                         }`}
                       onClick={() => toggleTech(tech)}
                     >
@@ -611,10 +626,10 @@ export default function ProjectsPage() {
             }`}
         >
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-3xl font-bold text-ink">
               Semua Proyek
             </h2>
-            <p className="text-gray-600">
+            <p className="text-ink3">
               Menampilkan {filteredProjects.length} proyek
             </p>
           </div>
@@ -622,13 +637,13 @@ export default function ProjectsPage() {
           {filteredProjects.length === 0 ? (
             <Card className="p-12 text-center">
               <CardContent>
-                <div className="w-20 h-20 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                  <Filter className="w-10 h-10 text-gray-400" />
+                <div className="w-20 h-20 mx-auto mb-4 bg-surface2 rounded-full flex items-center justify-center">
+                  <Filter className="w-10 h-10 text-ink4" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-ink mb-2">
                   Tidak Ada Proyek
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-ink3 mb-4">
                   Tidak ada proyek yang sesuai dengan filter yang dipilih.
                 </p>
                 <Button onClick={clearFilters}>Reset Filter</Button>
@@ -689,7 +704,7 @@ export default function ProjectsPage() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="bg-white/20 text-white border-white hover:bg-white/30"
+                            className="bg-surface/20 text-white border-white hover:bg-surface/30"
                             onClick={(e) => {
                               e.stopPropagation();
                               window.open(project.githubUrl, "_blank");
@@ -722,23 +737,23 @@ export default function ProjectsPage() {
                   </div>
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      <h3 className="text-base font-bold text-ink group-hover:text-brand transition-colors line-clamp-2">
                         {project.title}
                       </h3>
-                      <div className="flex items-center text-gray-500 text-xs flex-shrink-0 ml-2">
+                      <div className="flex items-center text-ink4 text-xs flex-shrink-0 ml-2">
                         <Calendar className="w-3 h-3 mr-1" />
                         {project.date}
                       </div>
                     </div>
 
-                    <p className="text-gray-600 text-xs mb-3 line-clamp-2">
+                    <p className="text-ink3 text-xs mb-3 line-clamp-2">
                       {project.description}
                     </p>
 
                     {/* Security Badges */}
                     {project.security && (
                       <div className="mb-2 flex flex-wrap gap-1">
-                        <Badge variant="outline" className="text-[10px] py-0 h-4 bg-blue-50 text-blue-700 border-blue-200">
+                        <Badge variant="outline" className="text-[10px] py-0 h-4 bg-brand-soft text-brand-ink border-brand-soft">
                           <Shield className="w-2 h-2 mr-1" />
                           {project.security.length} security features
                         </Badge>
@@ -789,7 +804,7 @@ export default function ProjectsPage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600"
+                  className="bg-transparent border-white text-white hover:bg-surface hover:text-brand"
                   onClick={() => window.open("/Gaza_Alfath_CV.pdf")}
                 >
                   Download CV

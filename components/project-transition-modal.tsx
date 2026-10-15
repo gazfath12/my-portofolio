@@ -39,10 +39,10 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
       <div className="fixed inset-0" onClick={onClose} />
 
       {/* Modal Content */}
-      <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-lg w-full max-h-[90vh] overflow-y-auto z-10 transition-transform duration-300 my-auto">
+      <div className="relative bg-surface rounded-2xl shadow-2xl border border-line max-w-lg w-full max-h-[90vh] overflow-y-auto z-10 transition-transform duration-300 my-auto">
         
         {/* Header Preview Image */}
-        <div className="relative h-44 sm:h-56 w-full overflow-hidden bg-slate-950 flex-shrink-0">
+        <div className="relative h-44 sm:h-56 w-full overflow-hidden bg-surface2 flex-shrink-0">
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
@@ -72,13 +72,13 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
 
         {/* Body Content */}
         <div className="p-4 sm:p-6 space-y-4">
-          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+          <p className="text-ink3 text-xs sm:text-sm leading-relaxed">
             {project.description}
           </p>
 
           <div className="pt-2 flex flex-col gap-2.5 sm:gap-3">
             {project.isPrivate || project.liveUrl === "#" ? (
-              <div className="p-3 sm:p-3.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-xl flex items-center gap-3 text-amber-800 dark:text-amber-300">
+              <div className="p-3 sm:p-3.5 bg-warn/10 border border-warn/30 rounded-xl flex items-center gap-3 text-warn">
                 <Lock className="w-5 h-5 flex-shrink-0" />
                 <span className="text-xs font-medium">
                   Proyek ini bersifat privat/internal sekolah dan tidak memiliki akses demo publik secara langsung.
@@ -109,7 +109,7 @@ export function ProjectTransitionModal({ project, onClose }: ProjectTransitionMo
             <Button
               variant="ghost"
               onClick={onClose}
-              className="w-full text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white text-xs sm:text-sm"
+              className="w-full text-ink3 hover:text-ink text-xs sm:text-sm"
             >
               Tutup Preview
             </Button>
