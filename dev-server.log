@@ -1,0 +1,50 @@
+
+> portfolio-website@0.1.0 dev
+> next dev -p 3005
+
+   ▲ Next.js 15.5.12
+   - Local:        http://localhost:3005
+   - Network:      http://192.168.56.1:3005
+
+ ✓ Starting...
+ ✓ Ready in 2.5s
+ ○ Compiling / ...
+ ✓ Compiled / in 20.9s (7623 modules)
+ GET / 200 in 3263ms
+ GET / 200 in 23023ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1448ms (3877 modules)
+ GET /favicon.ico 200 in 1780ms
+ ○ Compiling /icon.png ...
+ ✓ Compiled /icon.png in 552ms (3879 modules)
+ GET /icon.png 200 in 742ms
+ ○ Compiling /projects ...
+ ✓ Compiled /projects in 2.8s (7717 modules)
+ GET /projects 200 in 4130ms
+ GET / 200 in 1369ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 1953ms (7727 modules)
+ GET /icon.png 200 in 2008ms
+ GET /favicon.ico 200 in 2046ms
+ GET /about 200 in 2994ms
+ GET /favicon.ico 200 in 895ms
+ GET /favicon.ico 200 in 22ms
+ GET /favicon.ico 200 in 19ms
+ GET /icon.png 200 in 24ms
+ GET /favicon.ico 200 in 23ms
+ GET /favicon.ico 200 in 26ms
+ GET /icon.png 200 in 22ms
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 2.6s (7741 modules)
+ GET /contact 200 in 3145ms
+ GET /icon.png 200 in 32ms
+ ○ Compiling /tech ...
+ ✓ Compiled /tech in 1384ms (7752 modules)
+ GET /tech 307 in 2310ms
+ GET / 200 in 671ms
+ GET / 200 in 436ms
+ GET /favicon.ico 200 in 49ms
+ GET /icon.png 200 in 19ms
+ GET / 200 in 612ms
+ GET /favicon.ico 200 in 18ms
+ GET /icon.png 200 in 18ms

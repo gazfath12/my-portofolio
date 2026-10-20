@@ -297,7 +297,7 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-ink3 leading-relaxed mt-4 text-sm">
-                  Saya <strong>Gaza Alfath Nugroho</strong> (dikenal di dunia maya sebagai <strong>gazaa alafath</strong>), seorang mahasiswa <strong>D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES)</strong>. Memiliki pengalaman 3+ tahun dalam pengembangan aplikasi web dan riset keamanan siber. Saya telah meluncurkan platform SaaS komersial, membangun sistem manajemen akademik (SIAKAD), serta mengembangkan arsitektur sistem yang aman dan scalable.
+                  Saya <strong>Gaza Alfath Nugroho</strong> (dikenal di dunia maya sebagai <strong>gazaa alafath</strong>), seorang mahasiswa <strong>D3 Teknik Informatika di Politeknik Negeri Semarang (POLINES)</strong>. Memiliki pengalaman 3+ tahun dalam pengembangan aplikasi web dan riset keamanan siber. Saya mendirikan studio web Nexcore, membangun sistem manajemen akademik (SIAKAD), serta mengembangkan arsitektur sistem yang aman dan scalable.
                 </p>
               </CardContent>
             </Card>

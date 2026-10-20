@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     "TypeScript developer", "Node.js developer", "PostgreSQL developer",
     "Tailwind CSS", "Docker", "Linux VPS", "MySQL developer",
     // Projects
-    "SIAKAD Almahir", "PDFForge PDF compress", "Nexcore ERP", "SantriQue",
+    "SIAKAD Almahir", "PDFForge PDF compress", "Nexcore Digital Agency", "SantriQue",
     "sistem informasi akademik", "aplikasi web Laravel",
     // General
     "portofolio programmer Indonesia", "portofolio mahasiswa informatika",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   // ── Open Graph (link preview di WhatsApp, Telegram, Discord, FB, dll) ───────
   openGraph: {
     title: "Gaza Alfath Nugroho — Full-Stack Developer & Cybersecurity",
-    description: "Lihat proyek production-grade: SIAKAD Almahir, Nexcore ERP, PDFForge, dan lebih banyak lagi. Laravel, Next.js, React, PostgreSQL. Tersertifikasi Google Gemini.",
+    description: "Lihat proyek production-grade: SIAKAD Almahir, Nexcore Digital Agency, PDFForge, dan lebih banyak lagi. Laravel, Next.js, React, PostgreSQL. Tersertifikasi Google Gemini.",
     url: "https://gazaalfath.my.id",
     siteName: "Gaza Alfath — Portfolio",
     images: [
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     site: "@gazfath12",
     creator: "@gazfath12",
     title: "Gaza Alfath Nugroho — Full-Stack Developer & Cybersecurity",
-    description: "Portfolio: SIAKAD, Nexcore ERP, PDFForge. Laravel, Next.js, React, PostgreSQL. Google Gemini Certified. Based in Semarang, Indonesia.",
+    description: "Portfolio: SIAKAD, Nexcore Digital Agency, PDFForge. Laravel, Next.js, React, PostgreSQL. Google Gemini Certified. Based in Semarang, Indonesia.",
     images: [
       {
         url: "https://gazaalfath.my.id/opengraph-image.png",

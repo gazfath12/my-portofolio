@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "proyek web Gaza Alfath",
     "portofolio proyek developer Semarang",
     "SIAKAD Almahir",
-    "Nexcore ERP",
+    "Nexcore Digital Agency",
     "PDFForge kompres PDF",
     "SantriQue keuangan santri",
     "Bestkacafilm",

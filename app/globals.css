@@ -173,20 +173,20 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--page);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
+  background: var(--line2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: var(--ink4);
 }
 
 /* Line clamp utility */

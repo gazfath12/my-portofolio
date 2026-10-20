@@ -17,8 +17,7 @@ import { ResumeModal } from "../components/resume-modal"
 import { ProjectPreviewModal, ProjectData } from "../components/project-preview-modal"
 import { CertModal, CertData } from "../components/cert-modal"
 import { ChatWidget } from "../components/chat-widget"
-import { StackedPhotos } from "../components/stacked-photos"
-import { TechTicker } from "../components/tech-ticker"
+
 import { GithubActivityGraph } from "../components/github-activity"
 import { TechIcon } from "../components/tech-icon"
 
@@ -52,12 +51,12 @@ const FEATURED_SPOTLIGHTS: ProjectData[] = [
     isPrivate: true,
   },
   {
-    title: "Nexcore ERP & Inventory System",
-    subtitle: "Real-time Stock Management & Financial POS",
+    title: "Nexcore - Digital Agency Website",
+    subtitle: "Landing Page & Company Profile Studio",
     image: "/nexcore.png",
-    description: "Enterprise resource planning system featuring barcode scanning, low-stock reorder triggers, role-based access control, and live sales performance dashboards.",
-    tech: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
-    impact: "Zero Stock Conflict",
+    description: "Agency website for Nexcore presenting website services, pricing packages, portfolio, and a WhatsApp contact flow, built as a static front end shipped with Docker and Nginx.",
+    tech: ["Vite", "JavaScript", "Docker", "Nginx"],
+    impact: "SEO, PWA & OG Ready",
     status: "FEATURED BUILD",
     liveUrl: "https://github.com/gazfath12/nexcore",
     isPrivate: false,
@@ -92,17 +91,16 @@ const ALL_PROJECTS: ProjectData[] = [
     githubUrl: "https://github.com/gazfath12"
   },
   {
-    title: "Nexcore POS & ERP System",
-    subtitle: "Business Inventory Management",
+    title: "Nexcore Official",
+    subtitle: "Agency Site for Website & Landing Page Services",
     image: "/nexcore-official.png",
-    description: "Real-time POS and inventory management system with automated stock alerts and sales analytics.",
-    longDescription: "High-performance POS system built for retail management. Includes real-time inventory synchronization, barcode scanner integration, and executive reporting dashboards.",
-    tech: ["Next.js", "TypeScript", "MySQL", "Tailwind"],
-    impact: "30% Faster Query Response",
+    description: "Multi-section agency site covering services, transparent pricing, workflow, portfolio, and FAQ for a web development studio.",
+    longDescription: "Marketing website for Nexcore built as a fast static front end: service catalog, pricing tiers, process overview, portfolio grid, FAQ, and contact section, deployed behind Nginx with a Dockerized build.",
+    tech: ["Vite", "JavaScript", "Docker", "Nginx"],
+    impact: "SEO, PWA & OG Ready",
     status: "LIVE DEMO",
-    isPrivate: false,
-    liveUrl: "https://github.com/gazfath12",
-    githubUrl: "https://github.com/gazfath12"
+    liveUrl: "https://github.com/gazfath12/nexcore",
+    githubUrl: "https://github.com/gazfath12/nexcore"
   },
   {
     title: "Bestkacafilm - Dealer Resmi V-Kool",
@@ -121,8 +119,8 @@ const ALL_PROJECTS: ProjectData[] = [
     title: "SantriQue - Keuangan Santri",
     subtitle: "Financial Audit Trail Platform",
     image: "/santrique.png",
-    description: "Sistem manajemen keuangan santri dengan multi-level audit trail dan validasi transaksi real-time.",
-    longDescription: "Dibangun dengan validasi ketat, session management aman, dan schema database terisolasi untuk transaksi keuangan santri.",
+    description: "Student financial management platform with multi-level audit trail and real-time transaction validation.",
+    longDescription: "Built with strict input validation, secure session management, and an isolated database schema for student financial transactions.",
     tech: ["React", "Next.js", "PostgreSQL", "Tailwind"],
     impact: "Secure Financial Logs",
     status: "LIVE APP",
@@ -134,10 +132,10 @@ const ALL_PROJECTS: ProjectData[] = [
     title: "Al-Quran Hafalan Digital",
     subtitle: "Islamic Hafalan Web Application",
     image: "/alquran_hafalan.png",
-    description: "Web application interaktif untuk mendukung program hafalan Quran dengan audio streaming dan tracker hafalan.",
-    longDescription: "Aplikasi hafalan Al-Quran digital terintegrasi API yang menyajikan mushaf digital, bookmark ayat, dan monitoring setoran hafalan.",
+    description: "Interactive Quranic memorization web app with audio streaming, bookmark system, and hafalan progress tracking.",
+    longDescription: "API-integrated digital Quran application with mushaf display, verse bookmarking, and memorization submission monitoring.",
     tech: ["React", "Next.js", "REST APIs", "Tailwind"],
-    impact: "Interaktif & Ringan",
+    impact: "Lightweight & Accessible",
     status: "LIVE APP",
     isPrivate: false,
     liveUrl: "https://quran-hafalan.ppqita.my.id/",
@@ -186,20 +184,20 @@ const ALL_PROJECTS: ProjectData[] = [
 
 const EXPERIENCES = [
   {
-    period: "Aug 2025 – Oct 2025",
-    role: "Full-Stack Engineer Internship",
-    company: "PPQIT AL Mahir",
-    location: "Boyolali, Central Java (On-site)",
-    description: "Designed and built SIAKAD Almahir, an integrated academic system reducing admin workload by 80%. Engineered zero-conflict scheduling algorithms and automated e-Rapor generation.",
-    tags: ["Laravel", "PostgreSQL", "System Architecture", "Scheduling Engine"]
-  },
-  {
     period: "Oct 2025",
     role: "Event Administrator",
     company: "International Islamic Education Fair (IIEF)",
     location: "Surakarta, Central Java",
     description: "Managed visitor registration systems and database synchronization for an international educational expo featuring 50+ institutions.",
     tags: ["Database Integration", "Event Tech", "Administration"]
+  },
+  {
+    period: "Aug 2025 – Oct 2025",
+    role: "Full-Stack Engineer Internship",
+    company: "PPQIT AL Mahir",
+    location: "Boyolali, Central Java (On-site)",
+    description: "Designed and built SIAKAD Almahir, an integrated academic system reducing admin workload by 80%. Engineered zero-conflict scheduling algorithms and automated e-Rapor generation.",
+    tags: ["Laravel", "PostgreSQL", "System Architecture", "Scheduling Engine"]
   },
   {
     period: "2024 – 2025",
@@ -355,11 +353,9 @@ export default function PortfolioHome() {
   return (
     <div className="bg-page text-ink min-h-screen font-sans selection:bg-blue-600 selection:text-ink">
 
-      {/* Subtle Mesh Background Aura */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/10 blur-[140px] pointer-events-none z-0 rounded-full" />
-      <div className="fixed bottom-0 right-0 w-[500px] h-[400px] bg-purple-600/5 blur-[160px] pointer-events-none z-0 rounded-full" />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-20 space-y-16 sm:space-y-20">
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-24 pb-20 space-y-16 sm:space-y-20">
 
         {/* ── HERO SECTION (Exact renlenon.vercel.app layout) ──────────────── */}
         <section id="hero" className="flex flex-col justify-center pt-6 pb-4 sm:pt-12">
@@ -369,7 +365,7 @@ export default function PortfolioHome() {
             <div className="flex items-center gap-4 sm:gap-6">
               <div 
                 onClick={toggleAvatar}
-                className="h-28 w-28 sm:h-36 sm:w-36 shrink-0 rounded-full border-2 border-line2 hover:border-brand bg-surface2 overflow-hidden relative shadow-2xl group cursor-pointer transition-colors"
+              className="h-28 w-28 sm:h-36 sm:w-36 shrink-0 rounded-full border-2 border-line2 hover:border-brand bg-surface2 overflow-hidden relative group cursor-pointer transition-colors"
                 title="Click to switch photo (Anime / Formal)"
               >
                 <Image
@@ -437,9 +433,9 @@ export default function PortfolioHome() {
                 Full-Stack Web Developer <span className="text-[0.95em] font-light text-ink3">— Next.js, Laravel &amp; Security</span>
               </h2>
 
-              {/* Bio Paragraph with renlenon-style dashed tech badges */}
+              {/* Bio — two short paragraphs, key terms bolded for quick scanning */}
               <p className="text-base sm:text-lg font-light leading-7 sm:leading-8 text-ink3">
-                I&apos;m a full-stack web developer and cybersecurity practitioner building high-performance websites and backend systems with{" "}
+                Full-stack developer and cybersecurity practitioner. I build production systems with{" "}
                 <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
                   <TechIcon name="Laravel" size={13} className="shrink-0" /> Laravel
                 </span>{" "}
@@ -447,12 +443,14 @@ export default function PortfolioHome() {
                   <TechIcon name="Next.js" size={13} className="shrink-0" /> Next.js
                 </span>{" "}
                 <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
-                  <TechIcon name="React" size={13} className="shrink-0" /> React
-                </span>{" "}
-                <span className="bg-surface2 inline-flex items-center gap-1.5 rounded-md border border-dashed border-line2 px-2 py-0.5 text-xs sm:text-sm text-ink2 font-mono align-baseline">
                   <TechIcon name="PostgreSQL" size={13} className="shrink-0" /> PostgreSQL
                 </span>{" "}
-                with security experience from production client work. Currently studying IT at POLINES and lead architect of SIAKAD Almahir, an academic system that reduced 80% admin workload.
+                on Linux VPS.
+              </p>
+              <p className="text-sm font-light leading-6 text-ink3">
+                Currently at <strong className="text-ink font-medium">POLINES</strong>. Lead architect of{" "}
+                <strong className="text-ink font-medium">SIAKAD Almahir</strong>, cutting admin workload by{" "}
+                <strong className="text-ink font-medium">80%</strong>. Open for freelance and junior engineering roles.
               </p>
 
               {/* View Resume Button */}
@@ -467,10 +465,7 @@ export default function PortfolioHome() {
               </div>
             </div>
 
-            {/* 🚀 ANIMATED TECH TICKER (MARQUEE) 🚀 */}
-            <div className="pt-4">
-              <TechTicker />
-            </div>
+
 
           </div>
         </section>
