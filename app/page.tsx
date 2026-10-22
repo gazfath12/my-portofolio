@@ -58,7 +58,7 @@ const FEATURED_SPOTLIGHTS: ProjectData[] = [
     tech: ["Vite", "JavaScript", "Docker", "Nginx"],
     impact: "SEO, PWA & OG Ready",
     status: "FEATURED BUILD",
-    liveUrl: "https://github.com/gazfath12/nexcore",
+    liveUrl: "https://nexcore.web.id/",
     isPrivate: false,
   }
 ]
@@ -178,6 +178,32 @@ const ALL_PROJECTS: ProjectData[] = [
     status: "COMPLETED",
     isPrivate: false,
     liveUrl: "https://kalkulator.gazaalfath.my.id/",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "PKBM & LKP I-Salam",
+    subtitle: "Lembaga Pendidikan & Pelatihan Terakreditasi",
+    image: "/pusdiklatisalam.png",
+    description: "Website resmi PKBM Inisiator Salam Kariim dan LKP I-SALAM: program kesetaraan, vokasi, galeri kegiatan, dan pendaftaran online.",
+    longDescription: "Website company profile modern untuk lembaga pendidikan non-formal terakreditasi BAN-PDM. Menampilkan program PKBM, LKP, dan Bimbel I-SALAM lengkap dengan halaman galeri, testimoni warga belajar, dan alur pendaftaran yang jelas.",
+    tech: ["Next.js", "Tailwind CSS", "Responsive"],
+    impact: "Institutional Credibility",
+    status: "LIVE",
+    isPrivate: false,
+    liveUrl: "https://www.pusdiklatisalam.web.id/",
+    githubUrl: "https://github.com/gazfath12"
+  },
+  {
+    title: "DV Rent Car Luxury",
+    subtitle: "Platform Sewa Mobil Mewah Semarang",
+    image: "/dv-rent.png",
+    description: "Website rental mobil premium di Semarang dengan katalog armada, pencarian, dan pemesanan online langsung.",
+    longDescription: "Platform bisnis rental mobil mewah untuk DV Rent Car Luxury. Dilengkapi katalog armada, filter kategori, form pemesanan lepas kunci atau dengan driver, halaman promo, dan kontak WhatsApp langsung.",
+    tech: ["Next.js", "React", "Tailwind CSS"],
+    impact: "Business Ready",
+    status: "LIVE",
+    isPrivate: false,
+    liveUrl: "https://dv-rent-cars.vercel.app/",
     githubUrl: "https://github.com/gazfath12"
   }
 ]
